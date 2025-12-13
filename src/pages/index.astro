@@ -1,5 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import visionImg from '../assets/images/blocks/vision.png';
+import communityImg from '../assets/images/blocks/community.png';
+import validationImg from '../assets/images/blocks/validation.png';
+import deliverablesImg from '../assets/images/blocks/deliverables.png';
+import processImg from '../assets/images/blocks/process.png';
 ---
 
 <Layout>
@@ -23,8 +28,7 @@ import Layout from '../layouts/Layout.astro';
     <section class="content-sections">
 
       <!-- 1. Strategic Vision - Beautiful Problems -->
-      <!-- Image Prompt: Abstract 3D art, intertwined geometric shapes unravelling into clear lines, obsidian and gold palette, pristine studio lighting, photorealistic, premium feel. -->
-      <div class="section-block block-2col w-60 card card-vision" data-prompt="Abstract 3D art, intertwined geometric shapes unravelling into clear lines, obsidian and gold palette, pristine studio lighting, photorealistic, premium feel.">
+      <div class="section-block block-2col w-60 card card-vision">
         <div class="section-content">
           <span class="block-label">Strategic Vision</span>
           <h2 class="block-title">We Find the Beautiful Problems Worth Solving</h2>
@@ -32,65 +36,60 @@ import Layout from '../layouts/Layout.astro';
           <p class="block-text mt-4">Think of us as your strategic provocateurs. We'll challenge assumptions and help you see your project through a lens that transforms good ideas into extraordinary ones.</p>
         </div>
         <div class="section-visual">
-          <i class="fas fa-eye"></i>
+          <img src={visionImg.src} alt="Abstract geometric visualization" />
         </div>
       </div>
 
       <!-- 2. Our Community - Ideas for People -->
-      <!-- Image Prompt: diverse group of people collaborating in a modern, sunlit workspace, candid photography style, warm tones, high resolution, cinematic depth of field, genuine smiles. -->
-      <div class="section-block block-2col w-40 card card-community" data-prompt="diverse group of people collaborating in a modern, sunlit workspace, candid photography style, warm tones, high resolution, cinematic depth of field, genuine smiles.">
+      <div class="section-block block-2col w-40 card card-community">
         <div class="section-content">
           <span class="block-label">Our Community</span>
           <h2 class="block-title">Ideas for the People, By the People</h2>
           <p class="block-text">We chose our lane deliberately: SMEs and non-profits. This is where authentic innovation happens. Where impact matters more than vanity metrics. Your mission isn't just another project to us—it's a chance to build something that genuinely improves lives, strengthens communities, and proves that great design isn't reserved for Fortune 500 companies.</p>
         </div>
         <div class="section-visual">
-          <i class="fas fa-hand-holding-heart"></i>
+          <img src={communityImg.src} alt="Diverse team collaboration" />
         </div>
       </div>
 
       <!-- 3. Validation - Bedrock -->
-      <!-- Image Prompt: Architectural blueprint merging with digital wireframes, clean lines, construction metaphor, solid concrete textures mixed with holographic data overlays, teal and slate grey. -->
-      <div class="section-block block-2col w-50 card card-validation" data-prompt="Architectural blueprint merging with digital wireframes, clean lines, construction metaphor, solid concrete textures mixed with holographic data overlays, teal and slate grey.">
+      <div class="section-block block-2col w-50 card card-validation">
         <div class="section-content">
           <span class="block-label">Validation</span>
           <h2 class="block-title">We Build on Bedrock, Not Hunches</h2>
           <p class="block-text">Brilliant ideas deserve more than enthusiasm—they need evidence. Before a single pixel is pushed or line of code is written, we validate. Through rigorous fundamental research and real user insights, we ensure your concept isn't just viable; it's bulletproof. We bridge the gap between "wouldn't it be cool if..." and "here's why this will actually work."</p>
         </div>
         <div class="section-visual">
-          <i class="fas fa-check-double"></i>
+          <img src={validationImg.src} alt="Digital construction blueprint" />
         </div>
       </div>
 
       <!-- 4. Deliverables - Prototypes -->
-      <!-- Image Prompt: multiple high-fidelity tablet screens floating in mid-air, displaying complex data dashboards and sleek interfaces, glassmorphism style, soft blue glow, detailed UI elements. -->
-      <div class="section-block block-2col w-50 card card-deliverables" data-prompt="multiple high-fidelity tablet screens floating in mid-air, displaying complex data dashboards and sleek interfaces, glassmorphism style, soft blue glow, detailed UI elements.">
+      <div class="section-block block-2col w-50 card card-deliverables">
         <div class="section-content">
           <span class="block-label">Deliverables</span>
           <h2 class="block-title">Prototypes That Tell the Whole Story</h2>
           <p class="block-text">What you'll receive isn't just documentation—it's a complete conceptual blueprint. We deliver interactive prototypes paired with detailed functional requirements. We handle the "what" and "why" so your technical team can focus on the "how." Think of our deliverables as the definitive source of truth—the North Star that keeps everyone aligned from concept to launch.</p>
         </div>
         <div class="section-visual">
-          <i class="fas fa-layer-group"></i>
+          <img src={deliverablesImg.src} alt="Floating high-fidelity screens" />
         </div>
       </div>
 
       <!-- 5. Our Process - Napkin to Roadmap -->
-      <!-- Image Prompt: A paper napkin with a rough sketch transforming into a glowing, 3D holographic city map or roadmap, magical realism style, transition from sketch to reality, dramatic lighting. -->
-      <div class="section-block w-33 card card-process" data-prompt="A paper napkin with a rough sketch transforming into a glowing, 3D holographic city map or roadmap, magical realism style, transition from sketch to reality, dramatic lighting.">
+      <div class="section-block w-33 card card-process">
         <div class="section-content">
           <span class="block-label">Process</span>
           <h3 class="block-title">From Napkin Sketch to Strategic Roadmap</h3>
           <p class="block-text">Got nothing but a spark of an idea? Perfect. We specialize in taking those early, fragile concepts and nurturing them into robust business requirements. By the time we're done, that napkin sketch has become a strategic roadmap with clear priorities.</p>
         </div>
         <div class="section-visual">
-          <i class="fas fa-map-signs"></i>
+          <img src={processImg.src} alt="Sketch transforming to hologram city" />
         </div>
       </div>
 
       <!-- 6. Investment - Pricing -->
-      <!-- Image Prompt: Balanced scales or abstract visualization of time and value, minimalist geometric style, clean white and metallic silver look, organized, structured composition. -->
-      <div class="section-block w-33 card card-investment" data-prompt="Balanced scales or abstract visualization of time and value, minimalist geometric style, clean white and metallic silver look, organized, structured composition.">
+      <div class="section-block w-33 card card-investment">
         <div class="section-content">
           <span class="block-label">Investment</span>
           <h3 class="block-title">Pricing That Fits Your Reality</h3>
@@ -102,8 +101,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <!-- 7. Methodology - AI + Human -->
-      <!-- Image Prompt: Robot hand and human hand reaching out to touch or collaborating on a digital sculpture, spark of creation between them, cyberpunk but clean and medical/professional aesthetic, neon accents. -->
-      <div class="section-block w-33 card card-methodology-new" data-prompt="Robot hand and human hand reaching out to touch or collaborating on a digital sculpture, spark of creation between them, cyberpunk but clean and medical/professional aesthetic, neon accents.">
+      <div class="section-block w-33 card card-methodology-new">
         <div class="section-content">
           <span class="block-label">Methodology</span>
           <h3 class="block-title">AI-Accelerated, Human-Perfected</h3>
@@ -115,8 +113,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <!-- 8. Use Cases - Ribbon Line -->
-      <!-- Image Prompt: Collage of 4 distinct diverse industry scenes (Medical, Retail, Logistics, Education), blended smoothly, cinematic wide shot, overlaid with a sleek, translucent ribbon graphics. -->
-      <div class="section-block w-100 card card-usecases ribbon-container" data-prompt="Collage of 4 distinct diverse industry scenes (Medical, Retail, Logistics, Education), blended smoothly, cinematic wide shot, overlaid with a sleek, translucent ribbon graphics.">
+      <div class="section-block w-100 card card-usecases ribbon-container">
         <div class="ribbon-line"></div>
         <div class="section-content">
           <span class="block-label">Sectors</span>
@@ -146,8 +143,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <!-- 9. Risk-Free Start - Meetings -->
-      <!-- Image Prompt: Two empty comfortable modern chairs facing each other in a minimalist room, warm inviting light, suggesting an open conversation, coffee table between them, photorealistic. -->
-      <div class="section-block block-dark block-2col w-100 card card-start" data-prompt="Two empty comfortable modern chairs facing each other in a minimalist room, warm inviting light, suggesting an open conversation, coffee table between them, photorealistic.">
+      <div class="section-block block-dark block-2col w-100 card card-start">
         <div class="section-content">
           <span class="block-label">Risk-Free Start</span>
           <h2 class="block-title">Two Meetings, Zero Commitment, Total Clarity</h2>
@@ -269,6 +265,8 @@ import Layout from '../layouts/Layout.astro';
     padding: var(--space-xl);
     cursor: pointer;
     transition: filter var(--transition-base), transform var(--transition-base);
+    position: relative;
+    overflow: hidden; /* Ensure images stay within curve */
   }
 
   .section-block:hover {
@@ -305,18 +303,35 @@ import Layout from '../layouts/Layout.astro';
   .section-content {
     display: flex;
     flex-direction: column;
+    z-index: 2; /* Ensure content is above background images if any */
   }
 
   .section-visual {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
   }
 
   .section-visual i {
     font-size: 8rem;
     color: var(--color-navy);
     opacity: 0.15;
+  }
+  
+  .section-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-base);
+  }
+  
+  .section-block:hover .section-visual img {
+    transform: scale(1.02);
   }
 
   /* Ribbon Line Styles */
