@@ -1,0 +1,90 @@
+/* v4 Design System - Block-based Layout */
+
+:root {
+  /* Base Colors - Cream + Indigo */
+  --color-base: #FAF8F5;
+  --color-white: #FFFFFF;
+  --color-block: #F0EDE7;
+
+  /* Primary */
+  --color-navy: #2E3A59;
+  --color-navy-light: #4A5875;
+
+  /* Accents */
+  --color-accent: #c99229;
+  --color-accent-hover: #b58321;
+  --color-cyan: #5B8FA8;
+  --color-green: #5A8A5E;
+  --color-yellow: #D4A03C;
+
+  /* Text */
+  --color-text: #2E3A59;
+  --color-text-light: #5A5D62;
+  --color-text-muted: #8A8D92;
+
+  /* Typography */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+  --text-5xl: 3.5rem;
+  --text-6xl: 4.5rem;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+
+  /* Border Radius - High */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 36px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.15);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+
+  /* Business Card Palette - Vibrant */
+  --color-vibrant-orange: #FF6B35;
+  --color-vibrant-gold: #FFB703;
+  --color-vibrant-yellow: #FFD700;
+  --color-vibrant-magenta: #E91E63;
+  --color-vibrant-purple: #9C27B0;
+  
+  /* Business Card Palette - Professional Dark */
+  --color-pro-navy: #0D1B3D;
+  --color-pro-teal: #006B63;
+  --color-pro-green: #1B5E20;
+  --color-pro-maroon: #3E2723;
+  --color-pro-slate: #37474F;
+  
+  /* Business Card Palette - Modern */
+  --color-modern-cyan: #00BCD4;
+  --color-modern-teal: #009688;
+  --color-modern-coral: #FF7043;
+  --color-modern-purple: #AB47BC;
+  --color-modern-indigo: #3F51B5;
+  
+  /* Accent Metallics */
+  --color-accent-gold: #D4AF37;
+  --color-accent-copper: #B87333;
+  --color-accent-silver: #C0C0C0;
+}

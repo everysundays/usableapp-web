@@ -1,0 +1,155 @@
+---
+// What We Do Section - Plain text layout, no cards
+---
+
+<section id="what-we-do" class="what-we-do">
+  <div class="container">
+    <h2 class="headline">Start with the right question.</h2>
+    <p class="intro-text">
+      We don't just build what you ask for. We discover what your business actually needs.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <span class="step-number">01</span>
+        <div class="step-content">
+          <h3>Foundation Discovery</h3>
+          <p>We dig into your business patterns to refine your problem statement. Together, we define your product's goals and expectations—the foundation everything else is built on.</p>
+          <span class="deliverable"><i class="fas fa-arrow-right"></i> Clear problem definition, validated business goals, documented expectations</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-number">02</span>
+        <div class="step-content">
+          <h3>Proof of Concept & Research</h3>
+          <p>We plan and conduct research with your real end-users. Through structured interviews and testing, we validate assumptions and uncover requirements you didn't know you had.</p>
+          <span class="deliverable"><i class="fas fa-arrow-right"></i> User insights from actual interviews, validated requirements, research documentation</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-number">03</span>
+        <div class="step-content">
+          <h3>Deliverables</h3>
+          <p>You receive your first prototype sketch and a comprehensive Business Requirements Specification (BRS)—complete with KPIs. This becomes your roadmap for development.</p>
+          <span class="deliverable"><i class="fas fa-arrow-right"></i> Initial prototype, firm BRS with documented KPIs, development-ready specifications</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="ai-note">
+      <i class="fas fa-robot"></i>
+      We use Generative AI to draft documents and prototypes—but never for thinking. Every insight comes from human analysis of your unique business.
+    </p>
+  </div>
+</section>
+
+<style>
+  .what-we-do {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    padding: var(--space-5xl) var(--space-xl);
+  }
+
+  .container {
+    max-width: var(--max-width-text);
+    margin: 0 auto;
+  }
+
+  .headline {
+    color: var(--color-white);
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-lg);
+  }
+
+  .intro-text {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4xl);
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xl);
+    margin-bottom: var(--space-4xl);
+  }
+
+  .step {
+    display: flex;
+    gap: var(--space-xl);
+  }
+
+  .step-number {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-terracotta);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 60px;
+  }
+
+  .step-content h3 {
+    color: var(--color-white);
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .step-content p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-md);
+  }
+
+  .deliverable {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    font-size: var(--text-sm);
+    color: var(--color-cyan);
+  }
+
+  .deliverable i {
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+
+  .ai-note {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.7);
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin: 0;
+  }
+
+  .ai-note i {
+    color: var(--color-cyan);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .step {
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .step-number {
+      width: auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .what-we-do {
+      padding: var(--space-4xl) var(--space-lg);
+    }
+
+    .headline {
+      font-size: var(--text-2xl);
+    }
+  }
+</style>

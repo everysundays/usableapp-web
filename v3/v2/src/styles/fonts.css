@@ -1,0 +1,40 @@
+/**
+ * Anakotmai Thai Font
+ * Thai-optimized, modern, clean, professional
+ */
+
+/* Anakotmai Light (300) */
+@font-face {
+  font-family: 'Anakotmai';
+  src: url('/src/assets/fonts/anakotmai-light.eot');
+  src: url('/src/assets/fonts/anakotmai-light.eot?#iefix') format('embedded-opentype'),
+       url('/src/assets/fonts/anakotmai-light.woff2') format('woff2'),
+       url('/src/assets/fonts/anakotmai-light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Anakotmai Medium (400) */
+@font-face {
+  font-family: 'Anakotmai';
+  src: url('/src/assets/fonts/anakotmai-medium.eot');
+  src: url('/src/assets/fonts/anakotmai-medium.eot?#iefix') format('embedded-opentype'),
+       url('/src/assets/fonts/anakotmai-medium.woff2') format('woff2'),
+       url('/src/assets/fonts/anakotmai-medium.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Anakotmai Bold (700) */
+@font-face {
+  font-family: 'Anakotmai';
+  src: url('/src/assets/fonts/anakotmai-bold.eot');
+  src: url('/src/assets/fonts/anakotmai-bold.eot?#iefix') format('embedded-opentype'),
+       url('/src/assets/fonts/anakotmai-bold.woff2') format('woff2'),
+       url('/src/assets/fonts/anakotmai-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

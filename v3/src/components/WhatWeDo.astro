@@ -1,0 +1,476 @@
+---
+// What We Do Section - Creative Methodology Display
+---
+
+<section class="what-we-do">
+  <div class="what-we-do-content">
+    <div class="section-header">
+      <h2 class="section-title">START WITH THE RIGHT QUESTION.</h2>
+      <p class="section-intro">We discover what your business actually needs</p>
+    </div>
+
+    <div class="methodology-grid">
+      <div class="method-item method-item-1">
+        <div class="method-number">01</div>
+        <div class="method-content">
+          <h3>Problem Statement</h3>
+          <p>Defining what we're really solving</p>
+        </div>
+      </div>
+
+      <div class="method-item method-item-2">
+        <div class="method-number">02</div>
+        <div class="method-content">
+          <h3>Workflow</h3>
+          <p>How this will work in practice</p>
+        </div>
+      </div>
+
+      <div class="method-item method-item-3">
+        <div class="method-number">03</div>
+        <div class="method-content">
+          <h3>Data Foundation</h3>
+          <p>Management, Quality, Privacy, Compliance</p>
+        </div>
+      </div>
+
+      <div class="method-item method-item-4">
+        <div class="method-number">04</div>
+        <div class="method-content">
+          <h3>Goal & Expectation</h3>
+          <p>What success looks like</p>
+        </div>
+      </div>
+
+      <div class="method-item method-item-5 highlight">
+        <div class="method-number">05</div>
+        <div class="method-content">
+          <h3>User Requirement</h3>
+          <p>What users actually need to succeed</p>
+        </div>
+      </div>
+
+      <div class="method-item method-item-6 highlight ai-item">
+        <div class="method-number">06</div>
+        <div class="method-content">
+          <h3>AI-Enhanced Prototyping</h3>
+          <p>Visual blueprints, service blueprints, clickable mockups with AI-documented PRD</p>
+        </div>
+      </div>
+
+      <div class="method-item method-item-7">
+        <div class="method-number">07</div>
+        <div class="method-content">
+          <h3>Architecture</h3>
+          <p>Technology & Tools from developers</p>
+        </div>
+      </div>
+
+      <div class="method-item method-item-8">
+        <div class="method-number">08</div>
+        <div class="method-content">
+          <h3>Control & Safety</h3>
+          <p>Ensuring security and reliability</p>
+        </div>
+      </div>
+
+      <div class="method-item method-item-9">
+        <div class="method-number">09</div>
+        <div class="method-content">
+          <h3>Product Surface</h3>
+          <p>The final result—a product that works</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="governance-banner">
+      <p>Governance | Maintenance | Improvement</p>
+    </div>
+
+    <div class="process-flow">
+      <div class="process-step">
+        <div class="process-number">1</div>
+        <h4>Discovery</h4>
+        <p>Problem definition & goals</p>
+      </div>
+      <div class="process-arrow">→</div>
+      <div class="process-step">
+        <div class="process-number">2</div>
+        <h4>AI Prototyping</h4>
+        <p>Visual blueprints & mockups</p>
+      </div>
+      <div class="process-arrow">→</div>
+      <div class="process-step">
+        <div class="process-number">3</div>
+        <h4>Deliverables</h4>
+        <p>BRS & architecture</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .what-we-do {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.03) 0%, rgba(255, 107, 157, 0.03) 100%);
+    padding: 0;
+    position: relative;
+  }
+
+  .what-we-do-content {
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 var(--space-3xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+    height: 100%;
+    max-height: calc(100vh - 80px);
+    justify-content: center;
+    overflow-y: auto;
+  }
+
+  .what-we-do-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  .what-we-do-content {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .section-title {
+    font-size: clamp(40px, 5vw, 80px);
+    font-weight: 200;
+    color: var(--color-text);
+    margin: 0 0 var(--space-sm);
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .section-intro {
+    font-size: clamp(18px, 2.2vw, 24px);
+    color: var(--color-text-light);
+    margin: 0;
+    font-weight: 200;
+  }
+
+  .methodology-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin: var(--space-2xl) 0;
+    position: relative;
+  }
+
+  .method-item {
+    padding: var(--space-xl);
+    border: 1px solid rgba(255, 107, 157, 0.2);
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius-md);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+  }
+
+  .method-item:hover {
+    transform: translateY(-8px) rotate(1deg);
+    border-color: var(--color-pink);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 40px rgba(255, 107, 157, 0.2);
+  }
+
+  .method-item.highlight {
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.1) 0%, rgba(255, 142, 83, 0.1) 100%);
+    border-color: var(--color-purple);
+  }
+
+  .method-item.ai-item {
+    grid-column: span 2;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.15) 0%, rgba(255, 142, 83, 0.15) 100%);
+    border-width: 2px;
+  }
+
+  .method-item-1 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .method-item-2 {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .method-item-3 {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .method-item-4 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .method-item-5 {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .method-item-6 {
+    grid-column: 1 / 3;
+    grid-row: 3;
+  }
+
+  .method-item-7 {
+    grid-column: 3;
+    grid-row: 3;
+  }
+
+  .method-item-8 {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .method-item-9 {
+    grid-column: 2 / 4;
+    grid-row: 4;
+  }
+
+  .method-number {
+    font-size: clamp(24px, 3vw, 48px);
+    font-weight: 200;
+    background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-sm);
+    line-height: 1;
+  }
+
+  .method-content h3 {
+    font-size: clamp(18px, 2vw, 28px);
+    font-weight: 200;
+    color: var(--color-text);
+    margin: 0 0 var(--space-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+
+  .method-content p {
+    font-size: clamp(14px, 1.5vw, 18px);
+    color: var(--color-text-light);
+    margin: 0;
+    line-height: 1.5;
+    font-weight: 200;
+  }
+
+  .governance-banner {
+    text-align: center;
+    padding: var(--space-lg) 0;
+    margin: var(--space-xl) 0;
+    position: relative;
+  }
+
+  .governance-banner::before,
+  .governance-banner::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--color-pink) 50%, transparent 100%);
+  }
+
+  .governance-banner::before {
+    top: 0;
+  }
+
+  .governance-banner::after {
+    bottom: 0;
+  }
+
+  .governance-banner p {
+    font-size: clamp(14px, 1.8vw, 20px);
+    background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 200;
+    margin: 0;
+  }
+
+  .process-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+    flex-wrap: wrap;
+  }
+
+  .process-step {
+    text-align: center;
+    min-width: 180px;
+    position: relative;
+  }
+
+  .process-number {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--space-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-pink);
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.1) 0%, rgba(255, 142, 83, 0.1) 100%);
+    font-size: var(--text-2xl);
+    font-weight: 200;
+    background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+  }
+
+  .process-number::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 2px solid var(--color-pink);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.1;
+    }
+  }
+
+  .process-step h4 {
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 200;
+    color: var(--color-text);
+    margin: 0 0 var(--space-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .process-step p {
+    font-size: clamp(14px, 1.5vw, 16px);
+    color: var(--color-text-light);
+    margin: 0;
+    font-weight: 200;
+  }
+
+  .process-arrow {
+    font-size: clamp(24px, 3vw, 36px);
+    background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 968px) {
+    .methodology-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+    }
+
+    .method-item-3 {
+      grid-column: 1 / 3;
+      grid-row: 2;
+    }
+
+    .method-item-4 {
+      grid-row: 3;
+    }
+
+    .method-item-5 {
+      grid-row: 3;
+    }
+
+    .method-item-6 {
+      grid-column: 1 / 3;
+      grid-row: 4;
+    }
+
+    .method-item-7 {
+      grid-column: 1;
+      grid-row: 5;
+    }
+
+    .method-item-8 {
+      grid-row: 5;
+    }
+
+    .method-item-9 {
+      grid-column: 1 / 3;
+      grid-row: 6;
+    }
+
+    .what-we-do-content {
+      gap: var(--space-xl);
+      padding: 0 var(--space-xl);
+      max-height: calc(100vh - 80px);
+    }
+
+    .process-flow {
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .process-arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .methodology-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .method-item {
+      grid-column: 1 !important;
+    }
+
+    .method-item-3 {
+      grid-row: 3 !important;
+    }
+
+    .method-item-6 {
+      grid-column: 1 !important;
+      grid-row: 6 !important;
+    }
+
+    .method-item-9 {
+      grid-column: 1 !important;
+      grid-row: 9 !important;
+    }
+  }
+</style>

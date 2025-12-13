@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kerning Test - Letter Spacing</title>
+  <style>
+    @font-face {
+      font-family: 'Anakotmai';
+      src: url('/src/assets/fonts/anakotmai-bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'Anakotmai', sans-serif;
+      padding: 40px;
+      background: #fff;
+      color: #1A3A52;
+    }
+
+    .test-section {
+      margin-bottom: 60px;
+      padding: 40px;
+      background: #f5f5f5;
+      border-radius: 12px;
+    }
+
+    .label {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #D07855;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .metrics {
+      font-size: 12px;
+      color: #666;
+      margin-top: 8px;
+      font-family: monospace;
+    }
+
+    /* h1 Tests - Hero Statement Size (72px) */
+    .h1-test {
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1.1;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    /* h2 Tests - Section Header Size (72px) */
+    .h2-test {
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1.1;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .notes {
+      margin-top: 20px;
+      padding: 20px;
+      background: white;
+      border-left: 4px solid #64B5F6;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .notes strong {
+      color: #1A3A52;
+    }
+
+    .rating {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 12px;
+      margin-left: 8px;
+    }
+
+    .rating-poor { background: #ffebee; color: #c62828; }
+    .rating-okay { background: #fff3e0; color: #ef6c00; }
+    .rating-good { background: #e8f5e9; color: #2e7d32; }
+    .rating-best { background: #e3f2fd; color: #1565c0; }
+
+    .bg-navy {
+      background: #1A3A52;
+      color: white;
+    }
+
+    .bg-terracotta {
+      background: #D07855;
+      color: white;
+    }
+
+    hr {
+      margin: 80px 0;
+      border: none;
+      border-top: 2px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="font-size: 32px; margin-bottom: 40px;">Kerning Test - Letter Spacing Analysis</h1>
+  <p style="font-size: 18px; color: #666; max-width: 800px; line-height: 1.6; margin-bottom: 40px;">
+    Testing letter-spacing values from tight (-0.04em) to loose (0.02em) at actual size (72px) with Anakotmai Bold.
+    Current values: h1 = -0.02em, h2 = -0.01em
+  </p>
+
+  <!-- H1 TESTS -->
+  <div style="font-size: 24px; font-weight: 700; margin-bottom: 40px; color: #1A3A52;">h1 Tests - Hero Statement (72px, Bold, Uppercase)</div>
+
+  <div class="test-section">
+    <div class="label">letter-spacing: -0.04em (Very Tight)</div>
+    <h1 class="h1-test" style="letter-spacing: -0.04em;">Find good problems.<br>Make good apps.</h1>
+    <div class="metrics">-0.04em = -2.88px at 72px</div>
+    <div class="notes">
+      <strong>Readability:</strong> Too tight. Letters start to crowd. "good" and "problems" feel cramped.<span class="rating rating-poor">Poor</span><br>
+      <strong>Impact:</strong> Compact but loses breathing room. Feels rushed.<br>
+      <strong>Brand Fit:</strong> Too aggressive for thoughtful consultancy.
+    </div>
+  </div>
+
+  <div class="test-section">
+    <div class="label">letter-spacing: -0.03em</div>
+    <h1 class="h1-test" style="letter-spacing: -0.03em;">Find good problems.<br>Make good apps.</h1>
+    <div class="metrics">-0.03em = -2.16px at 72px</div>
+    <div class="notes">
+      <strong>Readability:</strong> Tight but still readable. Slightly cramped on double letters.<span class="rating rating-okay">Okay</span><br>
+      <strong>Impact:</strong> Strong, compact, energetic.<br>
+      <strong>Brand Fit:</strong> Bold but borderline aggressive.
+    </div>
+  </div>
+
+  <div class="test-section">
+    <div class="label">letter-spacing: -0.02em ★ CURRENT h1</div>
+    <h1 class="h1-test" style="letter-spacing: -0.02em;">Find good problems.<br>Make good apps.</h1>
+    <div class="metrics">-0.02em = -1.44px at 72px</div>
+    <div class="notes">
+      <strong>Readability:</strong> Excellent. Tight enough to feel intentional, loose enough to breathe.<span class="rating rating-best">Best</span><br>
+      <strong>Impact:</strong> Strong, confident, modern. Perfect balance.<br>
+      <strong>Brand Fit:</strong> Professional consultancy with bold vision. Not too aggressive, not too soft.
+    </div>
+  </div>
+
+  <div class="test-section">
+    <div class="label">letter-spacing: -0.01em</div>
+    <h1 class="h1-test" style="letter-spacing: -0.01em;">Find good problems.<br>Make good apps.</h1>
+    <div class="metrics">-0.01em = -0.72px at 72px</div>
+    <div class="notes">
+      <strong>Readability:</strong> Very readable. More open than -0.02em.<span class="rating rating-good">Good</span><br>
+      <strong>Impact:</strong> Still strong but slightly less compact. Feels more relaxed.<br>
+      <strong>Brand Fit:</strong> Good but loses some of the bold edge.
+    </div>
+  </div>
+
+  <div class="test-section">
+    <div class="label">letter-spacing: 0em (Default/Normal)</div>
+    <h1 class="h1-test" style="letter-spacing: 0em;">Find good problems.<br>Make good apps.</h1>
+    <div class="metrics">0em = 0px (browser default)</div>
+    <div class="notes">
+      <strong>Readability:</strong> Perfectly readable but feels loose at this size.<span class="rating rating-okay">Okay</span><br>
+      <strong>Impact:</strong> Lacks the tightness that creates impact at large sizes.<br>
+      <strong>Brand Fit:</strong> Too generic. Doesn't match bold design strategy.
+    </div>
+  </div>
+
+  <div class="test-section">
+    <div class="label">letter-spacing: 0.01em</div>
+    <h1 class="h1-test" style="letter-spacing: 0.01em;">Find good problems.<br>Make good apps.</h1>
+    <div class="metrics">0.01em = 0.72px at 72px</div>
+    <div class="notes">
+      <strong>Readability:</strong> Very open. Easy to read but loses visual cohesion.<span class="rating rating-okay">Okay</span><br>
+      <strong>Impact:</strong> Too loose. Feels disconnected and lacks punch.<br>
+      <strong>Brand Fit:</strong> Too airy for bold brand strategy.
+    </div>
+  </div>
+
+  <div class="test-section">
+    <div class="label">letter-spacing: 0.02em</div>
+    <h1 class="h1-test" style="letter-spacing: 0.02em;">Find good problems.<br>Make good apps.</h1>
+    <div class="metrics">0.02em = 1.44px at 72px</div>
+    <div class="notes">
+      <strong>Readability:</strong> Open but words feel scattered.<span class="rating rating-poor">Poor</span><br>
+      <strong>Impact:</strong> Lost. Feels weak and disconnected.<br>
+      <strong>Brand Fit:</strong> Wrong direction entirely for this brand.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- H2 TESTS -->
+  <div style="font-size: 24px; font-weight: 700; margin-bottom: 40px; color: #1A3A52;">h2 Tests - Section Headers (72px, Bold, Uppercase)</div>
+
+  <div class="test-section">
+    <div class="label">letter-spacing: -0.03em</div>
+    <h2 class="h2-test" style="letter-spacing: -0.03em;">START WITH THE RIGHT QUESTION.</h2>
+    <div class="metrics">-0.03em = -2.16px at 72px</div>
+    <div class="notes">
+      <strong>Readability:</strong> Too tight for all caps. "WITH THE" crowds. "RIGHT" feels cramped.<span class="rating rating-poor">Poor</span><br>
+      <strong>Impact:</strong> Aggressive but readability suffers.<br>
+      <strong>Brand Fit:</strong> Too tight for uppercase headers.
+    </div>
+  </div>
+
+  <div class="test-section">
+    <div class="label">letter-spacing: -0.02em</div>
+    <h2 class="h2-test" style="letter-spacing: -0.02em;">START WITH THE RIGHT QUESTION.</h2>
+    <div class="metrics">-0.02em = -1.44px at 72px</div>
+    <div class="notes">
+      <strong>Readability:</strong> Better than -0.03em but still tight for all caps.<span class="rating rating-okay">Okay</span><br>
+      <strong>Impact:</strong> Strong and compact.<br>
+      <strong>Brand Fit:</strong> Works but -0.01em gives more breathing room.
+    </div>
+  </div>
+
+  <div class="test-section">
+    <div class="label">letter-spacing: -0.01em ★ CURRENT h2</div>
+    <h2 class="h2-test" style="letter-spacing: -0.01em;">START WITH THE RIGHT QUESTION.</h2>
+    <div class="metrics">-0.01em = -0.72px at 72px</div>
+    <div class="notes">
+      <strong>Readability:</strong> Excellent for uppercase. Each word breathes while staying cohesive.<span class="rating rating-best">Best</span><br>
+      <strong>Impact:</strong> Strong, clear, commanding. Perfect section anchors.<br>
+      <strong>Brand Fit:</strong> Professional, bold, scannable. Optimal for all-caps headers.
+    </div>
+  </div>
+
+  <div class="test-section">
+    <div class="label">letter-spacing: 0em (Default/Normal)</div>
+    <h2 class="h2-test" style="letter-spacing: 0em;">START WITH THE RIGHT QUESTION.</h2>
+    <div class="metrics">0em = 0px (browser default)</div>
+    <div class="notes">
+      <strong>Readability:</strong> Readable but starting to feel loose.<span class="rating rating-good">Good</span><br>
+      <strong>Impact:</strong> Good but lacks the subtle tightness that creates cohesion.<br>
+      <strong>Brand Fit:</strong> Acceptable but -0.01em is tighter and more intentional.
+    </div>
+  </div>
+
+  <div class="test-section">
+    <div class="label">letter-spacing: 0.01em</div>
+    <h2 class="h2-test" style="letter-spacing: 0.01em;">START WITH THE RIGHT QUESTION.</h2>
+    <div class="metrics">0.01em = 0.72px at 72px</div>
+    <div class="notes">
+      <strong>Readability:</strong> Very open. Words feel separated.<span class="rating rating-okay">Okay</span><br>
+      <strong>Impact:</strong> Loses cohesion. Feels too relaxed for bold headers.<br>
+      <strong>Brand Fit:</strong> Too loose for bold design strategy.
+    </div>
+  </div>
+
+  <div class="test-section">
+    <div class="label">letter-spacing: 0.02em</div>
+    <h2 class="h2-test" style="letter-spacing: 0.02em;">START WITH THE RIGHT QUESTION.</h2>
+    <div class="metrics">0.02em = 1.44px at 72px</div>
+    <div class="notes">
+      <strong>Readability:</strong> Too loose. Words disconnect.<span class="rating rating-poor">Poor</span><br>
+      <strong>Impact:</strong> Lost. Lacks visual cohesion.<br>
+      <strong>Brand Fit:</strong> Wrong for this brand.
+    </div>
+  </div>
+
+  <div class="test-section">
+    <div class="label">letter-spacing: 0.05em (Wide Tracking - Fashion Style)</div>
+    <h2 class="h2-test" style="letter-spacing: 0.05em;">START WITH THE RIGHT QUESTION.</h2>
+    <div class="metrics">0.05em = 3.6px at 72px</div>
+    <div class="notes">
+      <strong>Readability:</strong> Very loose. Luxury/fashion aesthetic.<span class="rating rating-poor">Poor</span><br>
+      <strong>Impact:</strong> Completely wrong for tech consultancy. Too editorial.<br>
+      <strong>Brand Fit:</strong> Fashion magazine, not software consultancy.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- BACKGROUND TESTS -->
+  <div style="font-size: 24px; font-weight: 700; margin-bottom: 40px; color: #1A3A52;">Real Context Tests - On Colored Backgrounds</div>
+
+  <div class="test-section bg-navy">
+    <div class="label" style="color: #64B5F6;">Navy Background - letter-spacing: -0.02em</div>
+    <h2 class="h2-test" style="letter-spacing: -0.02em;">REFINE THE PROBLEM. DEFINE THE SOLUTION.</h2>
+  </div>
+
+  <div class="test-section bg-navy">
+    <div class="label" style="color: #64B5F6;">Navy Background - letter-spacing: -0.01em ★ CURRENT</div>
+    <h2 class="h2-test" style="letter-spacing: -0.01em;">REFINE THE PROBLEM. DEFINE THE SOLUTION.</h2>
+  </div>
+
+  <div class="test-section bg-navy">
+    <div class="label" style="color: #64B5F6;">Navy Background - letter-spacing: 0em</div>
+    <h2 class="h2-test" style="letter-spacing: 0em;">REFINE THE PROBLEM. DEFINE THE SOLUTION.</h2>
+  </div>
+
+  <div class="test-section bg-terracotta">
+    <div class="label" style="opacity: 0.8;">Terracotta Background - letter-spacing: -0.01em ★ CURRENT</div>
+    <h2 class="h2-test" style="letter-spacing: -0.01em;">PROBLEMS SOLVED. APPS THAT WORK.</h2>
+  </div>
+
+  <div class="test-section bg-terracotta">
+    <div class="label" style="opacity: 0.8;">Terracotta Background - letter-spacing: 0em</div>
+    <h2 class="h2-test" style="letter-spacing: 0em;">PROBLEMS SOLVED. APPS THAT WORK.</h2>
+  </div>
+
+  <hr>
+
+  <!-- COMPARISON GRID -->
+  <div style="font-size: 24px; font-weight: 700; margin-bottom: 40px; color: #1A3A52;">Side-by-Side Comparison</div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px;">
+    <div class="test-section">
+      <div class="label">h1: -0.03em (Tighter)</div>
+      <h1 class="h1-test" style="letter-spacing: -0.03em; font-size: 48px;">Find good problems. Make good apps.</h1>
+    </div>
+    <div class="test-section">
+      <div class="label">h1: -0.02em ★ CURRENT</div>
+      <h1 class="h1-test" style="letter-spacing: -0.02em; font-size: 48px;">Find good problems. Make good apps.</h1>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+    <div class="test-section">
+      <div class="label">h2: -0.02em (Tighter)</div>
+      <h2 class="h2-test" style="letter-spacing: -0.02em; font-size: 48px;">START WITH THE RIGHT QUESTION.</h2>
+    </div>
+    <div class="test-section">
+      <div class="label">h2: -0.01em ★ CURRENT</div>
+      <h2 class="h2-test" style="letter-spacing: -0.01em; font-size: 48px;">START WITH THE RIGHT QUESTION.</h2>
+    </div>
+  </div>
+
+</body>
+</html>

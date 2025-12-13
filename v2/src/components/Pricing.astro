@@ -1,0 +1,210 @@
+---
+// Pricing/Engagement Section
+// How We Work
+---
+
+<section class="pricing section">
+  <div class="container">
+    <h2 class="big-bold-text">START YOUR APP'S DAY-1 WITH US.</h2>
+
+    <p class="intro-text">
+      Two meetings. One clear path forward.
+    </p>
+
+    <div class="engagement-steps">
+      <!-- Meeting 1 -->
+      <div class="engagement-step">
+        <span class="step-badge">Meeting 1</span>
+        <h3 class="step-title">Free Brief (Your Story)</h3>
+        <p class="step-description">
+          Tell us about your business, your challenge, your vision. We listen, we ask questions, we start understanding your patterns.
+        </p>
+        <ul class="step-details">
+          <li>No cost, no commitment</li>
+          <li>NDA available if needed</li>
+          <li>60-90 minutes of focused discussion</li>
+        </ul>
+      </div>
+
+      <!-- Meeting 2 -->
+      <div class="engagement-step">
+        <span class="step-badge">Meeting 2</span>
+        <h3 class="step-title">The Proposal (Our Plan)</h3>
+        <p class="step-description">
+          We present a complete working plan—from foundation discovery through your final BRS. You'll see exactly how we'll uncover what you need.
+        </p>
+        <ul class="step-details">
+          <li>Detailed discovery roadmap</li>
+          <li>Timeline and process breakdown</li>
+          <li>PoC plan customized for your project</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="work-details">
+      <div class="detail-card">
+        <h4>The Work</h4>
+        <p>
+          Time-based contract. Typically 5-7 PoCs to reach solid requirements. Duration depends on your product's complexity and discovery needs.
+        </p>
+      </div>
+
+      <div class="detail-card highlight">
+        <h4>The Outcome</h4>
+        <p>
+          A Business Requirements Specification that doesn't just describe features—it explains why they matter and how they serve your strategy. This BRS becomes your development team's north star.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    background-color: var(--color-white);
+  }
+
+  .pricing .big-bold-text {
+    color: var(--color-primary);
+  }
+
+  .intro-text {
+    font-size: var(--text-lg);
+    color: var(--color-text-light);
+    margin: 0 auto var(--space-4xl);
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .engagement-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: var(--space-3xl);
+    margin-bottom: var(--space-4xl);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .engagement-step {
+    background-color: var(--color-base);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--color-border);
+    transition: border-color var(--transition-base), transform var(--transition-base);
+  }
+
+  .engagement-step:hover {
+    border-color: var(--color-accent-cool);
+    transform: translateY(-4px);
+  }
+
+  .step-badge {
+    display: inline-block;
+    background-color: var(--color-accent-warm);
+    color: var(--color-white);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-md);
+  }
+
+  .step-title {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-lg);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .step-description {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text);
+    margin-bottom: var(--space-xl);
+  }
+
+  .step-details {
+    list-style: none;
+    padding: 0;
+  }
+
+  .step-details li {
+    font-size: var(--text-base);
+    color: var(--color-text);
+    padding-left: var(--space-lg);
+    position: relative;
+    margin-bottom: var(--space-sm);
+  }
+
+  .step-details li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent-cool);
+    font-weight: 700;
+  }
+
+  .work-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-3xl);
+    margin-top: var(--space-4xl);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .detail-card {
+    background-color: var(--color-base);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--color-accent-cool);
+  }
+
+  .detail-card.highlight {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-left-color: var(--color-accent-warm);
+    box-shadow: 0 8px 32px rgba(26, 58, 82, 0.3);
+    transform: scale(1.02);
+  }
+
+  .detail-card h4 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-lg);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .detail-card.highlight h4 {
+    color: var(--color-white);
+  }
+
+  .detail-card p {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .detail-card.highlight p {
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  @media (max-width: 768px) {
+    .engagement-steps {
+      grid-template-columns: 1fr;
+    }
+
+    .work-details {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

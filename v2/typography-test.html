@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typography Weight Test</title>
+  <style>
+    @font-face {
+      font-family: 'Anakotmai';
+      src: url('/src/assets/fonts/anakotmai-light.woff2') format('woff2');
+      font-weight: 300;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Anakotmai';
+      src: url('/src/assets/fonts/anakotmai-medium.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Anakotmai';
+      src: url('/src/assets/fonts/anakotmai-bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'Anakotmai', sans-serif;
+      padding: 40px;
+      background: #fff;
+      color: #1A3A52;
+    }
+
+    .test-section {
+      margin-bottom: 60px;
+      padding: 40px;
+      background: #f5f5f5;
+      border-radius: 12px;
+    }
+
+    .label {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #D07855;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    /* h1 Tests - Hero Statement Size (72px) */
+    .h1-300 {
+      font-size: 72px;
+      font-weight: 300;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .h1-400 {
+      font-size: 72px;
+      font-weight: 400;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .h1-700 {
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    /* h2 Tests - Section Header Size (72px) */
+    .h2-300 {
+      font-size: 72px;
+      font-weight: 300;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    .h2-400 {
+      font-size: 72px;
+      font-weight: 400;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    .h2-700 {
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    .notes {
+      margin-top: 20px;
+      padding: 20px;
+      background: white;
+      border-left: 4px solid #64B5F6;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="font-size: 32px; margin-bottom: 40px;">Typography Weight Test - Anakotmai</h1>
+
+  <div class="test-section">
+    <div class="label">h1 - Weight 300 (Light)</div>
+    <h1 class="h1-300">Find good problems.<br>Make good apps.</h1>
+    <div class="notes">
+      <strong>Impact:</strong> Too thin for hero statement. Lacks authority and presence at this size. Feels weak for a bold brand.
+    </div>
+  </div>
+
+  <div class="test-section">
+    <div class="label">h1 - Weight 400 (Medium) - Current Option</div>
+    <h1 class="h1-400">Find good problems.<br>Make good apps.</h1>
+    <div class="notes">
+      <strong>Impact:</strong> Better balance. Still readable and strong but more refined than Bold. Good for understated sophistication.
+    </div>
+  </div>
+
+  <div class="test-section">
+    <div class="label">h1 - Weight 700 (Bold) ★ CURRENT</div>
+    <h1 class="h1-700">Find good problems.<br>Make good apps.</h1>
+    <div class="notes">
+      <strong>Impact:</strong> Maximum impact. Commands immediate attention. Matches bold design strategy. Hero statement feels powerful and confident.
+    </div>
+  </div>
+
+  <hr style="margin: 80px 0; border: none; border-top: 2px solid #ddd;">
+
+  <div class="test-section">
+    <div class="label">h2 - Weight 300 (Light)</div>
+    <h2 class="h2-300">START WITH THE RIGHT QUESTION.</h2>
+    <div class="notes">
+      <strong>Impact:</strong> Far too light for section headers. No visual hierarchy. Gets lost on colored backgrounds.
+    </div>
+  </div>
+
+  <div class="test-section">
+    <div class="label">h2 - Weight 400 (Medium)</div>
+    <h2 class="h2-400">START WITH THE RIGHT QUESTION.</h2>
+    <div class="notes">
+      <strong>Impact:</strong> Insufficient for uppercase section headers. Needs more weight to anchor sections and create clear hierarchy.
+    </div>
+  </div>
+
+  <div class="test-section">
+    <div class="label">h2 - Weight 700 (Bold) ★ CURRENT</div>
+    <h2 class="h2-700">START WITH THE RIGHT QUESTION.</h2>
+    <div class="notes">
+      <strong>Impact:</strong> Strong visual anchors. Clear hierarchy. Uppercase headers need this weight. Matches bold color blocking strategy.
+    </div>
+  </div>
+
+  <hr style="margin: 80px 0; border: none; border-top: 2px solid #ddd;">
+
+  <div style="padding: 40px; background: #1A3A52; color: white; border-radius: 12px;">
+    <div class="label" style="color: #64B5F6;">On Navy Background - h2 Weight 400</div>
+    <h2 class="h2-400" style="color: white;">REFINE THE PROBLEM. DEFINE THE SOLUTION.</h2>
+  </div>
+
+  <div style="padding: 40px; background: #1A3A52; color: white; border-radius: 12px; margin-top: 20px;">
+    <div class="label" style="color: #64B5F6;">On Navy Background - h2 Weight 700 ★</div>
+    <h2 class="h2-700" style="color: white;">REFINE THE PROBLEM. DEFINE THE SOLUTION.</h2>
+  </div>
+
+  <div style="padding: 40px; background: #D07855; color: white; border-radius: 12px; margin-top: 20px;">
+    <div class="label" style="color: white; opacity: 0.8;">On Terracotta Background - h2 Weight 700 ★</div>
+    <h2 class="h2-700" style="color: white;">PROBLEMS SOLVED. APPS THAT WORK.</h2>
+  </div>
+</body>
+</html>
