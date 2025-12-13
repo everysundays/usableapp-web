@@ -431,7 +431,7 @@ import processImg from '../assets/images/blocks/process.png';
   }
   
   .card-validation {
-    background: linear-gradient(135deg, #4A5875 0%, #5A6B8A 100%); /* Same as Step 02/Discovery */
+    background: linear-gradient(135deg, #2D3A55 0%, #405070 100%); /* Darkened for AA Contrast */
     color: var(--color-white);
   }
   .card-validation .block-title { color: var(--color-white); }
@@ -443,21 +443,21 @@ import processImg from '../assets/images/blocks/process.png';
   }
   
   .card-process { /* Same as old step-01 maybe? */
-    background: linear-gradient(135deg, #C97A45 0%, #D89860 100%);
+    background: linear-gradient(135deg, #A65D2E 0%, #B86E3D 100%); /* Darkened for AA Contrast */
     color: var(--color-white);
   }
   .card-process .block-title { color: var(--color-white); }
   .card-process .block-text { color: rgba(255,255,255,0.9); }
   
   .card-investment {
-    background: linear-gradient(135deg, #B87B6F 0%, #C48C7E 100%);
+    background: linear-gradient(135deg, #9C5B52 0%, #AD6C63 100%); /* Darkened for AA Contrast */
     color: var(--color-white);
   }
   .card-investment .block-title { color: var(--color-white); }
   .card-investment .block-text { color: rgba(255,255,255,0.9); }
   
   .card-methodology-new {
-    background: linear-gradient(135deg, #7B5A8E 0%, #8B6B9E 100%);
+    background: linear-gradient(135deg, #5E4170 0%, #6E5180 100%); /* Darkened for AA Contrast */
     color: var(--color-white);
   }
   .card-methodology-new .block-title { color: var(--color-white); }
@@ -804,6 +804,33 @@ import processImg from '../assets/images/blocks/process.png';
     .block-steps {
       display: flex;
     }
+  }
+
+  /* Typography Refresh */
+  .block-text {
+    font-size: 1.05rem; /* ~16.8px for better readability */
+    line-height: 1.7;   /* Increased line height */
+  }
+
+  .block-title {
+    line-height: 1.25; /* Less cramped headers */
+    margin-bottom: var(--space-md); /* More breathing room below titles */
+  }
+
+  .section-content {
+    gap: var(--space-xs); /* Use gap for consistent vertical rhythm */
+  }
+
+  /* Specific Card Tweaks */
+  .card-vision .block-title { font-size: 2.25rem; } /* Larger statement */
+  .card-community .block-title { font-size: 1.75rem; }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 600px) {
+    .block-text {
+      font-size: 1rem;
+    }
+    .card-vision .block-title { font-size: 1.75rem; }
   }
 </style>
 
