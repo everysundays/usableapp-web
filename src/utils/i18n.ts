@@ -108,7 +108,7 @@ const translations = {
     "hero.subheadline": "We help startups and SMEs discover what their business really needs—before writing a single line of code.",
     "hero.cta": "Book Your Free Brief",
     "whoWeAre.eyebrow": "Who We Are",
-    "whoWeAre.title": "Design Digital Products with Strategy",
+    "whoWeAre.title": "Here's to Your Next Product/Platform…",
     "whoWeAre.desc1": "We see mobile phones and tablets as portals to your company—gateways to the services you want to offer users, making their lives easier through your product.",
     "whoWeAre.desc2": "We know how to do it. We have a process that helps you transform ideas into apps that achieve your service goals. Users can navigate them intuitively, without needing help sections.",
     "process.eyebrow": "Our Process",

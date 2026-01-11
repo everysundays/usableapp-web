@@ -34,6 +34,11 @@
   --text-5xl: 3.5em;
   --text-6xl: 4.5em;
 
+  /* Lean Content Typography (for body/content text) */
+  --text-content-base: 1em;
+  --text-content-sm: 0.875em;
+  --text-content-lg: 1.125em;
+
   /* Spacing (8pt Grid System using em multipliers) */
   --space-xs: 0.25em;
   --space-sm: 0.5em;

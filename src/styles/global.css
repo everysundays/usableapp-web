@@ -14,7 +14,7 @@ html {
 
 body {
   font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: var(--text-base);
+  font-size: var(--text-content-base);
   font-weight: 400;
   line-height: 1.6;
   color: var(--color-text);
@@ -34,6 +34,20 @@ body {
 
     );
   background-size: 100% 6px;
+}
+
+/* Lean Content Typography */
+p, li, .block-text, .card-description {
+  font-size: var(--text-content-base);
+  line-height: 1.6;
+}
+
+.text-content-sm {
+  font-size: var(--text-content-sm);
+}
+
+.text-content-lg {
+  font-size: var(--text-content-lg);
 }
 
 h1, h2, h3, h4 {
@@ -95,7 +109,7 @@ a {
 }
 
 .block-text {
-  font-size: var(--text-sm);
+  font-size: var(--text-content-base);
   color: var(--color-text-light);
   line-height: 1.6;
 }

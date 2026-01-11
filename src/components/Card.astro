@@ -1,0 +1,77 @@
+---
+interface Props {
+  variant?: 'basic' | 'elevated' | 'image' | 'split';
+  background?: 'navy' | 'navy-light' | 'sunset' | 'forest' | 'fire' | 'night' | 'sky' | 'warm' | 'cool' | 'white' | 'block';
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  linkText?: string;
+  linkHref?: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  class?: string;
+}
+
+const {
+  variant = 'basic',
+  background,
+  eyebrow,
+  title,
+  description,
+  linkText,
+  linkHref,
+  imageUrl,
+  imageAlt,
+  class: className = '',
+} = Astro.props;
+
+const cardClasses = [
+  'card',
+  variant !== 'basic' ? `card-${variant}` : '',
+  background ? `bg-${background}` : '',
+  className,
+].filter(Boolean).join(' ');
+---
+
+<div class={cardClasses}>
+  {variant === 'image' && imageUrl && (
+    <div
+      class="card-image-background"
+      style={`background-image: url('${imageUrl}');`}
+    ></div>
+  )}
+
+  {variant === 'split' && imageUrl && (
+    <div class="card-image-section">
+      <img src={imageUrl} alt={imageAlt || ''} />
+    </div>
+  )}
+
+  <div class={variant === 'split' ? 'card-content-section' : 'card-content'}>
+    {eyebrow && <span class="card-eyebrow">{eyebrow}</span>}
+    {title && <h3 class="card-title">{title}</h3>}
+    {description && <p class="card-description">{description}</p>}
+    {linkText && linkHref && (
+      <a href={linkHref} class="card-link">
+        {linkText}
+      </a>
+    )}
+    <slot />
+  </div>
+</div>
+
+<style>
+  .card-image-background {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+</style>

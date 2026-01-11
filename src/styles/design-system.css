@@ -1,0 +1,273 @@
+/* Lean Design System - Unified Components */
+
+:root {
+  /* Lean Content Typography */
+  --text-content-base: 1em;
+  --text-content-sm: 0.875em;
+  --text-content-lg: 1.125em;
+
+  /* Card Tokens */
+  --card-padding: var(--space-xl);
+  --card-radius: var(--radius-lg);
+  --card-shadow: var(--shadow-lg);
+  --card-shadow-hover: var(--shadow-xl);
+  --card-hover-lift: -6px;
+  --card-transition: var(--transition-base);
+
+  /* Color Pairs - Background and Foreground */
+  --color-bg-navy: hsl(224, 32%, 26%);
+  --color-fg-navy: var(--color-white);
+
+  --color-bg-navy-light: hsl(224, 32%, 95%);
+  --color-fg-navy-light: var(--color-navy);
+
+  --color-bg-sunset: hsl(352, 90%, 95%);
+  --color-fg-sunset: var(--color-navy);
+
+  --color-bg-forest: hsl(124, 32%, 95%);
+  --color-fg-forest: var(--color-navy);
+
+  --color-bg-fire: hsl(14, 100%, 96%);
+  --color-fg-fire: var(--color-navy);
+
+  --color-bg-night: hsl(224, 25%, 90%);
+  --color-fg-night: var(--color-navy);
+
+  --color-bg-sky: hsl(177, 60%, 95%);
+  --color-fg-sky: var(--color-navy);
+
+  --color-bg-warm: hsl(25, 100%, 96%);
+  --color-fg-warm: var(--color-navy);
+
+  --color-bg-cool: hsl(270, 70%, 95%);
+  --color-fg-cool: var(--color-navy);
+
+  --color-bg-white: var(--color-white);
+  --color-fg-white: var(--color-navy);
+
+  --color-bg-block: var(--color-block);
+  --color-fg-block: var(--color-text);
+}
+
+/* Unified Card Base */
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  padding: var(--card-padding);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  transition: transform var(--card-transition), box-shadow var(--card-transition);
+  background-color: var(--card-bg, var(--color-white));
+  color: var(--card-fg, var(--color-text));
+}
+
+/* Card Variants */
+.card-elevated:hover {
+  transform: translateY(var(--card-hover-lift));
+  box-shadow: var(--card-shadow-hover);
+}
+
+.card-image {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.card-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--card-overlay-gradient, linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%));
+  z-index: 1;
+}
+
+.card-image > * {
+  position: relative;
+  z-index: 2;
+}
+
+.card-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 0;
+}
+
+.card-split .card-image-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-split .card-image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card-split:hover .card-image-section img {
+  transform: scale(1.05);
+}
+
+.card-split .card-content-section {
+  padding: var(--card-padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-md);
+  max-width: 65ch;
+}
+
+.card-content {
+  max-width: 65ch;
+}
+
+/* Card Content Elements */
+.card-eyebrow {
+  font-size: var(--text-content-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.8;
+  color: inherit;
+}
+
+.card-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: 1.2;
+  color: inherit;
+  margin-bottom: var(--space-sm);
+  max-width: 65ch;
+}
+
+.card-description {
+  font-size: var(--text-content-base);
+  line-height: 1.6;
+  color: inherit;
+  opacity: 0.9;
+  max-width: 65ch;
+}
+
+.card-content {
+  max-width: 65ch;
+}
+
+.card-content-section {
+  max-width: 65ch;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--text-content-sm);
+  font-weight: 700;
+  color: inherit;
+  margin-top: var(--space-md);
+  transition: all var(--transition-base);
+}
+
+.card-link:hover {
+  transform: translateX(4px);
+}
+
+/* Background Utilities with Foreground Colors */
+.bg-navy {
+  background-color: var(--color-bg-navy);
+  color: var(--color-fg-navy);
+}
+
+.bg-navy-light {
+  background-color: var(--color-bg-navy-light);
+  color: var(--color-fg-navy-light);
+}
+
+.bg-sunset {
+  background-color: var(--color-bg-sunset);
+  color: var(--color-fg-sunset);
+}
+
+.bg-forest {
+  background-color: var(--color-bg-forest);
+  color: var(--color-fg-forest);
+}
+
+.bg-fire {
+  background-color: var(--color-bg-fire);
+  color: var(--color-fg-fire);
+}
+
+.bg-night {
+  background-color: var(--color-bg-night);
+  color: var(--color-fg-night);
+}
+
+.bg-sky {
+  background-color: var(--color-bg-sky);
+  color: var(--color-fg-sky);
+}
+
+.bg-warm {
+  background-color: var(--color-bg-warm);
+  color: var(--color-fg-warm);
+}
+
+.bg-cool {
+  background-color: var(--color-bg-cool);
+  color: var(--color-fg-cool);
+}
+
+.bg-white {
+  background-color: var(--color-bg-white);
+  color: var(--color-fg-white);
+}
+
+.bg-block {
+  background-color: var(--color-bg-block);
+  color: var(--color-fg-block);
+}
+
+/* Ensure all child elements inherit foreground color */
+.bg-navy *,
+.bg-navy-light *,
+.bg-sunset *,
+.bg-forest *,
+.bg-fire *,
+.bg-night *,
+.bg-sky *,
+.bg-warm *,
+.bg-cool *,
+.bg-white *,
+.bg-block * {
+  color: inherit;
+}
+
+/* Content Typography Utilities */
+.text-content-base {
+  font-size: var(--text-content-base);
+  line-height: 1.6;
+}
+
+.text-content-sm {
+  font-size: var(--text-content-sm);
+  line-height: 1.6;
+}
+
+.text-content-lg {
+  font-size: var(--text-content-lg);
+  line-height: 1.6;
+}
+
+/* Responsive Card Split */
+@media (max-width: 768px) {
+  .card-split {
+    grid-template-columns: 1fr;
+  }
+
+  .card-split .card-image-section {
+    min-height: 250px;
+  }
+}
