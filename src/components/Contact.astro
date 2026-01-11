@@ -1,0 +1,379 @@
+---
+// Contact Section - Cyan Gradient with Business Card Flip
+---
+
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-intro">
+      <h2 class="headline">Ready to find the right problem?</h2>
+      <p class="intro-text">
+        Let's discover what your business needs. Click the card to reveal our contact information.
+      </p>
+    </div>
+
+    <div class="card-container">
+      <div class="business-card" id="businessCard">
+        <div class="card-inner">
+          <!-- Front Side -->
+          <div class="card-front">
+            <div class="card-illustration">
+              <div class="illustration-circles">
+                <div class="illus-circle illus-circle-1"></div>
+                <div class="illus-circle illus-circle-2"></div>
+                <div class="illus-circle illus-circle-3"></div>
+              </div>
+              <div class="illustration-text">
+                <span class="illus-line">Find good problems.</span>
+                <span class="illus-line accent">Make good apps.</span>
+              </div>
+            </div>
+            <div class="card-prompt">
+              <i class="fas fa-hand-pointer"></i>
+              <span>Click to reveal contact</span>
+            </div>
+          </div>
+
+          <!-- Back Side -->
+          <div class="card-back">
+            <div class="card-logo">
+              <span class="logo-text">Usable App Co.</span>
+              <span class="logo-tagline">Digital Product Design Consultants</span>
+            </div>
+
+            <div class="card-info">
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <span>36 Thawiwattana 47</span>
+                  <span>Thawiwattana, Bangkok 10170</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:+66618317773">+66 61 831 7773</a>
+              </div>
+            </div>
+
+            <p class="card-cta">Start your app's day-1 with us.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-buttons">
+      <a href="tel:+66618317773" class="btn btn-primary">
+        <i class="fas fa-phone-alt"></i>
+        <span>Call Now</span>
+      </a>
+      <a href="#" class="btn btn-secondary">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Book a Meeting</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <p class="copyright">&copy; Usable App Co. {new Date().getFullYear()}</p>
+    <p class="footer-tagline">Find good problems. Make good apps.</p>
+  </div>
+</footer>
+
+<style>
+  .contact {
+    background: linear-gradient(135deg,
+      rgba(100, 181, 246, 0.15) 0%,
+      rgba(100, 181, 246, 0.25) 50%,
+      rgba(26, 58, 82, 0.15) 100%);
+    padding: var(--space-5xl) var(--space-xl);
+  }
+
+  .container {
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-intro {
+    max-width: 600px;
+    margin: 0 auto var(--space-4xl);
+  }
+
+  .headline {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-lg);
+    color: var(--color-navy);
+  }
+
+  .intro-text {
+    font-size: var(--text-lg);
+    color: var(--color-text);
+    line-height: var(--leading-relaxed);
+  }
+
+  .card-container {
+    perspective: 1200px;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .business-card {
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 1.6;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+
+  .business-card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .card-front,
+  .card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 16px 64px rgba(26, 58, 82, 0.2);
+    padding: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-front {
+    background: var(--color-white);
+    justify-content: space-between;
+  }
+
+  .card-back {
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+    transform: rotateY(180deg);
+    justify-content: center;
+    gap: var(--space-xl);
+  }
+
+  .card-illustration {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+  }
+
+  .illustration-circles {
+    position: relative;
+    width: 120px;
+    height: 120px;
+  }
+
+  .illus-circle {
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .illus-circle-1 {
+    width: 80px;
+    height: 80px;
+    background: var(--color-cyan);
+    opacity: 0.3;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .illus-circle-2 {
+    width: 60px;
+    height: 60px;
+    background: var(--color-terracotta);
+    opacity: 0.4;
+    bottom: 0;
+    left: 10%;
+  }
+
+  .illus-circle-3 {
+    width: 50px;
+    height: 50px;
+    background: var(--color-navy);
+    opacity: 0.3;
+    bottom: 10%;
+    right: 10%;
+  }
+
+  .illustration-text {
+    text-align: center;
+  }
+
+  .illus-line {
+    display: block;
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-navy);
+  }
+
+  .illus-line.accent {
+    color: var(--color-terracotta);
+  }
+
+  .card-prompt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  .card-logo {
+    text-align: center;
+  }
+
+  .logo-text {
+    display: block;
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: var(--space-xs);
+  }
+
+  .logo-tagline {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .card-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    color: var(--color-white);
+    text-align: left;
+  }
+
+  .info-item i {
+    color: var(--color-cyan);
+    font-size: var(--text-lg);
+    margin-top: 2px;
+  }
+
+  .info-item div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .info-item span,
+  .info-item a {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .info-item a:hover {
+    color: var(--color-cyan);
+  }
+
+  .card-cta {
+    text-align: center;
+    color: var(--color-terracotta);
+    font-size: var(--text-base);
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+  }
+
+  .site-footer {
+    background-color: var(--color-navy);
+    padding: var(--space-2xl) var(--space-xl);
+  }
+
+  .footer-container {
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .copyright {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: var(--text-sm);
+    margin: 0;
+  }
+
+  .footer-tagline {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: var(--text-sm);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .business-card {
+      max-width: 360px;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-container {
+      flex-direction: column;
+      gap: var(--space-sm);
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact {
+      padding: var(--space-4xl) var(--space-lg);
+    }
+
+    .headline {
+      font-size: var(--text-2xl);
+    }
+
+    .business-card {
+      max-width: 300px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const card = document.getElementById('businessCard');
+
+    card?.addEventListener('click', () => {
+      card.classList.toggle('flipped');
+
+      // Track flip event (can be connected to analytics)
+      if (card.classList.contains('flipped')) {
+        console.log('Business card flipped - contact revealed');
+        // Analytics event could go here
+      }
+    });
+  });
+</script>

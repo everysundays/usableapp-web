@@ -1,0 +1,22 @@
+{
+  "name": "v4",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@lucide/astro": "^0.562.0",
+    "astro": "^5.16.0",
+    "astro-i18next": "^1.0.0-beta.21",
+    "i18next": "^25.7.3",
+    "react-i18next": "^16.5.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,107 @@
+/* v4 Design System - Block-based Layout */
+
+:root {
+  /* Base Colors - Pantone Cloud Dancer + Indigo */
+  --color-base: hsl(43, 19%, 93%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-block: hsl(43, 19%, 90%);
+
+  /* Primary */
+  --color-navy: hsl(224, 32%, 26%);
+  --color-navy-light: hsl(220, 23%, 37%);
+
+  /* Accents */
+  --color-accent: hsl(40, 66%, 47%);
+  --color-accent-hover: hsl(40, 69%, 42%);
+  --color-cyan: hsl(199, 30%, 51%);
+  --color-green: hsl(125, 21%, 45%);
+  --color-yellow: hsl(40, 63%, 53%);
+
+  /* Text */
+  --color-text: hsl(224, 32%, 26%);
+  --color-text-light: hsl(216, 4%, 37%);
+  --color-text-muted: hsl(216, 3%, 56%);
+
+  /* Typography (using em as multiplier) */
+  --text-xs: 0.75em;
+  --text-sm: 0.875em;
+  --text-base: 1em;
+  --text-lg: 1.125em;
+  --text-xl: 1.25em;
+  --text-2xl: 1.5em;
+  --text-3xl: 2em;
+  --text-4xl: 2.5em;
+  --text-5xl: 3.5em;
+  --text-6xl: 4.5em;
+
+  /* Spacing (8pt Grid System using em multipliers) */
+  --space-xs: 0.25em;
+  --space-sm: 0.5em;
+  --space-md: 1em;
+  --space-lg: 1.5em;
+  --space-xl: 2em;
+  --space-2xl: 3em;
+  --space-3xl: 4em;
+  --space-4xl: 6em;
+  --space-5xl: 8em;
+
+  /* Border Radius - High */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 36px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.15);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+
+  /* Business Card Palette - Vibrant (HSL) */
+  --color-vibrant-orange: hsl(15, 100%, 61%);
+  --color-vibrant-gold: hsl(43, 100%, 51%);
+  --color-vibrant-yellow: hsl(51, 100%, 50%);
+  --color-vibrant-magenta: hsl(340, 82%, 52%);
+  --color-vibrant-purple: hsl(291, 64%, 42%);
+  
+  /* Business Card Palette - Professional Dark (HSL) */
+  --color-pro-navy: hsl(222, 65%, 15%);
+  --color-pro-teal: hsl(175, 100%, 21%);
+  --color-pro-green: hsl(125, 51%, 24%);
+  --color-pro-maroon: hsl(12, 28%, 19%);
+  --color-pro-slate: hsl(200, 18%, 26%);
+  
+  /* Business Card Palette - Modern (HSL) */
+  --color-modern-cyan: hsl(187, 100%, 42%);
+  --color-modern-teal: hsl(174, 100%, 29%);
+  --color-modern-coral: hsl(14, 100%, 63%);
+  --color-modern-purple: hsl(291, 47%, 51%);
+  --color-modern-indigo: hsl(231, 48%, 48%);
+  
+  /* Accent Metallics (HSL) */
+  --color-accent-gold: hsl(46, 65%, 52%);
+  --color-accent-copper: hsl(29, 57%, 46%);
+  --color-accent-silver: hsl(0, 0%, 75%);
+
+  /* Story Card Specific */
+  --card-spacing: 32px;
+  --card-border-radius: 24px;
+  --card-hover-lift: -8px;
+  --card-image-height: 240px;
+  --card-overlay-gradient: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+  
+  /* Story Card Colors - Vibrant Gradients */
+  --gradient-ocean: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-sunset: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-forest: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --gradient-fire: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  --gradient-sky: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  --gradient-night: linear-gradient(135deg, #2e3a59 0%, #1a1f2c 100%);
+  --gradient-warm: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  --gradient-cool: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+}

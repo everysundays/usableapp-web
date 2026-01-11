@@ -1,0 +1,1512 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {
+  Rocket,
+  Lightbulb,
+  Target,
+  Users,
+  CheckCircle,
+  FileText,
+  Sparkles,
+  Zap,
+  Brain,
+  Maximize2,
+} from "@lucide/astro";
+import { getCollection } from "astro:content";
+import { useTranslations } from "../utils/i18n";
+
+const t = useTranslations("th");
+
+// Get all showcase entries and sort by order
+const showcaseEntries = await getCollection("showcase");
+const sortedShowcases = showcaseEntries.sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Layout>
+  <main>
+    <!-- Big Header -->
+    <header class="hero">
+      <div class="hero-decorative hero-decorative-1"></div>
+      <div class="hero-decorative hero-decorative-2"></div>
+      <div class="hero-decorative hero-decorative-3"></div>
+      <div class="hero-content">
+        <div class="hero-logo">
+          <svg viewBox="0 0 438 659" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M438 397.938V568.152C438 617.858 397.706 658.152 348 658.152H116.44C126.283 628.836 136.001 603.393 145.691 581.093C163.957 539.713 181.234 502.417 226.266 466.035C270.276 430.47 335.548 404.292 404.289 399.103C415.444 398.235 426.69 397.853 438 397.938Z" fill="currentColor"/>
+            <path d="M235.453 23.6982C256.626 9.48283 298.426 -2.51666 353.144 0.456004C385.3 2.20299 414.432 8.75157 438 17.6132V237.673C422.742 239.099 407.418 240.387 391.998 241.582C311.703 248.289 226.869 249.134 135.412 278.926C88.9598 293.091 41.0413 319.678 0 355.367V190.511C27.3545 212.537 63.2253 219.396 100.847 219.396C174.868 210.465 227.635 143.218 218.703 69.1962C215.173 39.938 223.235 31.9016 235.453 23.6982Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="hero-location">
+          <span class="location-accent"></span>
+          Based in Bangkok
+        </div>
+        <h1 class="hero-headline">
+          <span class="headline-line-1">Digital Product</span>
+          <span class="headline-script">Design</span>
+          <span class="headline-line-2">
+            <span class="headline-agency">Agency</span>
+          </span>
+        </h1>
+        <p class="hero-tagline">We are specialised in transforming <span class="tagline-emphasis">complex ideas</span> into <span class="tagline-emphasis">simple, intuitive products</span> through <span class="tagline-emphasis">strategic design consultancy</span>.</p>
+      </div>
+    </header>
+
+    <!-- Content Sections - Story Cards Layout -->
+    <section class="content-sections">
+      <!-- 1. Who We Are - Full Width Hero Card -->
+      <div class="story-card story-card-image w-100 video-background">
+        <div class="video-background-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/CDv3bwUVK7Y?autoplay=1&mute=1&loop=1&playlist=CDv3bwUVK7Y&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0&enablejsapi=0&origin=http://localhost:4321&widget_referrer=http://localhost:4321"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            class="video-background-iframe"
+            loading="lazy"
+            style="pointer-events: none;"></iframe>
+        </div>
+        <div class="card-content">
+          <span class="card-eyebrow">{t("whoWeAre.eyebrow")}</span>
+          <h2 class="card-title" style="font-size: 3rem;">
+            {t("whoWeAre.title")}
+          </h2>
+          <p class="card-description">
+            {t("whoWeAre.desc1")}
+          </p>
+          <p class="card-description">
+            {t("whoWeAre.desc2")}
+          </p>
+        </div>
+      </div>
+
+      <!-- 2. Our Process - Three Steps Section -->
+      <div class="steps-section w-100">
+        <div class="steps-header">
+          <span class="card-eyebrow">{t("process.eyebrow")}</span>
+          <h2 class="steps-title">{t("process.title")}</h2>
+          <p class="steps-subtitle">
+            {t("process.subtitle")}
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1: Requirement -->
+          <div class="story-card vertical-impact-card bg-navy">
+            <div class="impact-visual-header">
+              <span class="chalk-word chalk-blue">{t("process.step1.chalk")}</span>
+              <img src="/illustrations/step1.png" alt="Strategic planning illustration" />
+            </div>
+            <div class="impact-content-body">
+              <div class="card-icon-wrapper">
+                <Lightbulb />
+              </div>
+              <span class="card-eyebrow">{t("process.step1.eyebrow")}</span>
+              <h2 class="card-title">{t("process.step1.title")}</h2>
+              <p class="card-description">
+                {t("process.step1.description")}
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2: Refinement -->
+          <div class="story-card vertical-impact-card bg-warm">
+            <div class="impact-visual-header">
+              <span class="chalk-word chalk-rose">{t("process.step2.chalk")}</span>
+              <img src="/illustrations/step2.png" alt="User discovery illustration" />
+            </div>
+            <div class="impact-content-body">
+              <div class="card-icon-wrapper">
+                <Users />
+              </div>
+              <span class="card-eyebrow">{t("process.step2.eyebrow")}</span>
+              <h2 class="card-title">{t("process.step2.title")}</h2>
+              <p class="card-description">
+                {t("process.step2.description")}
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3: Deliverables -->
+          <div class="story-card vertical-impact-card bg-forest">
+            <div class="impact-visual-header">
+              <span class="chalk-word chalk-green">{t("process.step3.chalk")}</span>
+              <img src="/illustrations/step3.png" alt="Product deliverables illustration" />
+            </div>
+            <div class="impact-content-body">
+              <div class="card-icon-wrapper">
+                <FileText />
+              </div>
+              <span class="card-eyebrow">{t("process.step3.eyebrow")}</span>
+              <h2 class="card-title">{t("process.step3.title")}</h2>
+              <p class="card-description">
+                {t("process.step3.description")}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Product Concepts - Split Card -->
+      <div class="story-card story-card-split w-50 bg-sunset">
+        <div class="card-content-section">
+          <div class="card-icon-wrapper">
+            <Lightbulb />
+          </div>
+          <span class="card-eyebrow">{t("deliverables.d1.eyebrow")}</span>
+          <h2 class="card-title">{t("deliverables.d1.title")}</h2>
+          <p class="card-description">
+            {t("deliverables.d1.description")}
+          </p>
+        </div>
+        <div class="card-image-section">
+          <img
+            src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?crop=entropy&cs=srgb&fm=jpg&q=85"
+            alt="Design prototypes on screens - Photo by UX Store on Unsplash"
+          />
+        </div>
+      </div>
+
+      <!-- 7. PRD - Split Card Reversed -->
+      <div class="story-card story-card-split w-50 bg-cool">
+        <div class="card-image-section">
+          <img
+            src="https://images.pexels.com/photos/7947636/pexels-photo-7947636.jpeg"
+            alt="Product requirement documents - Photo by RDNE Stock project on Pexels"
+          />
+        </div>
+        <div class="card-content-section">
+          <div class="card-icon-wrapper">
+            <FileText />
+          </div>
+          <span class="card-eyebrow">{t("deliverables.d2.eyebrow")}</span>
+          <h2 class="card-title">{t("deliverables.d2.title")}</h2>
+          <p class="card-description">
+            {t("deliverables.d2.description")}
+          </p>
+        </div>
+      </div>
+
+      <!-- 8. What Makes Apps Usable - Full Width -->
+      <div
+        class="story-card story-card-image w-100"
+        style="background-image: url('https://images.unsplash.com/photo-1663408319620-3551f425c81e?crop=entropy&cs=srgb&fm=jpg&q=85'); min-height: 500px;"
+      >
+        <div class="card-content">
+          <span class="card-eyebrow">{t("philosophy.eyebrow")}</span>
+          <h2 class="card-title">{t("philosophy.title")}</h2>
+          <div class="use-cases-grid">
+            <div class="use-case-item">
+              <h4>
+                <CheckCircle
+                  style="width: 20px; height: 20px; display: inline; margin-right: 8px;"
+                />{t("philosophy.hierarchy.title")}
+              </h4>
+              <p>{t("philosophy.hierarchy.desc")}</p>
+            </div>
+            <div class="use-case-item">
+              <h4>
+                <CheckCircle
+                  style="width: 20px; height: 20px; display: inline; margin-right: 8px;"
+                />{t("philosophy.flow.title")}
+              </h4>
+              <p>{t("philosophy.flow.desc")}</p>
+            </div>
+            <div class="use-case-item">
+              <h4>
+                <CheckCircle
+                  style="width: 20px; height: 20px; display: inline; margin-right: 8px;"
+                />{t("philosophy.language.title")}
+              </h4>
+              <p>{t("philosophy.language.desc")}</p>
+            </div>
+            <div class="use-case-item">
+              <h4>
+                <CheckCircle
+                  style="width: 20px; height: 20px; display: inline; margin-right: 8px;"
+                />{t("philosophy.tested.title")}
+              </h4>
+              <p>{t("philosophy.tested.desc")}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. AI-Assisted Workflow - Full Width Special Card -->
+      <div
+        class="story-card story-card-split w-100 bg-fire"
+        style="min-height: 500px;"
+      >
+        <div class="card-content-section">
+          <div class="card-icon-wrapper">
+            <Brain />
+          </div>
+          <span class="card-eyebrow">{t("methodology.eyebrow")}</span>
+          <h2 class="card-title">{t("methodology.title")}</h2>
+          <p class="card-description">
+            {t("methodology.desc1")}
+          </p>
+          <p class="card-description">
+            {t("methodology.desc2")}
+          </p>
+          <div class="ai-workflow">
+            <div class="workflow-step">
+              <strong>{t("methodology.step1")}</strong>
+              <span>{t("methodology.step1_desc")}</span>
+            </div>
+            <div class="workflow-step">
+              <strong>{t("methodology.step2")}</strong>
+              <span>{t("methodology.step2_desc")}</span>
+            </div>
+            <div class="workflow-step">
+              <strong>{t("methodology.step3")}</strong>
+              <span>{t("methodology.step3_desc")}</span>
+            </div>
+            <div class="workflow-step">
+              <strong>{t("methodology.step4")}</strong>
+              <span>{t("methodology.step4_desc")}</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-image-section">
+          <img
+            src="https://images.unsplash.com/photo-1580982330720-bd5e0fed108b?crop=entropy&cs=srgb&fm=jpg&q=85"
+            alt="Design team reviewing prototypes - Photo by ThisisEngineering on Unsplash"
+          />
+        </div>
+      </div>
+
+      <!-- 10. Showcase Section - Unique Expandable Cards -->
+      <div class="showcase-section w-100">
+        <div class="showcase-header">
+          <span class="card-eyebrow">{t("showcase.eyebrow")}</span>
+          <h2 class="showcase-title">{t("showcase.title")}</h2>
+          <p class="showcase-subtitle">
+            {t("showcase.subtitle")}
+          </p>
+        </div>
+
+        <div class="showcase-grid">
+          {
+            sortedShowcases.map((showcase, index) => (
+              <div class="showcase-card" data-showcase={index}>
+                <div class="showcase-card-preview">
+                  <img src={showcase.data.image} alt={showcase.data.title} />
+                  <div class="showcase-overlay">
+                    <h3>{showcase.data.title}</h3>
+                    <p>{showcase.data.subtitle}</p>
+                    <button type="button" class="expand-btn">
+                      <Maximize2 />
+                      <span>{t("showcase.cta")}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- 11. Our Approach - Three Cards -->
+      <div class="story-card story-card-icon-header w-33 bg-navy">
+        <div class="card-icon-wrapper">
+          <Rocket />
+        </div>
+        <span class="card-eyebrow">{t("approach.title")}</span>
+        <h3 class="card-title">{t("approach.title")}</h3>
+        <p class="card-description">
+          {t("approach.desc")}
+        </p>
+      </div>
+
+      <div class="story-card story-card-icon-header w-33 bg-night">
+        <div class="card-icon-wrapper">
+          <Target />
+        </div>
+        <span class="card-eyebrow">{t("promise.title")}</span>
+        <h3 class="card-title">{t("promise.title")}</h3>
+        <p class="card-description">
+          {t("promise.desc")}
+        </p>
+      </div>
+
+      <div class="story-card story-card-icon-header w-33 bg-sky">
+        <div class="card-icon-wrapper">
+          <Sparkles />
+        </div>
+        <span class="card-eyebrow">{t("focus.title")}</span>
+        <h3 class="card-title">{t("focus.title")}</h3>
+        <p class="card-description">
+          {t("focus.desc")}
+        </p>
+      </div>
+
+      <!-- 12. Get Started - Full Width CTA -->
+      <div
+        class="story-card story-card-split w-100 bg-sunset"
+        style="min-height: 500px;"
+      >
+        <div class="card-content-section">
+          <span class="card-eyebrow" style="color: var(--color-accent-gold);"
+            >{t("getStarted.eyebrow")}</span
+          >
+          <h2 class="card-title">{t("getStarted.title")}</h2>
+          <p class="card-description">
+            {t("getStarted.desc")}
+          </p>
+          <div class="meeting-details">
+            <div class="meeting">
+              <strong>{t("getStarted.session1")}</strong>
+              <span
+                >{t("getStarted.session1_desc")}</span
+              >
+            </div>
+            <div class="meeting">
+              <strong>{t("getStarted.session2")}</strong>
+              <span
+                >{t("getStarted.session2_desc")}</span
+              >
+            </div>
+          </div>
+          <a href="#" class="card-cta">{t("getStarted.cta")}</a>
+        </div>
+        <div class="card-image-section">
+          <img
+            src="https://images.pexels.com/photos/8000652/pexels-photo-8000652.jpeg"
+            alt="Designer presenting concept - Photo by Pavel Danilyuk on Pexels"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Card - Outside flex for height anomaly -->
+    <div class="block-card-wrapper">
+      <div class="business-card">
+        <!-- Front -->
+        <div class="card-face card-front">
+          <div class="card-front-content">
+            <div class="card-person">
+              <h3 class="card-company">{t("site.title")}</h3>
+              <p class="card-tagline">{t("site.tagline")}</p>
+            </div>
+            <div class="card-contact-info">
+              <p>+66 61 831 7773</p>
+              <p>usableapp.co@gmail.com</p>
+              <p class="card-address" style="white-space: pre-line;">{t("contact.address")}</p>
+            </div>
+            <div class="card-bottom">
+              <span class="card-line"></span>
+              <svg
+                class="card-logo-small-svg"
+                viewBox="0 0 438 659"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M438 397.938V568.152C438 617.858 397.706 658.152 348 658.152H116.44C126.283 628.836 136.001 603.393 145.691 581.093C163.957 539.713 181.234 502.417 226.266 466.035C270.276 430.47 335.548 404.292 404.289 399.103C415.444 398.235 426.69 397.853 438 397.938Z"
+                  fill="currentColor"></path>
+                <path
+                  d="M235.453 23.6982C256.626 9.48283 298.426 -2.51666 353.144 0.456004C385.3 2.20299 414.432 8.75157 438 17.6132V237.673C422.742 239.099 407.418 240.387 391.998 241.582C311.703 248.289 226.869 249.134 135.412 278.926C88.9598 293.091 41.0413 319.678 0 355.367V190.511C27.3545 212.537 63.2253 223.936 100.847 219.396C174.868 210.465 227.635 143.218 218.703 69.1962C215.173 39.938 223.235 31.9016 235.453 23.6982Z"
+                  fill="currentColor"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!-- Back -->
+        <div class="card-face card-back">
+          <div class="card-back-content">
+            <svg
+              class="card-back-logo"
+              viewBox="0 0 438 659"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M438 397.938V568.152C438 617.858 397.706 658.152 348 658.152H116.44C126.283 628.836 136.001 603.393 145.691 581.093C163.957 539.713 181.234 502.417 226.266 466.035C270.276 430.47 335.548 404.292 404.289 399.103C415.444 398.235 426.69 397.853 438 397.938Z"
+                fill="currentColor"></path>
+              <path
+                d="M235.453 23.6982C256.626 9.48283 298.426 -2.51666 353.144 0.456004C385.3 2.20299 414.432 8.75157 438 17.6132V237.673C422.742 239.099 407.418 240.387 391.998 241.582C311.703 248.289 226.869 249.134 135.412 278.926C88.9598 293.091 41.0413 319.678 0 355.367V190.511C27.3545 212.537 63.2253 223.936 100.847 219.396C174.868 210.465 227.635 143.218 218.703 69.1962C215.173 39.938 223.235 31.9016 235.453 23.6982Z"
+                fill="currentColor"></path>
+            </svg>
+            <span class="card-back-name">{t("site.title")}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>{t("site.title")} &copy; {new Date().getFullYear()}</p>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--space-xl);
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  .hero-decorative {
+    position: absolute;
+    border-radius: var(--radius-full);
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-decorative-1 {
+    width: clamp(200px, 30vw, 400px);
+    height: clamp(200px, 30vw, 400px);
+    background: linear-gradient(135deg, var(--color-accent-gold) 0%, var(--color-vibrant-gold) 100%);
+    top: 10%;
+    right: 5%;
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .hero-decorative-2 {
+    width: clamp(150px, 20vw, 300px);
+    height: clamp(150px, 20vw, 300px);
+    background: linear-gradient(135deg, var(--color-cyan) 0%, var(--color-modern-teal) 100%);
+    bottom: 15%;
+    left: 3%;
+    animation: float 6s ease-in-out infinite 1s;
+  }
+
+  .hero-decorative-3 {
+    width: clamp(100px, 15vw, 200px);
+    height: clamp(100px, 15vw, 200px);
+    background: linear-gradient(135deg, var(--color-vibrant-purple) 0%, var(--color-modern-purple) 100%);
+    top: 50%;
+    right: 15%;
+    animation: float 7s ease-in-out infinite 0.5s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-20px) scale(1.05);
+    }
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 0.5em;
+    overflow: visible;
+  }
+
+  .hero-logo {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: clamp(var(--space-xl), 4vw, var(--space-2xl));
+  }
+
+  .hero-logo svg {
+    width: clamp(50px, 5vw, 60px);
+    height: auto;
+    color: var(--color-navy);
+    transition: color var(--transition-base);
+  }
+
+  .hero-logo svg:hover {
+    color: var(--color-accent-gold);
+  }
+
+  /* Common Sans-serif Typography */
+  .hero-location,
+  .hero-tagline {
+    font-family: 'Inter Tight', sans-serif;
+  }
+
+  .hero-location {
+    font-size: clamp(var(--text-xs), 1.2vw, var(--text-sm));
+    font-weight: 500;
+    color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: right;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-left: auto;
+  }
+
+  .location-accent {
+    display: inline-block;
+    inline-size: clamp(20px, 2.5vw, 30px);
+    block-size: 2px;
+    background: linear-gradient(90deg, var(--color-accent-gold) 0%, var(--color-vibrant-gold) 100%);
+    border-radius: var(--radius-full);
+  }
+
+  /* Common Typography Styles */
+  .hero-headline,
+  .headline-line-1,
+  .headline-line-2,
+  .headline-slash,
+  .headline-agency {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+    overflow: visible;
+  }
+
+  .hero-headline {
+    font-weight: 700;
+    font-size: clamp(3.5rem, 12vw, 9rem);
+    color: var(--color-navy);
+    margin-bottom: var(--space-xs);
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .headline-line-1 {
+    display: block;
+    font-size: 1em;
+    margin-bottom: 0;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .headline-script {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+    font-size: 1.2em;
+    line-height: 1.3;
+    overflow: visible;
+    background: linear-gradient(135deg, var(--color-accent-gold) 0%, var(--color-vibrant-gold) 50%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    margin-top: -0.35em;
+    margin-left: 0.1em;
+    transform: translateY(-0.1em);
+  }
+
+  .headline-line-2 {
+    display: block;
+    font-size: 0.85em;
+    margin-top: -0.7em;
+    margin-left: 0.1em;
+  }
+
+  .headline-slash {
+    font-weight: 300;
+    font-size: 0.8em;
+    color: var(--color-text-muted);
+    display: inline-block;
+    margin-right: clamp(var(--space-xs), 0.8vw, var(--space-sm));
+  }
+
+  .headline-agency {
+    font-weight: 700;
+    font-size: 1em;
+    color: var(--color-navy);
+    display: inline-block;
+    position: relative;
+  }
+
+  .headline-agency::after {
+    content: '';
+    position: absolute;
+    bottom: 0.1em;
+    left: 0;
+    right: 0;
+    height: 0.15em;
+    background: linear-gradient(90deg, var(--color-accent-gold) 0%, transparent 100%);
+    opacity: 0.4;
+    z-index: -1;
+  }
+
+  .hero-tagline {
+    font-size: clamp(var(--text-lg), 2vw, var(--text-xl));
+    font-weight: 400;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    max-width: clamp(400px, 54vw, 650px);
+    margin-left: 0;
+    position: relative;
+  }
+
+  .tagline-emphasis {
+    color: var(--color-accent-gold);
+    font-weight: 600;
+    position: relative;
+  }
+
+  .tagline-emphasis::before {
+    content: '';
+    position: absolute;
+    bottom: 0.1em;
+    left: 0;
+    right: 0;
+    height: 0.2em;
+    background: linear-gradient(90deg, var(--color-accent-gold) 0%, rgba(212, 175, 55, 0.3) 100%);
+    opacity: 0.3;
+    z-index: -1;
+    border-radius: var(--radius-sm);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 80vh;
+      padding: clamp(var(--space-2xl), 6vw, var(--space-3xl)) clamp(var(--space-md), 4vw, var(--space-lg));
+    }
+
+    .content-sections {
+      padding: 0 clamp(var(--space-md), 4vw, var(--space-lg));
+    }
+
+    .hero-decorative-1 {
+      width: clamp(120px, 25vw, 200px);
+      height: clamp(120px, 25vw, 200px);
+      top: 5%;
+      right: 3%;
+    }
+
+    .hero-decorative-2 {
+      width: clamp(80px, 15vw, 150px);
+      height: clamp(80px, 15vw, 150px);
+      bottom: 10%;
+      left: 2%;
+    }
+
+    .hero-decorative-3 {
+      width: clamp(60px, 12vw, 120px);
+      height: clamp(60px, 12vw, 120px);
+      top: 45%;
+      right: 10%;
+    }
+
+    .hero-logo {
+      margin-bottom: clamp(var(--space-lg), 3vw, var(--space-xl));
+    }
+
+    .hero-location {
+      text-align: left;
+      margin-left: 0;
+    }
+
+    .hero-headline {
+      font-size: clamp(2.5rem, 15vw, 5rem);
+      margin-bottom: clamp(var(--space-xs), 3vw, var(--space-2xl));
+    }
+
+    .headline-script {
+      margin-top: clamp(var(--space-sm), 1.5vw, var(--space-md));
+    }
+
+    .headline-line-2 {
+      padding-left: clamp(var(--space-md), 2vw, var(--space-lg));
+    }
+
+    .hero-tagline {
+      font-size: clamp(var(--text-base), 2.5vw, var(--text-lg));
+      max-width: 100%;
+    }
+  }
+
+  /* Content Sections Container */
+  .content-sections {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--space-md);
+    width: 100%;
+    max-width: 100%;
+    padding: 0 var(--space-xl);
+  }
+
+  /* Section Block Base */
+  .section-block {
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    cursor: pointer;
+    transition:
+      filter var(--transition-base),
+      transform var(--transition-base);
+    position: relative;
+    overflow: hidden; /* Ensure images stay within curve */
+  }
+
+  .section-block:hover {
+    filter: brightness(0.97) saturate(1.1) sepia(0.05);
+  }
+
+  /* Card styling */
+  .section-block.card {
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .section-block.card:hover {
+    filter: none;
+  }
+
+  /* Standalone card styling */
+  .card {
+    border-radius: 4px;
+  }
+
+  .card:hover {
+    filter: none;
+  }
+
+  /* 2-Column Layout */
+  .block-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  .section-content {
+    display: flex;
+    flex-direction: column;
+    z-index: 2; /* Ensure content is above background images if any */
+  }
+
+  .section-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+
+  .section-visual i {
+    font-size: 8rem;
+    color: var(--color-navy);
+    opacity: 0.15;
+  }
+
+  .section-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-base);
+  }
+
+  .section-block:hover .section-visual img {
+    transform: scale(1.02);
+  }
+
+  /* Ribbon Line Styles */
+  .ribbon-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ribbon-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(
+      90deg,
+      var(--color-accent),
+      var(--color-vibrant-magenta)
+    );
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+  }
+
+  .use-case-item {
+    background: rgba(255, 255, 255, 0.7);
+    padding: var(--space-md);
+    border-radius: var(--radius-sm);
+  }
+
+  .use-case-item h4 {
+    color: var(--color-navy);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-xs);
+    font-weight: 700;
+  }
+
+  .use-case-item p {
+    color: var(--color-text-light);
+    font-size: var(--text-sm);
+    line-height: 1.4;
+  }
+
+  /* Meeting Details */
+  .meeting-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+  }
+
+  .meeting {
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .meeting strong {
+    display: block;
+    color: var(--color-accent-gold);
+    margin-bottom: var(--space-xs);
+  }
+
+  .meeting span {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: var(--text-sm);
+  }
+
+  /* Utilities */
+  .mt-4 {
+    margin-top: var(--space-md);
+  }
+
+  /* New Card Classes */
+  /* Re-using existing classes or defining new ones if needed. 
+     Using 'card-vision', 'card-community', etc for potential specific styling in future.
+     For now, relying on helper classes from global.css BUT I need to map them if they don't exist in global.
+  */
+
+  /* 
+     Since I used new class names like card-vision, card-community in HTML, 
+     I should add basic styling map to existing global styles if I can't touch global.css.
+     However, standard .card class gives base style. 
+     I will add specific gradients here to ensure they look distinct as requested ("varied").
+  */
+
+  .card-vision {
+    background: linear-gradient(135deg, #1a1f2c 0%, #2e3a59 100%);
+    color: var(--color-white);
+  }
+  .card-vision .block-title {
+    color: var(--color-white);
+  }
+  .card-vision .block-text {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .card-community {
+    background: linear-gradient(135deg, #e6d5b8 0%, #f0ede7 100%);
+    color: var(--color-navy);
+  }
+
+  .card-validation {
+    background: linear-gradient(
+      135deg,
+      #2d3a55 0%,
+      #405070 100%
+    ); /* Darkened for AA Contrast */
+    color: var(--color-white);
+  }
+  .card-validation .block-title {
+    color: var(--color-white);
+  }
+  .card-validation .block-text {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .card-deliverables {
+    background: linear-gradient(135deg, #ffb703 0%, #ffd700 100%);
+    color: var(--color-navy);
+  }
+
+  .card-process {
+    /* Same as old step-01 maybe? */
+    background: linear-gradient(
+      135deg,
+      #a65d2e 0%,
+      #b86e3d 100%
+    ); /* Darkened for AA Contrast */
+    color: var(--color-white);
+  }
+  .card-process .block-title {
+    color: var(--color-white);
+  }
+  .card-process .block-text {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .card-investment {
+    background: linear-gradient(
+      135deg,
+      #9c5b52 0%,
+      #ad6c63 100%
+    ); /* Darkened for AA Contrast */
+    color: var(--color-white);
+  }
+  .card-investment .block-title {
+    color: var(--color-white);
+  }
+  .card-investment .block-text {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .card-methodology-new {
+    background: linear-gradient(
+      135deg,
+      #5e4170 0%,
+      #6e5180 100%
+    ); /* Darkened for AA Contrast */
+    color: var(--color-white);
+  }
+  .card-methodology-new .block-title {
+    color: var(--color-white);
+  }
+  .card-methodology-new .block-text {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .card-usecases {
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+    color: var(--color-navy);
+  }
+
+  /* Legacy Block Base for compatibility */
+  .block {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition:
+      filter var(--transition-base),
+      transform var(--transition-base);
+  }
+
+  .block:hover {
+    filter: brightness(0.97) saturate(1.1) sepia(0.05);
+  }
+
+  /* Expanded Block Overlay */
+  .block-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity var(--transition-base),
+      visibility var(--transition-base);
+  }
+
+  .block-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .block-expanded {
+    position: fixed;
+    top: var(--space-5xl);
+    bottom: var(--space-5xl);
+    left: var(--space-md);
+    right: var(--space-md);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9);
+    transition:
+      opacity var(--transition-base),
+      visibility var(--transition-base),
+      transform var(--transition-base);
+    overflow: hidden;
+    border: none;
+    outline: none;
+    box-shadow: var(--shadow-md);
+  }
+
+  .block-expanded.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  .block-expanded .block-expanded-content {
+    padding: var(--space-2xl);
+    height: 100%;
+  }
+
+  .block-expanded .block-icon {
+    font-size: 12rem;
+    opacity: 0.04;
+  }
+
+  /* Width variants */
+  .w-20 {
+    flex: 1 1 calc(20% - var(--space-md));
+  }
+  .w-25 {
+    flex: 1 1 calc(25% - var(--space-md));
+  }
+  .w-30 {
+    flex: 1 1 calc(30% - var(--space-md));
+  }
+  .w-33 {
+    flex: 1 1 calc(33.333% - var(--space-md));
+  }
+  .w-40 {
+    flex: 1 1 calc(40% - var(--space-md));
+  }
+  .w-50 {
+    flex: 1 1 calc(50% - var(--space-md));
+  }
+  .w-60 {
+    flex: 1 1 calc(60% - var(--space-md));
+  }
+  .w-100 {
+    flex: 1 1 100%;
+  }
+
+  /* Block dark */
+  .block-dark {
+    background: var(--color-navy);
+    color: var(--color-white);
+  }
+
+  .block-dark .block-label {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .block-dark .block-title {
+    color: var(--color-white);
+  }
+
+  .block-dark .block-text {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .block-dark .block-icon {
+    color: var(--color-white);
+    opacity: 0.1;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: var(--color-navy);
+    color: var(--color-white);
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: var(--text-base);
+    transition: transform var(--transition-base);
+  }
+
+  .cta-button:hover {
+    transform: scale(1.05);
+  }
+
+  /* Flippable Business Card */
+  .block-card-wrapper {
+    background: transparent;
+    padding: 0;
+    width: 240px;
+    margin-top: var(--space-md);
+    margin-left: auto;
+    perspective: 1000px;
+  }
+
+  .business-card {
+    width: 100%;
+    aspect-ratio: 55 / 85;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+    cursor: pointer;
+  }
+
+  .business-card:hover {
+    transform: rotateY(180deg);
+  }
+
+  .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    box-shadow:
+      0 4px 20px rgba(0, 0, 0, 0.1),
+      0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Front of card - White */
+  .card-front {
+    background: var(--color-white);
+  }
+
+  .card-front-content {
+    height: 100%;
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-person {
+    margin-bottom: var(--space-lg);
+  }
+
+  .card-company {
+    font-size: var(--text-xl);
+    color: var(--color-navy);
+    margin-bottom: var(--space-xs);
+  }
+
+  .card-tagline {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  .card-contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-xs);
+  }
+
+  .card-contact-info p {
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .card-address {
+    margin-top: var(--space-md);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  .card-bottom {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-top: auto;
+  }
+
+  .card-line {
+    flex: 1;
+    height: 1px;
+    background: var(--color-navy);
+  }
+
+  .card-logo-small-svg {
+    width: 24px;
+    height: auto;
+    color: var(--color-navy);
+    flex-shrink: 0;
+  }
+
+  /* Back of card - Navy with logo */
+  .card-back {
+    background: var(--color-navy);
+    transform: rotateY(180deg);
+  }
+
+  .card-back-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2xl);
+    gap: var(--space-md);
+  }
+
+  .card-back-logo {
+    width: 24px;
+    height: auto;
+    color: var(--color-white);
+  }
+
+  .card-back-name {
+    font-family:
+      "Funnel Display",
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-white);
+    letter-spacing: 0.05em;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: var(--space-3xl) var(--space-xl);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .w-20,
+    .w-25,
+    .w-30,
+    .w-33,
+    .w-40,
+    .w-50,
+    .w-60 {
+      flex: 1 1 calc(50% - var(--space-md));
+      min-width: 250px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    main {
+      padding: 0;
+    }
+
+    .hero {
+      padding: var(--space-xl) var(--space-md);
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: left;
+    }
+
+    .hero-logo {
+      justify-content: flex-start;
+      margin-bottom: clamp(var(--space-lg), 3vw, var(--space-xl));
+    }
+
+    .hero-logo svg {
+      width: 48px;
+    }
+
+    .hero-headline {
+      font-size: clamp(2.5rem, 15vw, 5rem);
+      margin-bottom: var(--space-xs);
+    }
+
+    .hero-tagline {
+      font-size: clamp(var(--text-base), 2.5vw, var(--text-lg));
+      max-width: 100%;
+    }
+
+    .content-sections {
+      padding: 0 var(--space-md);
+    }
+
+    .w-20,
+    .w-25,
+    .w-30,
+    .w-33,
+    .w-40,
+    .w-50,
+    .w-60 {
+      flex: 1 1 100%;
+      min-width: 100%;
+    }
+
+    .block-steps {
+      flex-direction: column;
+    }
+
+    .block-steps .step {
+      border-right: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .block-steps .step:last-child {
+      border-bottom: none;
+    }
+
+    .block-card-wrapper {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .block-2col {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    .section-visual {
+      order: -1;
+    }
+
+    .section-visual i {
+      font-size: 5rem;
+    }
+
+    .block-steps {
+      display: flex;
+    }
+  }
+
+  /* Typography Refresh */
+  .block-text {
+    font-size: 1.05rem; /* ~16.8px for better readability */
+    line-height: 1.7; /* Increased line height */
+  }
+
+  .block-title {
+    line-height: 1.25; /* Less cramped headers */
+    margin-bottom: var(--space-md); /* More breathing room below titles */
+  }
+
+  .section-content {
+    gap: var(--space-xs); /* Use gap for consistent vertical rhythm */
+  }
+
+  /* Specific Card Tweaks */
+  .card-vision .block-title {
+    font-size: 2.25rem;
+  } /* Larger statement */
+  .card-community .block-title {
+    font-size: 1.75rem;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 600px) {
+    .block-text {
+      font-size: 1rem;
+    }
+    .card-vision .block-title {
+      font-size: 1.75rem;
+    }
+  }
+</style>
+
+<!-- Overlay for expanded blocks -->
+<div class="block-overlay" id="blockOverlay"></div>
+<div class="section-block block-expanded" id="blockExpanded">
+  <div class="block-expanded-content" id="blockExpandedContent"></div>
+</div>
+
+<!-- Showcase Modal -->
+<div class="showcase-modal" id="showcaseModal">
+  <div class="showcase-modal-content" id="showcaseModalContent">
+    <!-- Content will be dynamically inserted -->
+  </div>
+</div>
+
+<!-- Showcase data for JavaScript -->
+<script
+  id="showcaseData"
+  type="application/json"
+  set:html={JSON.stringify(
+    sortedShowcases.map((s) => ({
+      title: s.data.title,
+      subtitle: s.data.subtitle,
+      challenge: s.data.challenge,
+      solution: s.data.solution,
+      results: s.data.results,
+      image: s.data.image,
+    })),
+  )}
+/>
+
+<script>
+  // Showcase card expansion - now using server-side data
+  document.addEventListener("DOMContentLoaded", () => {
+    const showcaseCards = document.querySelectorAll(".showcase-card");
+    const modal = document.getElementById("showcaseModal");
+    const modalContent = document.getElementById("showcaseModalContent");
+    const showcaseDataEl = document.getElementById("showcaseData");
+
+    if (!modal || !modalContent || !showcaseDataEl?.textContent) return;
+
+    // Get showcase data from server-rendered data attribute
+    const showcaseData = JSON.parse(showcaseDataEl.textContent);
+
+    showcaseCards.forEach((card) => {
+      // Handle clicks on the card or the expand button
+      card.addEventListener("click", (e) => {
+        const showcaseId = (card as HTMLDivElement).dataset.showcase;
+        if (!showcaseId) return;
+
+        const data = showcaseData[parseInt(showcaseId)];
+        if (data) {
+          modalContent.innerHTML = `
+            <div class="modal-content-wrapper">
+              <button onclick="document.getElementById('showcaseModal')?.classList.remove('active')" 
+                      class="modal-close-btn">×</button>
+              <img src="${data.image}" alt="${data.title}" class="modal-hero-image" />
+              <div class="modal-content-inner">
+                <h2 class="modal-title">${data.title}</h2>
+                <p class="modal-subtitle">${data.subtitle}</p>
+                
+                <div class="modal-grid">
+                  <div class="modal-section">
+                    <h3 class="modal-section-title">The Challenge</h3>
+                    <p class="modal-section-text">${data.challenge}</p>
+                  </div>
+                  <div class="modal-section">
+                    <h3 class="modal-section-title">Our Solution</h3>
+                    <p class="modal-section-text">${data.solution}</p>
+                  </div>
+                </div>
+                
+                <div class="modal-section">
+                  <h3 class="modal-section-title">Results</h3>
+                  <ul class="modal-results-list">
+                    ${data.results.map((result: string) => `<li class="modal-result-item"><span class="modal-result-check">✓</span>${result}</li>`).join("")}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          `;
+          modal.classList.add("active");
+        }
+      });
+    });
+
+    // Close modal on background click
+    if (modal) {
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.remove("active");
+        }
+      });
+    }
+
+    // Close modal on escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal && modal.classList.contains("active")) {
+        modal.classList.remove("active");
+      }
+    });
+  });
+</script>

@@ -1,0 +1,916 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import {
+  Rocket,
+  Lightbulb,
+  Target,
+  Users,
+  CheckCircle,
+  FileText,
+  Sparkles,
+  Zap,
+  Brain,
+  Maximize2,
+} from "@lucide/astro";
+import { getCollection } from "astro:content";
+import { useTranslations } from "../../utils/i18n";
+
+const t = useTranslations("en");
+
+// Get all showcase entries and sort by order
+const showcaseEntries = await getCollection("showcase");
+const sortedShowcases = showcaseEntries.sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Layout>
+  <main>
+    <!-- Big Header -->
+    <header class="hero">
+      <div class="hero-logo">
+        <svg
+          viewBox="0 0 438 659"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M438 397.938V568.152C438 617.858 397.706 658.152 348 658.152H116.44C126.283 628.836 136.001 603.393 145.691 581.093C163.957 539.713 181.234 502.417 226.266 466.035C270.276 430.47 335.548 404.292 404.289 399.103C415.444 398.235 426.69 397.853 438 397.938Z"
+            fill="currentColor"></path>
+          <path
+            d="M235.453 23.6982C256.626 9.48283 298.426 -2.51666 353.144 0.456004C385.3 2.20299 414.432 8.75157 438 17.6132V237.673C422.742 239.099 407.418 240.387 391.998 241.582C311.703 248.289 226.869 249.134 135.412 278.926C88.9598 293.091 41.0413 319.678 0 355.367V190.511C27.3545 212.537 63.2253 223.936 100.847 219.396C174.868 210.465 227.635 143.218 218.703 69.1962C215.173 39.938 223.235 31.9016 235.453 23.6982Z"
+            fill="currentColor"></path>
+        </svg>
+      </div>
+      <h1 style="white-space: pre-line;">{t("hero.title")}</h1>
+      <p class="subtitle">
+        {t("hero.subtitle")}
+      </p>
+    </header>
+
+    <!-- Content Sections - Story Cards Layout -->
+    <section class="content-sections">
+      <!-- 1. Who We Are - Full Width Hero Card -->
+      <div class="story-card story-card-image w-100 video-background">
+        <div class="video-background-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/CDv3bwUVK7Y?autoplay=1&mute=1&loop=1&playlist=CDv3bwUVK7Y&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0&enablejsapi=0&origin=http://localhost:4321&widget_referrer=http://localhost:4321"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            class="video-background-iframe"
+            loading="lazy"
+            style="pointer-events: none;"></iframe>
+        </div>
+        <div class="card-content">
+          <span class="card-eyebrow">{t("whoWeAre.eyebrow")}</span>
+          <h2 class="card-title" style="font-size: 3rem;">
+            {t("whoWeAre.title")}
+          </h2>
+          <p class="card-description">
+            {t("whoWeAre.desc1")}
+          </p>
+          <p class="card-description">
+            {t("whoWeAre.desc2")}
+          </p>
+        </div>
+      </div>
+
+      <!-- 2. Our Process - Three Steps Section -->
+      <div class="steps-section w-100">
+        <div class="steps-header">
+          <span class="card-eyebrow">{t("process.eyebrow")}</span>
+          <h2 class="steps-title">{t("process.title")}</h2>
+          <p class="steps-subtitle">
+            {t("process.subtitle")}
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1: Requirement -->
+          <div class="story-card vertical-impact-card bg-navy">
+            <div class="impact-visual-header">
+              <span class="chalk-word chalk-blue">{t("process.step1.chalk")}</span>
+              <img src="/illustrations/step1.png" alt="Strategic planning illustration" />
+            </div>
+            <div class="impact-content-body">
+              <div class="card-icon-wrapper">
+                <Lightbulb />
+              </div>
+              <span class="card-eyebrow">{t("process.step1.eyebrow")}</span>
+              <h2 class="card-title">{t("process.step1.title")}</h2>
+              <p class="card-description">
+                {t("process.step1.description")}
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2: Refinement -->
+          <div class="story-card vertical-impact-card bg-warm">
+            <div class="impact-visual-header">
+              <span class="chalk-word chalk-rose">{t("process.step2.chalk")}</span>
+              <img src="/illustrations/step2.png" alt="User discovery illustration" />
+            </div>
+            <div class="impact-content-body">
+              <div class="card-icon-wrapper">
+                <Users />
+              </div>
+              <span class="card-eyebrow">{t("process.step2.eyebrow")}</span>
+              <h2 class="card-title">{t("process.step2.title")}</h2>
+              <p class="card-description">
+                {t("process.step2.description")}
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3: Deliverables -->
+          <div class="story-card vertical-impact-card bg-forest">
+            <div class="impact-visual-header">
+              <span class="chalk-word chalk-green">{t("process.step3.chalk")}</span>
+              <img src="/illustrations/step3.png" alt="Product deliverables illustration" />
+            </div>
+            <div class="impact-content-body">
+              <div class="card-icon-wrapper">
+                <FileText />
+              </div>
+              <span class="card-eyebrow">{t("process.step3.eyebrow")}</span>
+              <h2 class="card-title">{t("process.step3.title")}</h2>
+              <p class="card-description">
+                {t("process.step3.description")}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Product Concepts - Split Card -->
+      <div class="story-card story-card-split w-50 bg-sunset">
+        <div class="card-content-section">
+          <div class="card-icon-wrapper">
+            <Lightbulb />
+          </div>
+          <span class="card-eyebrow">{t("deliverables.d1.eyebrow")}</span>
+          <h2 class="card-title">{t("deliverables.d1.title")}</h2>
+          <p class="card-description">
+            {t("deliverables.d1.description")}
+          </p>
+        </div>
+        <div class="card-image-section">
+          <img
+            src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?crop=entropy&cs=srgb&fm=jpg&q=85"
+            alt="Design prototypes on screens - Photo by UX Store on Unsplash"
+          />
+        </div>
+      </div>
+
+      <!-- 7. PRD - Split Card Reversed -->
+      <div class="story-card story-card-split w-50 bg-cool">
+        <div class="card-image-section">
+          <img
+            src="https://images.pexels.com/photos/7947636/pexels-photo-7947636.jpeg"
+            alt="Product requirement documents - Photo by RDNE Stock project on Pexels"
+          />
+        </div>
+        <div class="card-content-section">
+          <div class="card-icon-wrapper">
+            <FileText />
+          </div>
+          <span class="card-eyebrow">{t("deliverables.d2.eyebrow")}</span>
+          <h2 class="card-title">{t("deliverables.d2.title")}</h2>
+          <p class="card-description">
+            {t("deliverables.d2.description")}
+          </p>
+        </div>
+      </div>
+
+      <!-- 8. What Makes Apps Usable - Full Width -->
+      <div
+        class="story-card story-card-image w-100"
+        style="background-image: url('https://images.unsplash.com/photo-1663408319620-3551f425c81e?crop=entropy&cs=srgb&fm=jpg&q=85'); min-height: 500px;"
+      >
+        <div class="card-content">
+          <span class="card-eyebrow">{t("philosophy.eyebrow")}</span>
+          <h2 class="card-title">{t("philosophy.title")}</h2>
+          <div class="use-cases-grid">
+            <div class="use-case-item">
+              <h4>
+                <CheckCircle
+                  style="width: 20px; height: 20px; display: inline; margin-right: 8px;"
+                />{t("philosophy.hierarchy.title")}
+              </h4>
+              <p>{t("philosophy.hierarchy.desc")}</p>
+            </div>
+            <div class="use-case-item">
+              <h4>
+                <CheckCircle
+                  style="width: 20px; height: 20px; display: inline; margin-right: 8px;"
+                />{t("philosophy.flow.title")}
+              </h4>
+              <p>{t("philosophy.flow.desc")}</p>
+            </div>
+            <div class="use-case-item">
+              <h4>
+                <CheckCircle
+                  style="width: 20px; height: 20px; display: inline; margin-right: 8px;"
+                />{t("philosophy.language.title")}
+              </h4>
+              <p>{t("philosophy.language.desc")}</p>
+            </div>
+            <div class="use-case-item">
+              <h4>
+                <CheckCircle
+                  style="width: 20px; height: 20px; display: inline; margin-right: 8px;"
+                />{t("philosophy.tested.title")}
+              </h4>
+              <p>{t("philosophy.tested.desc")}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. AI-Assisted Workflow - Full Width Special Card -->
+      <div
+        class="story-card story-card-split w-100 bg-fire"
+        style="min-height: 500px;"
+      >
+        <div class="card-content-section">
+          <div class="card-icon-wrapper">
+            <Brain />
+          </div>
+          <span class="card-eyebrow">{t("methodology.eyebrow")}</span>
+          <h2 class="card-title">{t("methodology.title")}</h2>
+          <p class="card-description">
+            {t("methodology.desc1")}
+          </p>
+          <p class="card-description">
+            {t("methodology.desc2")}
+          </p>
+          <div class="ai-workflow">
+            <div class="workflow-step">
+              <strong>{t("methodology.step1")}</strong>
+              <span>{t("methodology.step1_desc")}</span>
+            </div>
+            <div class="workflow-step">
+              <strong>{t("methodology.step2")}</strong>
+              <span>{t("methodology.step2_desc")}</span>
+            </div>
+            <div class="workflow-step">
+              <strong>{t("methodology.step3")}</strong>
+              <span>{t("methodology.step3_desc")}</span>
+            </div>
+            <div class="workflow-step">
+              <strong>{t("methodology.step4")}</strong>
+              <span>{t("methodology.step4_desc")}</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-image-section">
+          <img
+            src="https://images.unsplash.com/photo-1580982330720-bd5e0fed108b?crop=entropy&cs=srgb&fm=jpg&q=85"
+            alt="Design team reviewing prototypes - Photo by ThisisEngineering on Unsplash"
+          />
+        </div>
+      </div>
+
+      <!-- 10. Showcase Section - Unique Expandable Cards -->
+      <div class="showcase-section w-100">
+        <div class="showcase-header">
+          <span class="card-eyebrow">{t("showcase.eyebrow")}</span>
+          <h2 class="showcase-title">{t("showcase.title")}</h2>
+          <p class="showcase-subtitle">
+            {t("showcase.subtitle")}
+          </p>
+        </div>
+
+        <div class="showcase-grid">
+          {
+            sortedShowcases.map((showcase, index) => (
+              <div class="showcase-card" data-showcase={index}>
+                <div class="showcase-card-preview">
+                  <img src={showcase.data.image} alt={showcase.data.title} />
+                  <div class="showcase-overlay">
+                    <h3>{showcase.data.title}</h3>
+                    <p>{showcase.data.subtitle}</p>
+                    <button type="button" class="expand-btn">
+                      <Maximize2 />
+                      <span>{t("showcase.cta")}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- 11. Our Approach - Three Cards -->
+      <div class="story-card story-card-icon-header w-33 bg-navy">
+        <div class="card-icon-wrapper">
+          <Rocket />
+        </div>
+        <span class="card-eyebrow">{t("approach.title")}</span>
+        <h3 class="card-title">{t("approach.title")}</h3>
+        <p class="card-description">
+          {t("approach.desc")}
+        </p>
+      </div>
+
+      <div class="story-card story-card-icon-header w-33 bg-night">
+        <div class="card-icon-wrapper">
+          <Target />
+        </div>
+        <span class="card-eyebrow">{t("promise.title")}</span>
+        <h3 class="card-title">{t("promise.title")}</h3>
+        <p class="card-description">
+          {t("promise.desc")}
+        </p>
+      </div>
+
+      <div class="story-card story-card-icon-header w-33 bg-sky">
+        <div class="card-icon-wrapper">
+          <Sparkles />
+        </div>
+        <span class="card-eyebrow">{t("focus.title")}</span>
+        <h3 class="card-title">{t("focus.title")}</h3>
+        <p class="card-description">
+          {t("focus.desc")}
+        </p>
+      </div>
+
+      <!-- 12. Get Started - Full Width CTA -->
+      <div
+        class="story-card story-card-split w-100 bg-sunset"
+        style="min-height: 500px;"
+      >
+        <div class="card-content-section">
+          <span class="card-eyebrow" style="color: var(--color-accent-gold);"
+            >{t("getStarted.eyebrow")}</span
+          >
+          <h2 class="card-title">{t("getStarted.title")}</h2>
+          <p class="card-description">
+            {t("getStarted.desc")}
+          </p>
+          <div class="meeting-details">
+            <div class="meeting">
+              <strong>{t("getStarted.session1")}</strong>
+              <span
+                >{t("getStarted.session1_desc")}</span
+              >
+            </div>
+            <div class="meeting">
+              <strong>{t("getStarted.session2")}</strong>
+              <span
+                >{t("getStarted.session2_desc")}</span
+              >
+            </div>
+          </div>
+          <a href="#" class="card-cta">{t("getStarted.cta")}</a>
+        </div>
+        <div class="card-image-section">
+          <img
+            src="https://images.pexels.com/photos/8000652/pexels-photo-8000652.jpeg"
+            alt="Designer presenting concept - Photo by Pavel Danilyuk on Pexels"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Card - Outside flex for height anomaly -->
+    <div class="block-card-wrapper">
+      <div class="business-card">
+        <!-- Front -->
+        <div class="card-face card-front">
+          <div class="card-front-content">
+            <div class="card-person">
+              <h3 class="card-company">{t("site.title")}</h3>
+              <p class="card-tagline">{t("site.tagline")}</p>
+            </div>
+            <div class="card-contact-info">
+              <p>+66 61 831 7773</p>
+              <p>usableapp.co@gmail.com</p>
+              <p class="card-address" style="white-space: pre-line;">{t("contact.address")}</p>
+            </div>
+            <div class="card-bottom">
+              <span class="card-line"></span>
+              <svg
+                class="card-logo-small-svg"
+                viewBox="0 0 438 659"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M438 397.938V568.152C438 617.858 397.706 658.152 348 658.152H116.44C126.283 628.836 136.001 603.393 145.691 581.093C163.957 539.713 181.234 502.417 226.266 466.035C270.276 430.47 335.548 404.292 404.289 399.103C415.444 398.235 426.69 397.853 438 397.938Z"
+                  fill="currentColor"></path>
+                <path
+                  d="M235.453 23.6982C256.626 9.48283 298.426 -2.51666 353.144 0.456004C385.3 2.20299 414.432 8.75157 438 17.6132V237.673C422.742 239.099 407.418 240.387 391.998 241.582C311.703 248.289 226.869 249.134 135.412 278.926C88.9598 293.091 41.0413 319.678 0 355.367V190.511C27.3545 212.537 63.2253 223.936 100.847 219.396C174.868 210.465 227.635 143.218 218.703 69.1962C215.173 39.938 223.235 31.9016 235.453 23.6982Z"
+                  fill="currentColor"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!-- Back -->
+        <div class="card-face card-back">
+          <div class="card-back-content">
+            <svg
+              class="card-back-logo"
+              viewBox="0 0 438 659"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M438 397.938V568.152C438 617.858 397.706 658.152 348 658.152H116.44C126.283 628.836 136.001 603.393 145.691 581.093C163.957 539.713 181.234 502.417 226.266 466.035C270.276 430.47 335.548 404.292 404.289 399.103C415.444 398.235 426.69 397.853 438 397.938Z"
+                fill="currentColor"></path>
+              <path
+                d="M235.453 23.6982C256.626 9.48283 298.426 -2.51666 353.144 0.456004C385.3 2.20299 414.432 8.75157 438 17.6132V237.673C422.742 239.099 407.418 240.387 391.998 241.582C311.703 248.289 226.869 249.134 135.412 278.926C88.9598 293.091 41.0413 319.678 0 355.367V190.511C27.3545 212.537 63.2253 223.936 100.847 219.396C174.868 210.465 227.635 143.218 218.703 69.1962C215.173 39.938 223.235 31.9016 235.453 23.6982Z"
+                fill="currentColor"></path>
+            </svg>
+            <span class="card-back-name">{t("site.title")}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>{t("site.title")} &copy; {new Date().getFullYear()}</p>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-lg);
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: var(--space-4xl) var(--space-xl);
+  }
+
+  .hero-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero-logo svg {
+    width: 60px;
+    height: auto;
+    color: var(--color-navy);
+  }
+
+  .hero h1 {
+    font-size: clamp(var(--text-4xl), 8vw, var(--text-6xl));
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero .accent {
+    color: var(--color-accent);
+  }
+
+  .subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-light);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* Content Sections Container */
+  .content-sections {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--space-md);
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Section Block Base */
+  .section-block {
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    cursor: pointer;
+    transition:
+      filter var(--transition-base),
+      transform var(--transition-base);
+    position: relative;
+    overflow: hidden; /* Ensure images stay within curve */
+  }
+
+  .section-block:hover {
+    filter: brightness(0.97) saturate(1.1) sepia(0.05);
+  }
+
+  /* Card styling */
+  .section-block.card {
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .section-block.card:hover {
+    filter: none;
+  }
+
+  /* Standalone card styling */
+  .card {
+    border-radius: 4px;
+  }
+
+  .card:hover {
+    filter: none;
+  }
+
+  /* 2-Column Layout */
+  .block-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  .section-content {
+    display: flex;
+    flex-direction: column;
+    z-index: 2; /* Ensure content is above background images if any */
+  }
+
+  .section-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+
+  .section-visual i {
+    font-size: 8rem;
+    color: var(--color-navy);
+    opacity: 0.15;
+  }
+
+  .section-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-base);
+  }
+
+  .section-block:hover .section-visual img {
+    transform: scale(1.02);
+  }
+
+  /* Ribbon Line Styles */
+  .ribbon-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ribbon-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(
+      90deg,
+      var(--color-accent),
+      var(--color-vibrant-magenta)
+    );
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+  }
+
+  .use-case-item {
+    background: rgba(255, 255, 255, 0.7);
+    padding: var(--space-md);
+    border-radius: var(--radius-sm);
+  }
+
+  .use-case-item h4 {
+    color: var(--color-navy);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-xs);
+    font-weight: 700;
+  }
+
+  .use-case-item p {
+    color: var(--color-text-light);
+    font-size: var(--text-sm);
+    line-height: 1.4;
+  }
+
+  /* Meeting Details */
+  .meeting-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+  }
+
+  .meeting {
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .meeting strong {
+    display: block;
+    color: var(--color-accent-gold);
+    margin-bottom: var(--space-xs);
+  }
+
+  .meeting span {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: var(--text-sm);
+  }
+
+  /* Utilities */
+  .mt-4 {
+    margin-top: var(--space-md);
+  }
+
+  /* New Card Classes */
+  /* Re-using existing classes or defining new ones if needed. 
+     Using 'card-vision', 'card-community', etc for potential specific styling in future.
+     For now, relying on helper classes from global.css BUT I need to map them if they don't exist in global.
+  */
+
+  /* 
+     Since I used new class names like card-vision, card-community in HTML, 
+     I should add basic styling map to existing global styles if I can't touch global.css.
+     However, standard .card class gives base style. 
+     I will add specific gradients here to ensure they look distinct as requested ("varied").
+  */
+
+  .card-vision {
+    background: linear-gradient(135deg, #1a1f2c 0%, #2e3a59 100%);
+    color: var(--color-white);
+  }
+  .card-vision .block-title {
+    color: var(--color-white);
+  }
+  .card-vision .block-text {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .card-community {
+    background: linear-gradient(135deg, #e6d5b8 0%, #f0ede7 100%);
+    color: var(--color-navy);
+  }
+
+  .card-validation {
+    background: linear-gradient(
+      135deg,
+      #2d3a55 0%,
+      #405070 100%
+    ); /* Darkened for AA Contrast */
+    color: var(--color-white);
+  }
+  .card-validation .block-title {
+    color: var(--color-white);
+  }
+  .card-validation .block-text {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .card-deliverables {
+    background: linear-gradient(135deg, #ffb703 0%, #ffd700 100%);
+    color: var(--color-navy);
+  }
+
+  .card-process {
+    /* Same as old step-01 maybe? */
+    background: linear-gradient(
+      135deg,
+      #a65d2e 0%,
+      #b86e3d 100%
+    ); /* Darkened for AA Contrast */
+    color: var(--color-white);
+  }
+  .card-process .block-title {
+    color: var(--color-white);
+  }
+  .card-process .block-text {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .card-investment {
+    background: linear-gradient(
+      135deg,
+      #9c5b52 0%,
+      #ad6c63 100%
+    ); /* Darkened for AA Contrast */
+    color: var(--color-white);
+  }
+  .card-investment .block-title {
+    color: var(--color-white);
+  }
+  .card-investment .block-text {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .card-methodology-new {
+    background: linear-gradient(
+      135deg,
+      #5e4170 0%,
+      #6e5180 100%
+    ); /* Darkened for AA Contrast */
+    color: var(--color-white);
+  }
+  .card-methodology-new .block-title {
+    color: var(--color-white);
+  }
+  .card-methodology-new .block-text {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .card-usecases {
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+    color: var(--color-navy);
+  }
+
+  /* Legacy Block Base for compatibility */
+  .block {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition:
+      filter var(--transition-base),
+      transform var(--transition-base);
+  }
+
+  .block:hover {
+    filter: brightness(0.97) saturate(1.1) sepia(0.05);
+  }
+
+  /* Expanded Block Overlay */
+  .block-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity var(--transition-base),
+      visibility var(--transition-base);
+  }
+
+  .block-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .block-expanded {
+    position: fixed;
+    top: var(--space-5xl);
+    bottom: var(--space-5xl);
+    left: var(--space-md);
+    right: var(--space-md);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9);
+    transition:
+      opacity var(--transition-base),
+      visibility var(--transition-base),
+      transform var(--transition-base);
+    overflow: hidden;
+    border: none;
+    outline: none;
+    box-shadow: var(--shadow-md);
+  }
+
+  .block-expanded.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  .block-expanded .block-expanded-content {
+    padding: var(--space-2xl);
+    height: 100%;
+  }
+
+  .block-expanded .block-icon {
+    font-size: 12rem;
+    opacity: 0.04;
+  }
+
+  /* Width variants */
+  .w-20 {
+    flex: 1 1 calc(20% - var(--space-md));
+  }
+  .w-25 {
+    flex: 1 1 calc(25% - var(--space-md));
+  }
+  .w-30 {
+    flex: 1 1 calc(30% - var(--space-md));
+  }
+  .w-33 {
+    flex: 1 1 calc(33.333% - var(--space-md));
+  }
+  .w-40 {
+    flex: 1 1 calc(40% - var(--space-md));
+  }
+  .w-50 {
+    flex: 1 1 calc(50% - var(--space-md));
+  }
+  .w-60 {
+    flex: 1 1 calc(60% - var(--space-md));
+  }
+  .w-100 {
+    flex: 1 1 100%;
+  }
+
+  /* Block dark */
+  .block-dark {
+    background: var(--color-navy);
+    color: var(--color-white);
+  }
+
+  .block-dark .block-label {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .block-dark .block-title {
+    color: var(--color-white);
+  }
+
+  .block-dark .block-text {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .block-dark .block-icon {
+    color: var(--color-white);
+    opacity: 0.1;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: var(--color-navy);
+    color: var(--color-white);
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: var(--text-base);
+    transition: transform var(--transition-base);
+  }
+
+  .cta-button:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 900px) {
+    .block-2col {
+      grid-template-columns: 1fr;
+    }
+
+    .w-20,
+    .w-25,
+    .w-30,
+    .w-33,
+    .w-40,
+    .w-50,
+    .w-60 {
+      flex: 1 1 100%;
+    }
+
+    .hero {
+      padding: var(--space-4xl) var(--space-lg);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .block-expanded {
+      top: var(--space-xl);
+      bottom: var(--space-xl);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // We can handle showcase modal here if needed later
+    // For now we rely on the direct link if it's already there or we can add expand logic
+  });
+</script>
