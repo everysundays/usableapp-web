@@ -1,3 +1,11 @@
+---
+tags:
+  - project/usableapp-web
+project: usableapp-web
+related:
+  - "[[_wiki/projects/usableapp-web]]"
+---
+
 # Astro Starter Kit: Minimal
 
 ```sh
@@ -41,3 +49,7 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+---
+
+<i class="fa-solid fa-book"></i> Wiki: [[_wiki/projects/usableapp-web|Usableapp Web Wiki Entry]]
