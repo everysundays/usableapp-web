@@ -1,5 +1,5 @@
 ---
-import Hero from '../components/sections/Hero.astro';
+import HeroSection from '../components/sections/Hero.astro';
 import type { HeroProps } from '../types';
 
 const en: HeroProps = {
@@ -19,5 +19,5 @@ const th: HeroProps = {
 };
 ---
 
-<div id="hero" lang="en"><Hero {...en} /></div>
-<div lang="th"><Hero {...th} /></div>
+<div id="hero" lang="en"><HeroSection {...en} /></div>
+<div lang="th"><HeroSection {...th} /></div>

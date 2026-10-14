@@ -1,5 +1,5 @@
 ---
-import MediaSplit from '../components/sections/MediaSplit.astro';
+import MediaSplitSection from '../components/sections/MediaSplit.astro';
 import type { MediaSplitProps } from '../types';
 
 const video: MediaSplitProps['media'] = { kind: 'video', src: '/kit/sample.mp4' };
@@ -75,7 +75,7 @@ const splits: { lang: 'th' | 'en'; props: MediaSplitProps }[] = [
 <div id="media-split">
   {splits.map(({ lang, props }) => (
     <div lang={lang}>
-      <MediaSplit {...props} />
+      <MediaSplitSection {...props} />
     </div>
   ))}
 </div>

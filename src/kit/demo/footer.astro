@@ -1,5 +1,5 @@
 ---
-import Footer from '../components/Footer.astro';
+import FooterComponent from '../components/Footer.astro';
 import type { FooterSpec } from '../types';
 
 export const footer: FooterSpec = {
@@ -79,5 +79,5 @@ export const footer: FooterSpec = {
 ---
 
 <div id="footer">
-  <Footer {...footer} />
+  <FooterComponent {...footer} />
 </div>

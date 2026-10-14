@@ -1,5 +1,5 @@
 ---
-import Genre from '../components/sections/Genre.astro';
+import GenreSection from '../components/sections/Genre.astro';
 import type { GenreProps, ImageMedia } from '../types';
 
 const step = (n: 1 | 2 | 3): ImageMedia => ({
@@ -30,9 +30,9 @@ const itemsTh: GenreProps['items'] = [
 
 <div id="genre">
   <div lang="en">
-    <Genre id="capabilities" kicker="Capabilities" {items} />
+    <GenreSection id="capabilities" kicker="Capabilities" {items} />
   </div>
   <div lang="th">
-    <Genre kicker="ทำอะไรได้บ้าง" items={itemsTh} initial={0} />
+    <GenreSection kicker="ทำอะไรได้บ้าง" items={itemsTh} initial={0} />
   </div>
 </div>

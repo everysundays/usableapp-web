@@ -1,5 +1,5 @@
 ---
-import Nav from '../components/Nav.astro';
+import NavComponent from '../components/Nav.astro';
 import type { NavSpec } from '../types';
 
 export const nav: NavSpec = {
@@ -52,12 +52,12 @@ export const nav: NavSpec = {
 
 <div id="nav" class="kn-demo-nav">
   <div class="kn-demo-nav-frame">
-    <Nav {...nav} />
+    <NavComponent {...nav} />
   </div>
 
   <p class="kn-demo-label">mobile panel open (visible at ≤900px; the details is held open by a demo-only class)</p>
   <div class="kn-demo-nav-frame kn-demo-nav-frame--open">
-    <Nav {...nav} />
+    <NavComponent {...nav} />
   </div>
 </div>
 
