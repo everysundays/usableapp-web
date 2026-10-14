@@ -123,3 +123,17 @@
   --kn-mstep-border: rgba(7, 61, 40, 0.12);
   --kn-mstep-copy: #3c5a4b;
 }
+
+/* W2: Hero, Rail, Inbox and Final values from 02 that no earlier token covered. */
+:root {
+  --kn-on-dark-muted: rgba(255, 255, 255, 0.72);
+  --kn-card-border: 2px solid rgba(7, 61, 40, 0.12);
+  --kn-rail-nav-bg: #07170f;
+  --kn-r-card-media: 26px;
+  --kn-r-inbox-visual: 28px;
+  --kn-r-section-top-mobile: 38px;
+  --kn-drop-shadow-art: drop-shadow(0 30px 35px rgba(7, 61, 40, 0.18));
+  --kn-dur-slow: 0.55s;
+  --kn-dur-slower: 0.75s;
+  --kn-dur-rise: 0.9s;
+}

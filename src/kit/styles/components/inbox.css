@@ -1,1 +1,78 @@
-/* inbox: owned by W2. Imported into layer(components) by main.css. */
+/* Inbox (hr-inbox-section): a dark rounded panel split .37/.63, copy left, white media frame right. */
+.kn-inbox {
+  padding: 72px max(3vw, 20px) 100px;
+  background: var(--kn-section-2);
+}
+
+.kn-inbox__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.37fr) minmax(0, 0.63fr);
+  align-items: center;
+  gap: clamp(28px, 4vw, 80px);
+  max-width: 1800px;
+  min-height: 640px;
+  margin: auto;
+  padding: clamp(36px, 4vw, 76px);
+  border-radius: var(--kn-r-xl);
+  background: var(--kn-dark);
+  color: var(--kn-white);
+  overflow: hidden;
+}
+
+.kn-inbox__copy {
+  max-width: 600px;
+}
+
+.kn-inbox__kicker {
+  margin: 0 0 28px;
+  color: var(--kn-on-dark-muted);
+}
+
+.kn-inbox__heading {
+  font-size: clamp(48px, 5.2vw, 96px);
+  line-height: 0.97;
+}
+
+/* Same reason as the :lang(th) overrides in typography.css: stacked Thai vowels need the taller leading. */
+.kn-inbox__heading:lang(th) {
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.kn-inbox__visual {
+  border-radius: var(--kn-r-inbox-visual);
+  overflow: hidden;
+  background: var(--kn-white);
+}
+
+.kn-inbox__img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  .kn-inbox__panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .kn-inbox {
+    padding: 28px 14px 56px;
+  }
+
+  .kn-inbox__panel {
+    gap: 22px;
+    padding: 26px 20px;
+    border-radius: 26px;
+  }
+
+  .kn-inbox__heading {
+    font-size: clamp(30px, 8.5vw, 42px);
+    line-height: 1.05;
+  }
+
+  .kn-inbox__visual {
+    border-radius: 18px;
+  }
+}

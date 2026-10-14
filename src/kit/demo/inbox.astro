@@ -1,5 +1,13 @@
 ---
-// W2 replaces this stub with the inbox demo.
+import Inbox from '../components/sections/Inbox.astro';
+import type { InboxProps } from '../types';
+
+const inbox: InboxProps = {
+  kicker: 'One inbox',
+  heading: 'Every knock from every channel, in one place.',
+  cta: { label: 'See the inbox', href: '#' },
+  image: { kind: 'image', src: '/walk-thailand-market.jpg', alt: 'Inbox mockup placeholder', width: 2000, height: 1500 },
+};
 ---
 
-<div id="inbox" class="kn-demo-stub">stub: inbox</div>
+<div id="inbox" lang="en"><Inbox {...inbox} /></div>

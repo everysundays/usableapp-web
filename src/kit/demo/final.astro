@@ -1,5 +1,12 @@
 ---
-// W2 replaces this stub with the final demo.
+import Final from '../components/sections/Final.astro';
+import type { FinalProps } from '../types';
+
+const final: FinalProps = {
+  kicker: 'เริ่มต้นได้เลยวันนี้',
+  heading: 'เปิดรับการเคาะแรกของคุณ',
+  cta: { label: 'เริ่มใช้ฟรี', href: '#' },
+};
 ---
 
-<div id="final" class="kn-demo-stub">stub: final</div>
+<div id="final" lang="th"><Final {...final} /></div>

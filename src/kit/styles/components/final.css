@@ -1,1 +1,30 @@
-/* final: owned by W2. Imported into layer(components) by main.css. */
+/* Final (hr-final): the closing dark block with rounded top corners and a centered display heading. */
+.kn-final {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 72vh;
+  padding: 100px 24px;
+  border-radius: var(--kn-r-section-top) var(--kn-r-section-top) 0 0;
+  background: var(--kn-ink);
+  color: var(--kn-white);
+  text-align: center;
+}
+
+.kn-final__heading {
+  max-width: 1100px;
+  margin: 20px 0 42px;
+}
+
+@media (max-width: 720px) {
+  .kn-final {
+    min-height: 0;
+    padding: 72px 22px;
+    border-radius: var(--kn-r-section-top-mobile) var(--kn-r-section-top-mobile) 0 0;
+  }
+
+  .kn-final__heading {
+    margin: 14px 0 30px;
+  }
+}

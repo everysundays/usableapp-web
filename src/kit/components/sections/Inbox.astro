@@ -1,8 +1,29 @@
 ---
-// W2 replaces this stub. Props: InboxProps from ../../types.
 import type { InboxProps } from '../../types';
+import Button from '../Button.astro';
 
 export type Props = InboxProps;
+
+const { id, kicker, heading, cta, image } = Astro.props;
 ---
 
-<section data-kn-section="inbox" class="kn-inbox"><p>stub: inbox</p></section>
+<section data-kn-section="inbox" class="kn-inbox" {id}>
+  <div class="kn-inbox__panel">
+    <div class="kn-inbox__copy">
+      <p class="kn-inbox__kicker kn-kicker">{kicker}</p>
+      <h2 class="kn-inbox__heading">{heading}</h2>
+      <Button variant="section-light" label={cta.label} href={cta.href} external={cta.external} />
+    </div>
+    <figure class="kn-inbox__visual">
+      <img
+        class="kn-inbox__img"
+        src={image.src}
+        alt={image.alt}
+        width={image.width}
+        height={image.height}
+        loading={image.loading ?? 'lazy'}
+        decoding="async"
+      />
+    </figure>
+  </div>
+</section>

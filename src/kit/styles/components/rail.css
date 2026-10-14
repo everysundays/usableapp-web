@@ -1,1 +1,268 @@
-/* rail: owned by W2. Imported into layer(components) by main.css. */
+/*
+ * Rail (hr-rail-section): a CSS scroll-snap carousel of tilted product cards.
+ * Drag mode is a state the motion layer sets with .kn-rail--drag; the viewport
+ * and track read it through private properties, so no selector nests.
+ */
+.kn-rail {
+  --_viewport-overflow: auto;
+  --_viewport-cursor: auto;
+  --_track-touch: auto;
+  --_track-select: auto;
+  --_track-will-change: auto;
+
+  padding: 140px 0;
+  background: var(--kn-white);
+}
+
+.kn-rail--drag {
+  --_viewport-overflow: hidden;
+  --_viewport-cursor: grab;
+  --_track-touch: pan-y;
+  --_track-select: none;
+  --_track-will-change: transform;
+}
+
+.kn-rail__nav {
+  display: flex;
+  gap: 10px;
+}
+
+.kn-rail__btn {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: var(--kn-rail-nav-bg);
+  color: var(--kn-white);
+  font-size: 26px;
+  transition: transform var(--kn-dur) ease;
+}
+
+.kn-rail__btn:hover {
+  transform: scale(1.08);
+}
+
+/* The max-content track must never size the page: inline-size containment zeroes the viewport's intrinsic width. */
+.kn-rail__viewport {
+  contain: inline-size;
+  overflow-x: var(--_viewport-overflow);
+  overflow-y: hidden;
+  cursor: var(--_viewport-cursor);
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 8vw;
+  scrollbar-width: none;
+}
+
+.kn-rail__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.kn-rail__track {
+  display: flex;
+  gap: 36px;
+  width: max-content;
+  padding: 20px 8vw 50px;
+  touch-action: var(--_track-touch);
+  user-select: var(--_track-select);
+  will-change: var(--_track-will-change);
+}
+
+.kn-card {
+  --kn-card-r: -1deg;
+
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 18px;
+  width: clamp(390px, 36vw, 560px);
+  min-height: 730px;
+  padding: 22px;
+  border: var(--kn-card-border);
+  border-radius: var(--kn-r-card);
+  overflow: hidden;
+  color: var(--kn-dark);
+  box-shadow: var(--kn-shadow-card-rest);
+  transform: rotate(var(--kn-card-r));
+  scroll-snap-align: start;
+  transition:
+    transform var(--kn-dur-slow) var(--kn-ease-settle),
+    box-shadow var(--kn-dur-slow) ease;
+}
+
+.kn-card:nth-child(3n + 2) {
+  --kn-card-r: 1.5deg;
+}
+
+.kn-card:nth-child(3n) {
+  --kn-card-r: -1.2deg;
+}
+
+.kn-card:hover,
+.kn-card:focus-visible {
+  transform: rotate(0) translateY(-24px) scale(1.012);
+  box-shadow: var(--kn-shadow-card-hover);
+}
+
+.kn-card--lime {
+  background: var(--kn-lime);
+}
+
+.kn-card--mint {
+  background: var(--kn-mint);
+}
+
+.kn-card--forest {
+  background: var(--kn-green);
+}
+
+.kn-card__media {
+  order: 1;
+  width: 100%;
+  height: 455px;
+  border-radius: var(--kn-r-card-media);
+  overflow: hidden;
+  background: var(--kn-white);
+}
+
+.kn-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform var(--kn-dur-slower) var(--kn-ease-settle);
+}
+
+.kn-card:hover .kn-card__img {
+  transform: scale(1.035);
+}
+
+.kn-card__copy {
+  order: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 8px 8px;
+}
+
+.kn-card__index {
+  font-weight: 900;
+}
+
+.kn-card__title {
+  margin-top: 18px;
+}
+
+.kn-card__desc {
+  margin: 12px 0 16px;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.kn-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: auto;
+  padding: 14px 14px 14px 20px;
+  border-radius: var(--kn-r-btn);
+  background: var(--kn-dark);
+  color: var(--kn-white);
+  font-weight: 850;
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--kn-dur-slow) ease,
+    transform var(--kn-dur-slow) var(--kn-ease-settle);
+}
+
+.kn-card:hover .kn-card__cta,
+.kn-card:focus-visible .kn-card__cta {
+  opacity: 1;
+  transform: none;
+}
+
+.kn-card__cta-chip {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  background: var(--kn-lime);
+  color: var(--kn-dark);
+}
+
+@media (max-width: 800px) {
+  .kn-card {
+    width: 88vw;
+    min-height: 660px;
+  }
+
+  .kn-card__media {
+    height: 360px;
+  }
+
+  .kn-card__title {
+    font-size: 44px;
+  }
+
+  /* No hover on touch: the cta is always visible. */
+  .kn-card__cta {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .kn-rail {
+    padding: 64px 0 72px;
+  }
+
+  .kn-rail__viewport {
+    scroll-padding-inline: 16px;
+  }
+
+  .kn-rail__track {
+    gap: 16px;
+    padding: 8px 16px 30px;
+  }
+
+  .kn-card {
+    gap: 14px;
+    width: 82vw;
+    min-height: 0;
+    padding: 16px;
+    transform: none;
+  }
+
+  .kn-card__media {
+    height: 210px;
+  }
+
+  .kn-card__title {
+    font-size: 32px;
+  }
+
+  .kn-card__desc {
+    font-size: 15px;
+  }
+
+  .kn-card__cta {
+    padding: 11px 12px 11px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kn-card {
+    width: 86vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kn-rail__btn,
+  .kn-card,
+  .kn-card__img,
+  .kn-card__cta {
+    transition: none;
+  }
+}
