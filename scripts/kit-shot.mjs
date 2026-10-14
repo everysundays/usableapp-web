@@ -80,17 +80,9 @@ try {
   if (mobile) await send('Emulation.setTouchEmulationEnabled', { enabled: true, maxTouchPoints: 5 });
   await send('Page.navigate', { url });
   await sleep(waitMs);
-  const { contentSize } = await send('Page.getLayoutMetrics');
-  const fullHeight = Math.ceil(contentSize.height);
-  await send('Emulation.setDeviceMetricsOverride', {
-    width,
-    height: fullHeight,
-    deviceScaleFactor: 1,
-    mobile,
-    screenWidth: width,
-    screenHeight: fullHeight,
-  });
-  await sleep(300);
+  const { cssContentSize, contentSize } = await send('Page.getLayoutMetrics');
+  const fullHeight = Math.ceil((cssContentSize ?? contentSize).height);
+  // The viewport stays at `height` so vh/svh sections keep their size; the clip reaches past it.
   const { data } = await send('Page.captureScreenshot', {
     format: 'png',
     captureBeyondViewport: true,
