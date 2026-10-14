@@ -98,3 +98,28 @@
   --kn-hero-cta-height-mobile: 62px;
   --kn-hero-cta-width: 250px;
 }
+
+/* W3: MediaSplit, Steps and Genre values from 02 that no earlier token covered. */
+:root {
+  --kn-shadow-media-feature: 0 35px 75px rgba(7, 61, 40, 0.22);
+  --kn-shadow-frame: 0 30px 60px rgba(7, 61, 40, 0.22);
+  --kn-genre-ink: #07150e;
+
+  --kn-step-bg-1: #78d9d1;
+  --kn-step-bg-2: #e3b1dd;
+  --kn-step-bg-3: #f7d86f;
+  --kn-step-bg-4: #ada1df;
+  --kn-step-bg-5: #9bddad;
+  --kn-step-chip-1: #09281c;
+  --kn-step-chip-2: #1e7a4d;
+  --kn-step-chip-3: #0f5a38;
+  --kn-step-chip-4: #2a8c5a;
+  --kn-step-border: rgba(7, 35, 27, 0.18);
+  --kn-step-border-hover: rgba(7, 61, 40, 0.28);
+  --kn-shadow-step: 0 18px 30px rgba(30, 40, 45, 0.09);
+  --kn-shadow-step-hover: 0 34px 58px rgba(7, 61, 40, 0.2);
+  --kn-blob: rgba(255, 255, 255, 0.42);
+  --kn-mstep-bg: rgba(255, 255, 255, 0.72);
+  --kn-mstep-border: rgba(7, 61, 40, 0.12);
+  --kn-mstep-copy: #3c5a4b;
+}

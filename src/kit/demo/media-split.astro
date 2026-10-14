@@ -1,5 +1,81 @@
 ---
-// W3 replaces this stub with the media-split demo.
+import MediaSplit from '../components/sections/MediaSplit.astro';
+import type { MediaSplitProps } from '../types';
+
+const video: MediaSplitProps['media'] = { kind: 'video', src: '/kit/sample.mp4' };
+
+/** The original's five instances in page order: web, contact (reversed), telegram, ai (reversed), mobile (reversed). */
+const splits: { lang: 'th' | 'en'; props: MediaSplitProps }[] = [
+  {
+    lang: 'th',
+    props: {
+      kicker: 'เว็บวิดเจ็ต',
+      heading: ['ติดตั้งแชทบนเว็บ', 'ภายในห้านาที'],
+      body: 'วางสคริปต์หนึ่งบรรทัด แล้วลูกค้าจะทักคุณได้จากทุกหน้า ข้อความทุกช่องทางมารวมอยู่ในกล่องเดียว',
+      cta: { label: 'ดูตัวอย่างเว็บ', href: '#' },
+      media: video,
+      tone: 1,
+    },
+  },
+  {
+    lang: 'en',
+    props: {
+      kicker: 'Contact page',
+      heading: ['A contact page', 'that answers back'],
+      body: 'Share one link. Visitors pick a channel, leave a message and get a reply from the same inbox your team already uses.',
+      cta: { label: 'See a live page', href: '#' },
+      media: { kind: 'image', src: '/walk-thailand-market.jpg', alt: 'Market street in Thailand', width: 2000, height: 1500 },
+      reversed: true,
+      tone: 2,
+    },
+  },
+  {
+    lang: 'th',
+    props: {
+      id: 'telegram',
+      kicker: 'Telegram',
+      heading: ['ตอบลูกค้าจาก Telegram', 'ได้ทันทีในที่เดียว'],
+      body: 'เชื่อมบอทของคุณครั้งเดียว ทีมตอบได้ทั้งจากมือถือและเดสก์ท็อป ประวัติแชทย้อนดูได้ตลอด',
+      cta: { label: 'เชื่อม Telegram', href: '#' },
+      media: video,
+      tone: 4,
+      ratio: 'feature',
+      tilt: true,
+    },
+  },
+  {
+    lang: 'en',
+    props: {
+      id: 'ai',
+      kicker: 'AI replies',
+      heading: ['Let the assistant', 'draft the first reply'],
+      body: 'It reads the thread, suggests an answer in your tone and waits for a human to press send. Nothing goes out on its own.',
+      cta: { label: 'How AI replies work', href: '#' },
+      media: video,
+      reversed: true,
+      tone: 2,
+      ratio: 'feature',
+      tilt: true,
+    },
+  },
+  {
+    lang: 'th',
+    props: {
+      kicker: 'แอปมือถือ',
+      heading: 'พกกล่องข้อความไปทุกที่',
+      body: 'แจ้งเตือนทันทีเมื่อมีข้อความใหม่ ตอบจากมือถือได้เหมือนนั่งอยู่หน้าคอม',
+      media: { kind: 'image', src: '/illustrations/step3.png', alt: 'ภาพประกอบแอปมือถือ', width: 1181, height: 768 },
+      reversed: true,
+      tone: 1,
+    },
+  },
+];
 ---
 
-<div id="media-split" class="kn-demo-stub">stub: media-split</div>
+<div id="media-split">
+  {splits.map(({ lang, props }) => (
+    <div lang={lang}>
+      <MediaSplit {...props} />
+    </div>
+  ))}
+</div>

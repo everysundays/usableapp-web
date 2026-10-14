@@ -1,1 +1,189 @@
-/* steps: owned by W3. Imported into layer(components) by main.css. */
+/*
+ * Steps (hr-steps): five tilted cards fanned on a stage above 720px, a numbered
+ * list below. Both are in the DOM; the breakpoint picks one.
+ */
+.kn-steps {
+  position: relative;
+  overflow: hidden;
+  padding: 140px 0 96px;
+  border-radius: var(--kn-r-section-top) var(--kn-r-section-top) 0 0;
+  background: var(--kn-section-5);
+  color: var(--kn-ink);
+}
+
+.kn-steps__blob {
+  position: absolute;
+  inset: 8% -12% -18%;
+  border-radius: 50% 45% 35% 55%;
+  background: var(--kn-blob);
+  pointer-events: none;
+}
+
+/* The blob is absolutely positioned, so content needs a stacking position to paint above it. */
+.kn-steps__head {
+  position: relative;
+}
+
+.kn-steps__stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 680px;
+  max-width: 1600px;
+  margin: auto;
+  padding: 0 4vw;
+}
+
+.kn-step {
+  position: relative;
+  z-index: calc(var(--i) + 1);
+  width: min(22vw, 360px);
+  height: 570px;
+  margin-left: -3.2vw;
+  padding: 24px;
+  border: 2px solid var(--kn-step-border);
+  border-radius: 30px;
+  background: var(--kn-step-bg);
+  box-shadow: var(--kn-shadow-step);
+  transform: rotate(var(--kn-rest-r));
+  transform-origin: center 90%;
+  cursor: pointer;
+  transition:
+    border-color var(--kn-dur) ease,
+    box-shadow var(--kn-dur) ease;
+}
+
+.kn-step:first-child {
+  margin-left: 0;
+}
+
+.kn-step:hover {
+  border-color: var(--kn-step-border-hover);
+  box-shadow: var(--kn-shadow-step-hover);
+}
+
+.kn-step__no {
+  font-weight: 800;
+}
+
+.kn-step__img {
+  width: 100%;
+  height: 285px;
+  margin: 18px 0;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.kn-step__title {
+  font-size: 30px;
+  line-height: 0.9;
+}
+
+.kn-step__title:lang(th) {
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.kn-step__desc {
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.kn-steps__list {
+  display: none;
+  gap: 12px;
+  max-width: 520px;
+  margin: 4px auto 0;
+  padding: 0 18px;
+}
+
+.kn-mstep {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 16px;
+  border: 1px solid var(--kn-mstep-border);
+  border-radius: 16px;
+  background: var(--kn-mstep-bg);
+}
+
+.kn-mstep__no {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--kn-mstep-chip);
+  color: var(--kn-lime);
+  font-family: var(--kn-font-display);
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: -0.03em;
+}
+
+.kn-mstep__title {
+  margin: 2px 0 3px;
+  font-size: 20px;
+  line-height: 1.05;
+}
+
+.kn-mstep__title:lang(th) {
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.kn-mstep__desc {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--kn-mstep-copy);
+}
+
+@media (max-width: 1024px) {
+  .kn-step {
+    width: 38vw;
+  }
+}
+
+@media (max-width: 800px) {
+  .kn-steps__stage {
+    display: grid;
+    gap: 18px;
+    height: auto;
+    padding: 20px;
+  }
+
+  .kn-step {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .kn-step__img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 720px) {
+  .kn-steps {
+    padding: 56px 0 60px;
+    border-radius: 38px 38px 0 0;
+  }
+
+  .kn-steps__stage {
+    display: none;
+  }
+
+  .kn-steps__list {
+    display: grid;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kn-step {
+    transition: none;
+  }
+}

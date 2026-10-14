@@ -1,5 +1,42 @@
 ---
-// W3 replaces this stub with the steps demo.
+import Steps from '../components/sections/Steps.astro';
+import type { StepsProps } from '../types';
+
+const steps: StepsProps = {
+  id: 'how',
+  kicker: 'เริ่มต้นอย่างไร',
+  heading: 'ห้าขั้น<br>ถึงวันเปิดใช้',
+  note: 'ทุกขั้นทำเองได้โดยไม่ต้องเขียนโค้ด ส่วนใหญ่เสร็จภายในบ่ายเดียว',
+  steps: [
+    {
+      title: 'เลือกช่องทาง',
+      desc: 'เว็บวิดเจ็ต หน้าติดต่อ หรือแอปมือถือ เลือกได้มากกว่าหนึ่ง',
+      image: { kind: 'image', src: '/illustrations/step1.png', alt: '', width: 1178, height: 768 },
+    },
+    {
+      title: 'ตั้งค่าหน้าตา',
+      desc: 'สี โลโก้ และข้อความต้อนรับ ปรับให้เข้ากับแบรนด์ของคุณ',
+      image: { kind: 'image', src: '/illustrations/step2.png', alt: '', width: 1181, height: 768 },
+    },
+    {
+      title: 'ต่อผู้ช่วย AI',
+      desc: 'ป้อนคำถามที่พบบ่อย ให้ผู้ช่วยร่างคำตอบแรกแทนคุณ',
+      image: { kind: 'image', src: '/illustrations/step3.png', alt: '', width: 1181, height: 768 },
+    },
+    {
+      title: 'เชื่อมแชนแนล',
+      desc: 'Telegram และอีเมล รวมทุกข้อความไว้ในกล่องเดียว',
+      image: { kind: 'image', src: '/illustrations/step1.png', alt: '', width: 1178, height: 768 },
+    },
+    {
+      title: 'เปิดใช้งาน',
+      desc: 'กดเผยแพร่ แล้วเชิญทีมเข้ามาตอบลูกค้าด้วยกัน',
+      image: { kind: 'image', src: '/illustrations/step2.png', alt: '', width: 1181, height: 768 },
+    },
+  ],
+};
 ---
 
-<div id="steps" class="kn-demo-stub">stub: steps</div>
+<div id="steps">
+  <Steps {...steps} />
+</div>
