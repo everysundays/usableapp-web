@@ -1,0 +1,33 @@
+---
+const display = [
+  { cls: 'kn-display-xl', en: 'One knock. Every connection.', th: 'ค้นหาปัญหาที่ดี สร้างแอปที่ดี' },
+  { cls: 'kn-display-lg', en: 'Built for the way you work', th: 'สร้างมาเพื่อวิธีที่คุณทำงาน' },
+  { cls: 'kn-display-md', en: 'See every reply in one place', th: 'เห็นทุกคำตอบในที่เดียว' },
+  { cls: 'kn-display-final', en: 'Start today', th: 'เริ่มวันนี้' },
+  { cls: 'kn-h3', en: 'Card heading at three', th: 'หัวข้อการ์ดระดับสาม' },
+];
+---
+
+<div id="typography" class="kn-demo-type">
+  <p class="kn-kicker">kn-kicker · THE PRODUCT</p>
+  <p class="kn-kicker" lang="th">kn-kicker · ผลิตภัณฑ์ของเรา</p>
+  <p class="kn-lead">kn-lead. Reach people where they already are, with one knock instead of ten follow-ups.</p>
+  <p class="kn-lead" lang="th">kn-lead. เข้าถึงผู้คนในที่ที่พวกเขาอยู่แล้ว ด้วยการเคาะครั้งเดียวแทนการตามงานสิบรอบ ปัญญาประดิษฐ์ที่ดีคือปัญญาที่มีประโยชน์</p>
+  {display.map(({ cls, en, th }) => (
+    <>
+      <code class="kn-demo-label">{cls}</code>
+      <h2 class={cls}>{en}</h2>
+      <h2 class={cls} lang="th">{th}</h2>
+    </>
+  ))}
+</div>
+
+<style is:global>
+  @layer utilities {
+    .kn-demo-type {
+      display: grid;
+      gap: 18px;
+      color: var(--kn-dark);
+    }
+  }
+</style>

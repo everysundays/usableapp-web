@@ -1,0 +1,69 @@
+---
+import KitLayout from '../kit/KitLayout.astro';
+import Buttons from '../kit/demo/buttons.astro';
+import Typography from '../kit/demo/typography.astro';
+import Nav from '../kit/demo/nav.astro';
+import Footer from '../kit/demo/footer.astro';
+import Hero from '../kit/demo/hero.astro';
+import Rail from '../kit/demo/rail.astro';
+import Inbox from '../kit/demo/inbox.astro';
+import Final from '../kit/demo/final.astro';
+import MediaSplit from '../kit/demo/media-split.astro';
+import Steps from '../kit/demo/steps.astro';
+import Genre from '../kit/demo/genre.astro';
+import Motion from '../kit/demo/motion.astro';
+
+const demos = [
+  { id: 'buttons', Demo: Buttons },
+  { id: 'typography', Demo: Typography },
+  { id: 'nav', Demo: Nav },
+  { id: 'footer', Demo: Footer },
+  { id: 'hero', Demo: Hero },
+  { id: 'rail', Demo: Rail },
+  { id: 'inbox', Demo: Inbox },
+  { id: 'final', Demo: Final },
+  { id: 'media-split', Demo: MediaSplit },
+  { id: 'steps', Demo: Steps },
+  { id: 'genre', Demo: Genre },
+  { id: 'motion', Demo: Motion },
+];
+
+const meta = { title: 'Kit · knocket section kit', description: 'Kitchen sink for the kn- section kit.', lang: 'th' };
+---
+
+<KitLayout {meta}>
+  <main class="kn-kit">
+    {demos.map(({ id, Demo }) => (
+      <section class="kn-kit__demo" aria-labelledby={`${id}-label`}>
+        <a id={`demo-${id}`} class="kn-kit__anchor"></a>
+        <h2 id={`${id}-label`} class="kn-kicker kn-kit__label">{id}</h2>
+        <Demo />
+      </section>
+    ))}
+  </main>
+</KitLayout>
+
+<style is:global>
+  @layer utilities {
+    .kn-kit {
+      display: grid;
+      gap: 56px;
+      max-width: var(--kn-container-max);
+      margin: 0 auto;
+      padding: 48px var(--kn-gutter) 120px;
+    }
+    .kn-kit__demo {
+      display: grid;
+      gap: 20px;
+    }
+    .kn-kit__label {
+      color: var(--kn-muted);
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--kn-line);
+    }
+    .kn-kit__anchor {
+      display: block;
+      scroll-margin-top: 24px;
+    }
+  }
+</style>

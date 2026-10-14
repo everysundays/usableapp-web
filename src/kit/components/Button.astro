@@ -1,0 +1,40 @@
+---
+import type { Arrow, ButtonVariant, Href } from '../types';
+
+export interface Props {
+  href?: Href;
+  label: string;
+  variant: ButtonVariant;
+  arrow?: Arrow;
+  external?: boolean;
+  cursorLabel?: string;
+  class?: string;
+}
+
+/** Chip variants draw the arrow in a square chip; the rest render it as plain text after the label. */
+const VARIANTS: Record<ButtonVariant, { arrow: Arrow; chip: boolean }> = {
+  cta: { arrow: '→', chip: true },
+  'cta-light': { arrow: '→', chip: true },
+  hero: { arrow: '→', chip: true },
+  final: { arrow: '→', chip: true },
+  section: { arrow: '→', chip: true },
+  'section-light': { arrow: '→', chip: true },
+  pill: { arrow: '↗', chip: false },
+  'pill-ink': { arrow: '↗', chip: false },
+  nav: { arrow: '↗', chip: false },
+};
+
+const { href, label, variant, arrow, external, cursorLabel, class: className } = Astro.props;
+const spec = VARIANTS[variant];
+const glyph = arrow ?? spec.arrow;
+const classes = ['kn-btn', variant === 'cta' ? null : `kn-btn--${variant}`, className].filter(Boolean).join(' ');
+const Tag = href ? 'a' : 'button';
+const linkAttrs = href
+  ? { href, target: external ? '_blank' : undefined, rel: external ? 'noopener noreferrer' : undefined }
+  : { type: 'button' as const };
+---
+
+<Tag class={classes} data-kn-cursor={cursorLabel} {...linkAttrs}>
+  <span class="kn-btn__label">{label}</span>
+  <span class={spec.chip ? 'kn-btn__chip' : 'kn-btn__arrow'} aria-hidden="true">{glyph}</span>
+</Tag>

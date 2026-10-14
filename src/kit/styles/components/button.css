@@ -1,0 +1,234 @@
+/*
+ * Button. Variants are modifier classes; the chip reads its size and colors
+ * through private --_chip-* properties so no selector is deeper than one class.
+ */
+.kn-btn {
+  --_chip-size: 30px;
+  --_chip-radius: var(--kn-r-chip);
+  --_chip-bg: var(--kn-lime);
+  --_chip-color: var(--kn-dark);
+  --_chip-font-size: 1em;
+  --_chip-border: 0;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 34px;
+  padding: 17px 18px 17px 24px;
+  border-radius: var(--kn-r-btn);
+  background: var(--kn-dark);
+  color: var(--kn-white);
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    transform var(--kn-dur) ease,
+    background var(--kn-dur) ease,
+    box-shadow var(--kn-dur) ease;
+}
+
+.kn-btn:hover {
+  transform: translateY(-3px);
+  background: var(--kn-dark-hover);
+}
+
+.kn-btn__chip {
+  display: grid;
+  place-items: center;
+  flex: 0 0 var(--_chip-size);
+  width: var(--_chip-size);
+  height: var(--_chip-size);
+  border-radius: var(--_chip-radius);
+  border-left: var(--_chip-border);
+  background: var(--_chip-bg);
+  color: var(--_chip-color);
+  font-size: var(--_chip-font-size);
+}
+
+.kn-btn__arrow {
+  font-size: 1em;
+}
+
+/* cta-light: lime on dark text, inverted chip */
+.kn-btn--cta-light {
+  --_chip-bg: var(--kn-dark);
+  --_chip-color: var(--kn-white);
+  background: var(--kn-lime);
+  color: var(--kn-dark);
+}
+
+.kn-btn--cta-light:hover {
+  background: var(--kn-lime);
+}
+
+/* hero: hot pink bar with a full-height chip */
+.kn-btn--hero {
+  --_chip-size: var(--kn-hero-cta-height);
+  --_chip-radius: 0;
+  --_chip-bg: var(--kn-hot-pink);
+  --_chip-color: var(--kn-white);
+  --_chip-font-size: 24px;
+  --_chip-border: 2px solid var(--kn-line-on-dark);
+
+  gap: 0;
+  padding: 0 0 0 24px;
+  justify-content: space-between;
+  min-width: var(--kn-hero-cta-width);
+  height: var(--kn-hero-cta-height);
+  border-radius: var(--kn-r-btn-lg);
+  background: var(--kn-hot-pink);
+  font-size: 18px;
+  overflow: hidden;
+}
+
+.kn-btn--hero:hover {
+  background: var(--kn-hot-pink-hover);
+}
+
+/* final: larger cta under the closing headline */
+.kn-btn--final {
+  --_chip-size: 40px;
+  --_chip-radius: var(--kn-r-chip-lg);
+  --_chip-font-size: 20px;
+
+  gap: 28px;
+  padding: 18px 22px 18px 32px;
+  border-radius: var(--kn-r-btn-lg);
+  font-size: clamp(16px, 1.4vw, 20px);
+}
+
+/* section: cta inside copy blocks (hr-section-cta) */
+.kn-btn--section {
+  --_chip-color: var(--kn-cta-dark);
+
+  gap: 18px;
+  margin-top: 30px;
+  padding: 15px 17px 15px 22px;
+  border-radius: var(--kn-r-btn-lg);
+  background: var(--kn-cta-dark);
+  box-shadow: var(--kn-shadow-cta);
+}
+
+.kn-btn--section:hover {
+  background: var(--kn-cta-dark);
+  box-shadow: var(--kn-shadow-cta-hover);
+}
+
+.kn-btn--section-light {
+  --_chip-bg: var(--kn-cta-dark);
+  --_chip-color: var(--kn-white);
+
+  gap: 18px;
+  margin-top: 30px;
+  padding: 15px 17px 15px 22px;
+  border-radius: var(--kn-r-btn-lg);
+  background: var(--kn-lime);
+  color: var(--kn-cta-dark);
+  box-shadow: var(--kn-shadow-cta);
+}
+
+.kn-btn--section-light:hover {
+  background: var(--kn-lime);
+  box-shadow: var(--kn-shadow-cta-hover);
+}
+
+/* pill: legacy neo-brutalist .btn-lemon / .btn-ink */
+.kn-btn--pill {
+  gap: 10px;
+  padding: 16px 26px;
+  border-radius: var(--kn-r-pill);
+  border: 2px solid var(--kn-ink);
+  background: var(--kn-lime);
+  color: var(--kn-ink);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  box-shadow: var(--kn-shadow-hard);
+  transition:
+    transform var(--kn-dur-fast) var(--kn-ease-spring),
+    box-shadow var(--kn-dur-fast) ease;
+}
+
+.kn-btn--pill:hover {
+  transform: translate(-2px, -2px);
+  background: var(--kn-lime);
+  box-shadow: var(--kn-shadow-hard-lg);
+}
+
+.kn-btn--pill:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--kn-shadow-hard-sm);
+}
+
+.kn-btn--pill-ink {
+  gap: 10px;
+  padding: 16px 26px;
+  border-radius: var(--kn-r-pill);
+  border: 2px solid var(--kn-ink);
+  background: var(--kn-ink);
+  color: var(--kn-lime);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  box-shadow: var(--kn-shadow-hard-lime);
+  transition:
+    transform var(--kn-dur-fast) var(--kn-ease-spring),
+    box-shadow var(--kn-dur-fast) ease;
+}
+
+.kn-btn--pill-ink:hover {
+  transform: translate(-2px, -2px);
+  background: var(--kn-ink);
+  box-shadow: 10px 10px 0 var(--kn-lime);
+}
+
+.kn-btn--pill-ink:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--kn-lime);
+}
+
+/* nav: the floating nav's "Start Free" */
+.kn-btn--nav {
+  gap: 10px;
+  min-height: 68px;
+  padding: 0 28px;
+  border-radius: var(--kn-r-pill);
+  border: 2px solid var(--kn-ink);
+  background: var(--kn-ink);
+  color: var(--kn-white);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.kn-btn--nav:hover {
+  transform: translateY(-1px);
+  background: var(--kn-ink-hover);
+  border-color: var(--kn-ink-hover);
+}
+
+@media (max-width: 900px) {
+  .kn-btn--nav {
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 720px) {
+  .kn-btn--hero {
+    --_chip-size: var(--kn-hero-cta-height-mobile);
+    min-width: min(var(--kn-hero-cta-width), 100%);
+    height: var(--kn-hero-cta-height-mobile);
+  }
+
+  .kn-btn--final {
+    --_chip-size: 36px;
+    gap: 20px;
+    padding: 16px 20px 16px 26px;
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kn-btn {
+    transition: none;
+  }
+}

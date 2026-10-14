@@ -1,0 +1,33 @@
+---
+import type { Media } from '../types';
+
+export interface Props {
+  media: Media;
+  class?: string;
+}
+
+const { media, class: className } = Astro.props;
+---
+
+{media.kind === 'image' ? (
+  <img
+    class={className}
+    src={media.src}
+    alt={media.alt}
+    width={media.width}
+    height={media.height}
+    loading={media.loading ?? 'lazy'}
+    decoding="async"
+  />
+) : (
+  <video
+    class={className}
+    src={media.src}
+    poster={media.poster}
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    data-kn-video
+  />
+)}

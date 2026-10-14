@@ -1,0 +1,100 @@
+/*
+ * Every value the kit shares. Components read these through var(--kn-*) only.
+ * Source: docs/knocket-kit/01-tokens-nav-footer.md (knocket.trtc.io, read 2026-10-14).
+ *
+ * Breakpoints (media queries cannot read custom properties, so they are
+ * written literally in each component file):
+ *   900px  nav/footer switch, hero to one column
+ *   720px  section heads to column, display sizes step down
+ *   480px  hero h1 to 13vw
+ */
+:root {
+  /* color: refresh palette (the one the home page actually uses) */
+  --kn-cream: #f8f5eb;
+  --kn-dark: #073d28;
+  --kn-dark-hover: #021f14;
+  --kn-ink: #06150e;
+  --kn-ink-hover: #173328;
+  --kn-green: #27c66f;
+  --kn-hero-green: #16ad63;
+  --kn-mint: #bdf6d5;
+  --kn-lime: #dffc63;
+  --kn-hot-pink: #ff0084;
+  --kn-hot-pink-hover: #e80078;
+  --kn-genre: #35d878;
+  --kn-section-1: #eef7e8;
+  --kn-section-2: #e3f2df;
+  --kn-section-3: #d7edd9;
+  --kn-section-4: #cae7d3;
+  --kn-section-5: #bedfca;
+  --kn-cta-dark: #09281c;
+  --kn-copy: #355847;
+  --kn-muted: #5c7568;
+  --kn-subhead: #7c9488;
+  --kn-nav-hover: #c9f0d8;
+  --kn-dropdown-bg: #fbfdf9;
+  --kn-dropdown-border: #d9eadf;
+  --kn-white: #ffffff;
+  --kn-on-dark: rgba(255, 255, 255, 0.9);
+  --kn-line-on-dark: rgba(255, 255, 255, 0.42);
+
+  /* color: legacy neo-brutalist accents (footer, stickers, pills) */
+  --kn-coral: #ff5638;
+  --kn-lilac: #c9b8ff;
+  --kn-sky: #a8dbff;
+  --kn-peach: #ffc7a8;
+  --kn-paper: #fffcf3;
+  --kn-line: #e8e1ce;
+
+  /* font */
+  --kn-font-display: 'Space Grotesk', 'Anakotmai', sans-serif;
+  --kn-font-sans: 'Inter', 'Anakotmai', sans-serif;
+  --kn-font-hand: 'Caveat', cursive;
+  --kn-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* radius */
+  --kn-r-sm: 12px;
+  --kn-r-md: 20px;
+  --kn-r-lg: 32px;
+  --kn-r-xl: 48px;
+  --kn-r-pill: 999px;
+  --kn-r-section-top: 70px;
+  --kn-r-card: 38px;
+  --kn-r-btn: 12px;
+  --kn-r-btn-lg: 14px;
+  --kn-r-chip: 8px;
+  --kn-r-chip-lg: 10px;
+
+  /* shadow */
+  --kn-shadow-hard: 6px 6px 0 var(--kn-ink);
+  --kn-shadow-hard-lg: 10px 10px 0 var(--kn-ink);
+  --kn-shadow-hard-sm: 2px 2px 0 var(--kn-ink);
+  --kn-shadow-hard-lime: 6px 6px 0 var(--kn-lime);
+  --kn-shadow-lift: 0 40px 80px -20px rgba(10, 26, 15, 0.35);
+  --kn-shadow-nav: 0 14px 40px rgba(7, 61, 40, 0.12);
+  --kn-shadow-card-rest: 0 12px 0 rgba(7, 61, 40, 0.08);
+  --kn-shadow-card-hover: 0 38px 70px rgba(7, 61, 40, 0.2);
+  --kn-shadow-media: 0 30px 70px rgba(7, 61, 40, 0.18);
+  --kn-shadow-cta: 0 12px 24px rgba(7, 35, 27, 0.15);
+  --kn-shadow-cta-hover: 0 18px 28px rgba(7, 35, 27, 0.23);
+
+  /* motion */
+  --kn-ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+  --kn-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --kn-dur-fast: 0.18s;
+  --kn-dur: 0.25s;
+
+  /* z-index */
+  --kn-z-nav: 1000;
+  --kn-z-dropdown: 100;
+  --kn-z-locale: 60;
+  --kn-z-cursor: 9999;
+
+  /* layout */
+  --kn-gutter: max(5vw, 24px);
+  --kn-gutter-mobile: 20px;
+  --kn-container-max: 1520px;
+  --kn-hero-cta-height: 68px;
+  --kn-hero-cta-height-mobile: 62px;
+  --kn-hero-cta-width: 250px;
+}
