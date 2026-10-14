@@ -4,7 +4,7 @@ import Button from '../Button.astro';
 
 export type Props = HeroProps;
 
-const { lines, lead, cta, note, image } = Astro.props;
+const { lines, lead, cta, note, image, frame = false } = Astro.props;
 ---
 
 <section data-kn-section="hero" class="kn-hero">
@@ -23,7 +23,7 @@ const { lines, lead, cta, note, image } = Astro.props;
       )}
     </div>
   </div>
-  <figure class="kn-hero__art" data-kn-parallax="hero-art">
+  <figure class:list={['kn-hero__art', { 'kn-hero__art--framed': frame }]} data-kn-parallax="hero-art">
     <img
       class="kn-hero__img"
       src={image.src}

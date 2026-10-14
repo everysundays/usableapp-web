@@ -4,11 +4,22 @@ import Button from '../Button.astro';
 
 export type Props = FinalProps;
 
-const { id, kicker, heading, cta } = Astro.props;
+const { id, kicker, heading, body, items = [], cta } = Astro.props;
 ---
 
 <section data-kn-section="final" class="kn-final" {id}>
   <p class="kn-kicker">{kicker}</p>
   <h2 class="kn-final__heading kn-display-final">{heading}</h2>
+  {body && <p class="kn-final__body kn-lead">{body}</p>}
+  {items.length > 0 && (
+    <ul class="kn-final__items">
+      {items.map((item) => (
+        <li class="kn-final__item">
+          <h3 class="kn-final__item-title">{item.title}</h3>
+          <p class="kn-final__item-desc">{item.desc}</p>
+        </li>
+      ))}
+    </ul>
+  )}
   <Button variant="final" label={cta.label} href={cta.href} external={cta.external} />
 </section>

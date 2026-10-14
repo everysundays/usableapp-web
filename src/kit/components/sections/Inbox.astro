@@ -4,7 +4,7 @@ import Button from '../Button.astro';
 
 export type Props = InboxProps;
 
-const { id, kicker, heading, cta, image } = Astro.props;
+const { id, kicker, heading, body = [], items = [], cta, image } = Astro.props;
 ---
 
 <section data-kn-section="inbox" class="kn-inbox" {id}>
@@ -12,6 +12,7 @@ const { id, kicker, heading, cta, image } = Astro.props;
     <div class="kn-inbox__copy">
       <p class="kn-inbox__kicker kn-kicker">{kicker}</p>
       <h2 class="kn-inbox__heading">{heading}</h2>
+      {body.map((text) => <p class="kn-inbox__body kn-lead">{text}</p>)}
       <Button variant="section-light" label={cta.label} href={cta.href} external={cta.external} />
     </div>
     <figure class="kn-inbox__visual">
@@ -25,5 +26,15 @@ const { id, kicker, heading, cta, image } = Astro.props;
         decoding="async"
       />
     </figure>
+    {items.length > 0 && (
+      <ul class="kn-inbox__items">
+        {items.map((item) => (
+          <li class="kn-inbox__item">
+            <h3 class="kn-inbox__item-title">{item.title}</h3>
+            <p class="kn-inbox__item-desc">{item.desc}</p>
+          </li>
+        ))}
+      </ul>
+    )}
   </div>
 </section>

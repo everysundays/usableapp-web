@@ -4,7 +4,7 @@ import SectionHead from '../SectionHead.astro';
 
 export type Props = StepsProps;
 
-const { id, kicker, heading, note, steps } = Astro.props;
+const { id, kicker, heading, note, body = [], steps } = Astro.props;
 
 /** The original's five cards, cycled when a step omits bg or rest; the fifth chip repeats the first. */
 const REST_DEG = [-6, 3, -2, 5, -3];
@@ -28,6 +28,11 @@ const cards = steps.map((step, i) => {
   <SectionHead class="kn-steps__head" {kicker} {heading}>
     {note && <p slot="aside" class="kn-section-head__note" data-kn-step-note>{note}</p>}
   </SectionHead>
+  {body.length > 0 && (
+    <div class="kn-steps__intro">
+      {body.map((text) => <p class="kn-steps__body kn-lead">{text}</p>)}
+    </div>
+  )}
   <div class="kn-steps__stage" data-kn-plop>
     {cards.map((card) => (
       <article

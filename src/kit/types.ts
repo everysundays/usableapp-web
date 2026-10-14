@@ -35,6 +35,9 @@ export type Tone = 1 | 2 | 3 | 4 | 5;
 
 export type CardTone = 'lime' | 'mint' | 'forest';
 
+/** A titled one-liner: the value cards in Inbox and the session cards in Final. */
+export type Blurb = { title: string; desc: string };
+
 export type HeroProps = {
   /** One span per line, each line animates in separately. */
   lines: string[];
@@ -42,6 +45,8 @@ export type HeroProps = {
   cta: Cta;
   note?: { title: string; label: string; href: Href };
   image: ImageMedia;
+  /** white rounded frame around the art, for images that are not transparent PNGs */
+  frame?: boolean;
 };
 
 export type RailCard = {
@@ -49,7 +54,8 @@ export type RailCard = {
   index: string;
   title: string;
   desc: string;
-  cta: Cta;
+  /** without one the card is a plain article, not a link */
+  cta?: Cta;
   tone: CardTone;
   image: ImageMedia;
 };
@@ -59,6 +65,8 @@ export type RailProps = {
   kicker: string;
   /** May contain <br> for a forced line break. */
   heading: string;
+  /** short note on the right of the section head */
+  note?: string;
   cards: RailCard[];
 };
 
@@ -66,6 +74,10 @@ export type InboxProps = {
   id?: string;
   kicker: string;
   heading: string;
+  /** lead paragraphs under the heading */
+  body?: string[];
+  /** translucent value cards across the panel, under copy and media */
+  items?: Blurb[];
   cta: Cta;
   image: ImageMedia;
 };
@@ -103,11 +115,15 @@ export type StepsProps = {
   heading: string;
   /** short note on the right of the section head */
   note?: string;
+  /** lead paragraphs between the head and the stage */
+  body?: string[];
   steps: Step[];
 };
 
 export type GenreItem = {
   label: string;
+  /** one line under the list, shown while this item is active or hovered */
+  desc?: string;
   /** 2 images = framed pair, 6 images = gallery; other counts render as a pair */
   images: ImageMedia[];
 };
@@ -115,6 +131,7 @@ export type GenreItem = {
 export type GenreProps = {
   id?: string;
   kicker: string;
+  heading?: string;
   items: GenreItem[];
   /** index of the scene shown before any hover; omit for none (original behaviour) */
   initial?: number;
@@ -124,6 +141,9 @@ export type FinalProps = {
   id?: string;
   kicker: string;
   heading: string;
+  body?: string;
+  /** translucent cards in a row above the button */
+  items?: Blurb[];
   cta: Cta;
 };
 

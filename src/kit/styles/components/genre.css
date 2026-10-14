@@ -57,6 +57,14 @@
   object-fit: cover;
 }
 
+.kn-genre__heading {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 14px auto 0;
+  text-align: center;
+}
+
 .kn-genre__list {
   position: relative;
   z-index: 2;
@@ -79,7 +87,9 @@
     opacity var(--kn-dur) ease;
 }
 
+/* Thai labels run two to three times longer than the original's, so they step down to clear the frames at the edges. */
 .kn-genre__item:lang(th) {
+  font-size: clamp(44px, 5vw, 88px);
   line-height: 1.08;
   letter-spacing: -0.02em;
 }
@@ -97,6 +107,34 @@
   opacity: 0.28;
 }
 
+/* Every desc shares one grid cell, so the block keeps the height of the tallest while only the active one is visible. */
+.kn-genre__descs {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-areas: 'desc';
+  justify-items: center;
+  max-width: 720px;
+  margin: 40px auto 0;
+  text-align: center;
+}
+
+.kn-genre__desc {
+  grid-area: desc;
+  font-size: clamp(18px, 1.55vw, 24px);
+  line-height: 1.42;
+  color: var(--kn-copy);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--kn-dur) ease,
+    visibility var(--kn-dur) ease;
+}
+
+.kn-genre__desc:lang(th) {
+  line-height: 1.6;
+}
+
 /*
  * No-JS fallback: hovering word i shows scene i. The motion layer (W4) owns
  * click and focus, the is-active class and the animated switch; these rules
@@ -112,6 +150,26 @@
   .kn-genre:has([data-kn-genre-item="6"]:hover) [data-kn-scene="6"],
   .kn-genre:has([data-kn-genre-item="7"]:hover) [data-kn-scene="7"] {
     display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .kn-genre:has([data-kn-genre-item="0"].is-active) [data-kn-genre-desc="0"],
+  .kn-genre:has([data-kn-genre-item="1"].is-active) [data-kn-genre-desc="1"],
+  .kn-genre:has([data-kn-genre-item="2"].is-active) [data-kn-genre-desc="2"],
+  .kn-genre:has([data-kn-genre-item="3"].is-active) [data-kn-genre-desc="3"],
+  .kn-genre:has([data-kn-genre-item="4"].is-active) [data-kn-genre-desc="4"],
+  .kn-genre:has([data-kn-genre-item="5"].is-active) [data-kn-genre-desc="5"],
+  .kn-genre:has([data-kn-genre-item="6"].is-active) [data-kn-genre-desc="6"],
+  .kn-genre:has([data-kn-genre-item="7"].is-active) [data-kn-genre-desc="7"],
+  .kn-genre:has([data-kn-genre-item="0"]:hover) [data-kn-genre-desc="0"],
+  .kn-genre:has([data-kn-genre-item="1"]:hover) [data-kn-genre-desc="1"],
+  .kn-genre:has([data-kn-genre-item="2"]:hover) [data-kn-genre-desc="2"],
+  .kn-genre:has([data-kn-genre-item="3"]:hover) [data-kn-genre-desc="3"],
+  .kn-genre:has([data-kn-genre-item="4"]:hover) [data-kn-genre-desc="4"],
+  .kn-genre:has([data-kn-genre-item="5"]:hover) [data-kn-genre-desc="5"],
+  .kn-genre:has([data-kn-genre-item="6"]:hover) [data-kn-genre-desc="6"],
+  .kn-genre:has([data-kn-genre-item="7"]:hover) [data-kn-genre-desc="7"] {
     opacity: 1;
     visibility: visible;
   }
@@ -145,10 +203,23 @@
     gap: 8px;
   }
 
+  .kn-genre__descs {
+    margin-top: 28px;
+  }
+
   .kn-genre__item {
     font-size: 13.8vw;
     white-space: normal;
     text-align: center;
+  }
+
+  .kn-genre__item:lang(th) {
+    font-size: 11vw;
+  }
+
+  /* Wrapped Thai words fill the width, so on phones they sit above the frames instead of under them. */
+  .kn-genre__list:lang(th) {
+    z-index: 4;
   }
 }
 
@@ -163,13 +234,15 @@
   }
 
   .kn-genre__item:lang(th) {
+    font-size: 10vw;
     line-height: 1.08;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .kn-scene,
-  .kn-genre__item {
+  .kn-genre__item,
+  .kn-genre__desc {
     transition: none;
   }
 }

@@ -3,7 +3,7 @@ import type { GenreProps, ImageMedia } from '../../types';
 
 export type Props = GenreProps;
 
-const { id, kicker, items, initial } = Astro.props;
+const { id, kicker, heading, items, initial } = Astro.props;
 
 /** Where a framed image sits over the section (02 §9). Written inline so genre.css stays flat. */
 type Pose = { top?: string; bottom?: string; left?: string; right?: string; r: string };
@@ -41,6 +41,7 @@ const scenes = items.map((item, i) => {
 
 <section id={id} data-kn-section="genre" data-kn-genre class="kn-genre">
   <p class="kn-kicker">{kicker}</p>
+  {heading && <h2 class="kn-genre__heading kn-display-lg">{heading}</h2>}
   <div class="kn-genre__scenes" aria-hidden="true">
     {scenes.map((scene) => (
       <div class:list={['kn-scene', { 'kn-scene--gallery': scene.gallery, 'is-active': scene.i === initial }]} data-kn-scene={scene.i}>
@@ -66,4 +67,9 @@ const scenes = items.map((item, i) => {
       </button>
     ))}
   </div>
+  {items.some((item) => item.desc) && (
+    <div class="kn-genre__descs">
+      {items.map((item, i) => item.desc && <p class="kn-genre__desc" data-kn-genre-desc={i}>{item.desc}</p>)}
+    </div>
+  )}
 </section>

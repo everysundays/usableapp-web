@@ -1,4 +1,8 @@
-/* Inbox (hr-inbox-section): a dark rounded panel split .37/.63, copy left, white media frame right. */
+/*
+ * Inbox (hr-inbox-section): a dark rounded panel split .37/.63, copy left, white
+ * media frame right. Optional value cards span the panel under both, because
+ * three cards cannot share the .37 copy column.
+ */
 .kn-inbox {
   padding: 72px max(3vw, 20px) 100px;
   background: var(--kn-section-2);
@@ -39,6 +43,42 @@
   letter-spacing: -0.02em;
 }
 
+.kn-inbox__body {
+  margin-top: 24px;
+  color: var(--kn-on-dark);
+}
+
+.kn-inbox__items {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: clamp(8px, 1vw, 20px);
+}
+
+.kn-inbox__item {
+  padding: 20px;
+  border-radius: var(--kn-r-md);
+  background: var(--kn-glass);
+}
+
+.kn-inbox__item-title {
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+.kn-inbox__item-title:lang(th) {
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.kn-inbox__item-desc {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--kn-on-dark-muted);
+}
+
 .kn-inbox__visual {
   border-radius: var(--kn-r-inbox-visual);
   overflow: hidden;
@@ -74,5 +114,10 @@
 
   .kn-inbox__visual {
     border-radius: 18px;
+  }
+
+  .kn-inbox__items {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 }
