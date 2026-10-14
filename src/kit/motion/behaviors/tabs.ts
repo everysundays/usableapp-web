@@ -15,7 +15,7 @@ export const tabs: MotionBehavior = {
     if (el.dataset.knTabs) select(el.dataset.knTabs);
     return on(el, 'click', (e) => {
       const tab = (e.target as Element).closest<HTMLElement>('[data-kn-tab]');
-      if (tab && el.contains(tab) && tab.dataset.knTab !== undefined) select(tab.dataset.knTab);
+      if (tab && el.contains(tab)) select(tab.dataset.knTab!);
     });
   },
 };

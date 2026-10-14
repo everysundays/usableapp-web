@@ -29,7 +29,7 @@ export const railDrag: MotionBehavior = {
     const gsap = lib(ctx, 'gsap');
     const Draggable = lib(ctx, 'draggable');
     const { viewport, track, prev, next } = parts(el);
-    if (!gsap || !Draggable || !viewport || !track) return;
+    if (!viewport || !track) return;
 
     el.classList.add(DRAG_CLASS);
     const cards = () => Array.from(track.children);

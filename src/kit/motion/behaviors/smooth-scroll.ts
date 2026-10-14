@@ -10,7 +10,6 @@ export const smoothScroll: MotionBehavior = {
     const gsap = lib(ctx, 'gsap');
     const ScrollTrigger = lib(ctx, 'scrolltrigger');
     const Lenis = lib(ctx, 'lenis');
-    if (!gsap || !ScrollTrigger || !Lenis) return;
 
     const lenis = new Lenis({ duration: 1.08, smoothWheel: true, wheelMultiplier: 0.9 });
     const offScroll = lenis.on('scroll', ScrollTrigger.update);

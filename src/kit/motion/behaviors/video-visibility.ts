@@ -4,11 +4,11 @@ export const videoVisibility: MotionBehavior = {
   name: 'video-visibility',
   match: 'video[data-kn-video]',
   init(el) {
-    if (!(el instanceof HTMLVideoElement)) return;
+    const video = el as HTMLVideoElement;
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry?.isIntersecting) void el.play().catch(() => undefined);
-        else el.pause();
+        if (entry?.isIntersecting) void video.play().catch(() => undefined);
+        else video.pause();
       },
       { threshold: 0.38 },
     );

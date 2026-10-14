@@ -15,7 +15,7 @@ import { tilt } from './behaviors/tilt';
 import { videoVisibility } from './behaviors/video-visibility';
 import { loadLibs } from './libs';
 
-export const defaultOptions: Required<KitOptions> = {
+const defaultOptions: Required<KitOptions> = {
   smoothScroll: true,
   cursor: 'fist',
   rail: 'drag',

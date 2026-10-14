@@ -23,7 +23,7 @@ export const genre: MotionBehavior = {
         decoded.add(scene);
         await Promise.allSettled(imgs.map((img) => img.decode()));
       }
-      if (!gsap || scene.dataset.knScene !== current) return;
+      if (scene.dataset.knScene !== current) return;
       gsap.to(scene, { autoAlpha: 1, duration: dur(0.5), ease: 'power3.out', overwrite: true });
       gsap.fromTo(
         imgs,
@@ -56,7 +56,7 @@ export const genre: MotionBehavior = {
     const off = all(
       items.flatMap((item) => {
         const go = () => {
-          if (item.dataset.knGenreItem !== undefined) activate(item.dataset.knGenreItem);
+          activate(item.dataset.knGenreItem!);
         };
         return [on(item, 'pointerenter', go), on(item, 'focus', go), on(item, 'click', go)];
       }),

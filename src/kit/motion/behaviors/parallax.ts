@@ -8,7 +8,6 @@ export const parallax: MotionBehavior = {
   when: (ctx) => !ctx.reduced,
   init(el, ctx) {
     const gsap = lib(ctx, 'gsap');
-    if (!gsap) return;
     const trigger = el.closest<HTMLElement>('[data-kn-section="hero"]') ?? el;
     const tween = gsap.to(el, {
       yPercent: 9,

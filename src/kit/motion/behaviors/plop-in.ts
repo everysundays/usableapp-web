@@ -13,7 +13,7 @@ export const plopIn: MotionBehavior = {
   init(el, ctx) {
     const gsap = lib(ctx, 'gsap');
     // the stage is display:none on narrow viewports and GSAP would animate nothing
-    if (!gsap || !el.offsetParent) return;
+    if (!el.offsetParent) return;
     const items = query(el, '[data-kn-plop-item]');
     if (!items.length) return;
     const rest = items.map(restRotation);
@@ -56,7 +56,6 @@ export const stepNote: MotionBehavior = {
   when: (ctx) => !ctx.reduced,
   init(el, ctx) {
     const gsap = lib(ctx, 'gsap');
-    if (!gsap) return;
     const tween = gsap.from(el, {
       y: 22,
       autoAlpha: 0,
@@ -75,7 +74,6 @@ export const blob: MotionBehavior = {
   when: (ctx) => !ctx.reduced,
   init(el, ctx) {
     const gsap = lib(ctx, 'gsap');
-    if (!gsap) return;
     const trigger = el.closest<HTMLElement>('[data-kn-section="steps"]') ?? el;
     const tween = gsap.to(el, {
       yPercent: -14,

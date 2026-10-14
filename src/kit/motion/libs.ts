@@ -45,5 +45,5 @@ export async function loadLibs(needs: Iterable<KitLib>): Promise<KitContext['lib
   return libs;
 }
 
-export const lib = <K extends KitLib>(ctx: KitContext, name: K): LibTypes[K] | undefined =>
-  ctx.libs[name] as LibTypes[K] | undefined;
+/** Sound because initKit never runs a behavior whose `needs` did not all load. */
+export const lib = <K extends KitLib>(ctx: KitContext, name: K): LibTypes[K] => ctx.libs[name] as LibTypes[K];

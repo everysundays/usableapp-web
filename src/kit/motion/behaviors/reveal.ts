@@ -9,7 +9,7 @@ export const reveal: MotionBehavior = {
   init(el, ctx) {
     const gsap = lib(ctx, 'gsap');
     const items = query(el, '[data-kn-reveal-item]');
-    if (!gsap || !items.length) return;
+    if (!items.length) return;
     // gsap.from, not set+to: the markup is complete without JS and must never be left hidden
     const tween = gsap.from(items, {
       y: 65,

@@ -39,10 +39,7 @@
   --kn-line-on-dark: rgba(255, 255, 255, 0.42);
 
   /* color: legacy neo-brutalist accents (footer, stickers, pills) */
-  --kn-coral: #ff5638;
   --kn-lilac: #c9b8ff;
-  --kn-sky: #a8dbff;
-  --kn-peach: #ffc7a8;
   --kn-paper: #fffcf3;
   --kn-line: #e8e1ce;
 
@@ -70,7 +67,6 @@
   --kn-shadow-hard-lg: 10px 10px 0 var(--kn-ink);
   --kn-shadow-hard-sm: 2px 2px 0 var(--kn-ink);
   --kn-shadow-hard-lime: 6px 6px 0 var(--kn-lime);
-  --kn-shadow-lift: 0 40px 80px -20px rgba(10, 26, 15, 0.35);
   --kn-shadow-nav: 0 14px 40px rgba(7, 61, 40, 0.12);
   --kn-shadow-card-rest: 0 12px 0 rgba(7, 61, 40, 0.08);
   --kn-shadow-card-hover: 0 38px 70px rgba(7, 61, 40, 0.2);
