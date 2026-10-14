@@ -1,8 +1,3 @@
-/**
- * The v2 home page in both languages, composed from the i18n dictionary and the
- * showcase collection per docs/knocket-kit/06-v2-mapping.md. Every visible string
- * comes from t(); only hrefs, asset paths and image dimensions live here.
- */
 import type { CollectionEntry } from 'astro:content';
 import { useTranslations } from '../../utils/i18n';
 import type {
@@ -41,7 +36,6 @@ const image = (src: string, alt: string, width: number, height: number, loading?
   loading,
 });
 
-/** 04 §2.3 and §4: the three process illustrations with their alt text. */
 const STEP_ART: ImageMedia[] = [
   image('/illustrations/step1.png', 'Strategic planning illustration', 1178, 768),
   image('/illustrations/step2.png', 'User discovery illustration', 1181, 768),
@@ -80,7 +74,6 @@ const D2_PHOTO = 'https://images.pexels.com/photos/7947636/pexels-photo-7947636.
 const RAIL_TONES: CardTone[] = ['lime', 'forest', 'mint'];
 const SHOWCASE_TONES: CardTone[] = ['lime', 'mint', 'forest'];
 
-/** Thai alt for the market photo on the Thai page, English on the English page. */
 const MARKET_ALT: Record<Lang, string> = { th: 'เดินตลาดในประเทศไทย', en: 'Walking through a market in Thailand' };
 
 export function homeContent(lang: Lang, showcase: ShowcaseEntry[]): HomeContent {

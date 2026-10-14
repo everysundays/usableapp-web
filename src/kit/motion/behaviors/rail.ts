@@ -13,7 +13,6 @@ const parts = (el: HTMLElement) => ({
   next: el.querySelector<HTMLElement>('[data-kn-rail-next]'),
 });
 
-/** card width plus the track's gap, read live so the mobile gap stays in sync */
 const stepWidth = (track: HTMLElement) => {
   const first = track.firstElementChild;
   if (!first) return 0;

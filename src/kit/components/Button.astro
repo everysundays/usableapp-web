@@ -11,7 +11,6 @@ export interface Props {
   class?: string;
 }
 
-/** Chip variants draw the arrow in a square chip; the rest render it as plain text after the label. */
 const VARIANTS: Record<ButtonVariant, { arrow: Arrow; chip: boolean }> = {
   cta: { arrow: '→', chip: true },
   'cta-light': { arrow: '→', chip: true },

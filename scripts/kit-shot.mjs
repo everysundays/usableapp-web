@@ -1,11 +1,6 @@
 #!/usr/bin/env node
-// Full-page screenshot at an exact viewport width through the DevTools protocol.
 // Headless Chrome's --window-size floors the layout viewport at about 500px on macOS,
 // so phone widths need Emulation.setDeviceMetricsOverride instead.
-//
-//   node scripts/kit-shot.mjs <url> <out.png> [width=1440] [height=900] [waitMs=1500] [--reduced-motion]
-//
-// Needs Node 22+ (global WebSocket) and Google Chrome at the default macOS path.
 
 import { spawn } from 'node:child_process';
 import { writeFile } from 'node:fs/promises';

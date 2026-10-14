@@ -1,9 +1,3 @@
-/*
- * Mobile nav (k-mobile-nav, ≤900px): a <details> hamburger whose panel is an
- * accordion of <details> groups built from the same NavSpec as the desktop
- * dropdowns. Hamburger styles bind to .kn-mnav__toggle, never to `summary`,
- * so they cannot leak onto the group summaries (the original's bug).
- */
 .kn-mnav {
   display: none;
   position: relative;

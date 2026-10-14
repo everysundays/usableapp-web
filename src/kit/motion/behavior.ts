@@ -1,7 +1,6 @@
 import type { Behavior, KitContext } from '../types';
 
 export type MotionBehavior = Behavior & {
-  /** skip the behavior (and its lib downloads) for this context; default always on */
   when?: (ctx: KitContext) => boolean;
 };
 

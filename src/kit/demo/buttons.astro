@@ -14,7 +14,6 @@ const variants: ButtonVariant[] = [
   'nav',
 ];
 
-/** Variants designed for a dark or saturated surface get one so their colors read correctly. */
 const surface: Partial<Record<ButtonVariant, string>> = {
   'cta-light': 'var(--kn-dark)',
   hero: 'var(--kn-hero-green)',
@@ -55,7 +54,6 @@ const surface: Partial<Record<ButtonVariant, string>> = {
       align-items: center;
       gap: 16px;
     }
-    /* display:contents so the button is a flex item and its 100% min-width resolves against the row */
     .kn-demo-lang {
       display: contents;
     }

@@ -1,8 +1,3 @@
-/*
- * Cartoon fist cursor, label and click ripple. The motion layer (motion/behaviors/cursor.ts)
- * injects the elements, adds body.kn-has-cursor, and moves them through inline transform;
- * state (.is-show, .is-big, .is-knocking) lives here as scale/rotate/opacity so the two never fight.
- */
 body.kn-has-cursor {
   cursor: none;
 }

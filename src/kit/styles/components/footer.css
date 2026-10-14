@@ -1,8 +1,3 @@
-/*
- * Footer (k-foot): ink surface, lemon column titles, a giant watermark word
- * behind everything. The watermark text arrives through --kn-foot-watermark,
- * set inline by Footer.astro from props, so the component stays data-driven.
- */
 .kn-foot {
   position: relative;
   overflow: hidden;

@@ -1,9 +1,4 @@
-/*
- * Anakotmai is the Thai fallback behind Space Grotesk and Inter (neither has
- * Thai glyphs). The unicode-range keeps it from downloading on pages with no
- * Thai text. Files live in public/kit/fonts because Vite does not resolve
- * /src/assets URLs inside a CSS file at build time.
- */
+/* Files live in public/kit/fonts because Vite does not resolve /src/assets URLs inside a CSS file at build time. */
 @font-face {
   font-family: 'Anakotmai';
   font-weight: 300;

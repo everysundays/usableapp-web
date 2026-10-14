@@ -1,4 +1,3 @@
-/* SectionHead (hr-section-head): kicker + display heading, optional note or aside on the right. */
 .kn-section-head {
   display: flex;
   align-items: end;

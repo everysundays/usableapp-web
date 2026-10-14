@@ -1,7 +1,3 @@
-/*
- * Steps (hr-steps): five tilted cards fanned on a stage above 720px, a numbered
- * list below. Both are in the DOM; the breakpoint picks one.
- */
 .kn-steps {
   position: relative;
   overflow: hidden;
@@ -19,7 +15,6 @@
   pointer-events: none;
 }
 
-/* The blob is absolutely positioned, so content needs a stacking position to paint above it. */
 .kn-steps__head {
   position: relative;
 }

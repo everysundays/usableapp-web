@@ -10,7 +10,6 @@ import Final from './sections/Final.astro';
 
 export type AstroComponent = AstroComponentFactory;
 
-/** entry.type → the component that renders entry.props. */
 export const sections: Record<SectionType, AstroComponent> = {
   hero: Hero,
   rail: Rail,

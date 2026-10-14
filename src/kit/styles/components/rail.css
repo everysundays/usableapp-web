@@ -1,8 +1,3 @@
-/*
- * Rail (hr-rail-section): a CSS scroll-snap carousel of tilted product cards.
- * Drag mode is a state the motion layer sets with .kn-rail--drag; the viewport
- * and track read it through private properties, so no selector nests.
- */
 .kn-rail {
   --_viewport-overflow: auto;
   --_viewport-cursor: auto;
@@ -43,7 +38,6 @@
   transform: scale(1.08);
 }
 
-/* The max-content track must never size the page: inline-size containment zeroes the viewport's intrinsic width. */
 .kn-rail__viewport {
   contain: inline-size;
   overflow-x: var(--_viewport-overflow);
@@ -206,7 +200,6 @@
     font-size: 44px;
   }
 
-  /* No hover on touch: the cta is always visible. */
   .kn-card__cta {
     opacity: 1;
     transform: none;

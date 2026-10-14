@@ -1,8 +1,3 @@
-/*
- * Hero (hr-hero): full-bleed green, copy left, art bleeding past its column on
- * the right. A framed figure (--framed) is a state the art owns: the image reads
- * its width, offset and shadow through private properties, so no selector nests.
- */
 .kn-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);

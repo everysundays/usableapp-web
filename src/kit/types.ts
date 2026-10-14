@@ -1,9 +1,3 @@
-/**
- * Knocket-style section kit: the data shapes every section, the nav, the footer
- * and the motion layer agree on. A page is a PageSpec (ordered SectionEntry[]);
- * the registry maps entry.type to the Astro component that renders it.
- */
-
 export type Href = string;
 
 export type Cta = {
@@ -35,7 +29,6 @@ export type Tone = 1 | 2 | 3 | 4 | 5;
 
 export type CardTone = 'lime' | 'mint' | 'forest';
 
-/** A titled one-liner: the value cards in Inbox and the session cards in Final. */
 export type Blurb = { title: string; desc: string };
 
 export type HeroProps = {
@@ -65,7 +58,6 @@ export type RailProps = {
   kicker: string;
   /** May contain <br> for a forced line break. */
   heading: string;
-  /** short note on the right of the section head */
   note?: string;
   cards: RailCard[];
 };
@@ -74,9 +66,7 @@ export type InboxProps = {
   id?: string;
   kicker: string;
   heading: string;
-  /** lead paragraphs under the heading */
   body?: string[];
-  /** translucent value cards across the panel, under copy and media */
   items?: Blurb[];
   cta: Cta;
   image: ImageMedia;
@@ -113,9 +103,7 @@ export type StepsProps = {
   id?: string;
   kicker: string;
   heading: string;
-  /** short note on the right of the section head */
   note?: string;
-  /** lead paragraphs between the head and the stage */
   body?: string[];
   steps: Step[];
 };
@@ -142,7 +130,6 @@ export type FinalProps = {
   kicker: string;
   heading: string;
   body?: string;
-  /** translucent cards in a row above the button */
   items?: Blurb[];
   cta: Cta;
 };
@@ -160,12 +147,9 @@ export type SectionType = SectionEntry['type'];
 
 export type PageSpec = SectionEntry[];
 
-/* ---------- nav and footer ---------- */
-
 export type NavLink = {
   label: string;
   href: Href;
-  /** second line under the label inside a dropdown */
   desc?: string;
   badge?: string;
 };
@@ -196,7 +180,6 @@ export type NavSpec = {
 
 export type FooterColumn = {
   title: string;
-  /** a column may be split in two sub-lists with their own small headings */
   groups: { heading?: string; links: NavLink[] }[];
   wide?: boolean;
 };
@@ -207,11 +190,8 @@ export type FooterSpec = {
   columns: FooterColumn[];
   copyright: string;
   legal: NavLink[];
-  /** giant watermark word behind the footer */
   watermark?: string;
 };
-
-/* ---------- motion ---------- */
 
 export type KitOptions = {
   /** Lenis smooth wheel scroll; off under prefers-reduced-motion */
@@ -230,7 +210,6 @@ export type KitContext = {
   options: Required<KitOptions>;
   reduced: boolean;
   finePointer: boolean;
-  /** resolved lazily by initKit for behaviors that list them in `needs` */
   libs: Partial<Record<KitLib, unknown>>;
 };
 
@@ -239,11 +218,8 @@ export type Behavior = {
   /** CSS selector for the elements this behavior owns; always a data-kn-* hook */
   match: string;
   needs?: KitLib[];
-  /** returns a teardown */
   init(el: HTMLElement, ctx: KitContext): (() => void) | void;
 };
-
-/* ---------- shared components ---------- */
 
 export type ButtonVariant =
   | 'cta'

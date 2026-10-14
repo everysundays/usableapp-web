@@ -1,7 +1,3 @@
-/*
- * Button. Variants are modifier classes; the chip reads its size and colors
- * through private --_chip-* properties so no selector is deeper than one class.
- */
 .kn-btn {
   --_chip-size: 30px;
   --_chip-radius: var(--kn-r-chip);
@@ -48,7 +44,6 @@
   font-size: 1em;
 }
 
-/* cta-light: lime on dark text, inverted chip */
 .kn-btn--cta-light {
   --_chip-bg: var(--kn-dark);
   --_chip-color: var(--kn-white);
@@ -60,7 +55,6 @@
   background: var(--kn-lime);
 }
 
-/* hero: hot pink bar with a full-height chip */
 .kn-btn--hero {
   --_chip-size: var(--kn-hero-cta-height);
   --_chip-radius: 0;
@@ -84,7 +78,6 @@
   background: var(--kn-hot-pink-hover);
 }
 
-/* final: larger cta under the closing headline */
 .kn-btn--final {
   --_chip-size: 40px;
   --_chip-radius: var(--kn-r-chip-lg);
@@ -96,7 +89,6 @@
   font-size: clamp(16px, 1.4vw, 20px);
 }
 
-/* section: cta inside copy blocks (hr-section-cta) */
 .kn-btn--section {
   --_chip-color: var(--kn-cta-dark);
 
@@ -131,7 +123,6 @@
   box-shadow: var(--kn-shadow-cta-hover);
 }
 
-/* pill: legacy neo-brutalist .btn-lemon / .btn-ink */
 .kn-btn--pill {
   gap: 10px;
   padding: 16px 26px;
@@ -186,7 +177,6 @@
   box-shadow: 2px 2px 0 var(--kn-lime);
 }
 
-/* nav: the floating nav's "Start Free" */
 .kn-btn--nav {
   gap: 10px;
   min-height: 68px;

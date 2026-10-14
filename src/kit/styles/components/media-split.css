@@ -1,8 +1,3 @@
-/*
- * MediaSplit (hr-demo and hr-feature-stage): copy beside a dark media frame.
- * Modifiers only set private --_ properties; the base rule reads them, so
- * reversed, feature and tilt combine without compound selectors.
- */
 .kn-split {
   --_copy: 0.62fr;
   --_media: 1.38fr;

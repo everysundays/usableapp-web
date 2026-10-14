@@ -1,9 +1,3 @@
-/*
- * Genre (hr-genre): a column of huge words; each word owns a scene of framed
- * images absolutely positioned over the section. Genre.astro writes each
- * image's pose (--kn-top/--kn-bottom/--kn-left/--kn-right/--kn-r) inline from
- * one pose table, so this file has no nth-child positioning.
- */
 .kn-genre {
   position: relative;
   overflow: hidden;
@@ -50,7 +44,6 @@
   max-height: 205px;
 }
 
-/* Tall images (the original's contact templates) crop to a phone-shaped frame. */
 .kn-scene__img--portrait {
   width: min(8vw, 130px);
   aspect-ratio: 1012 / 1800;
@@ -107,7 +100,6 @@
   opacity: 0.28;
 }
 
-/* Every desc shares one grid cell, so the block keeps the height of the tallest while only the active one is visible. */
 .kn-genre__descs {
   position: relative;
   z-index: 2;
@@ -217,7 +209,6 @@
     font-size: 11vw;
   }
 
-  /* Wrapped Thai words fill the width, so on phones they sit above the frames instead of under them. */
   .kn-genre__list:lang(th) {
     z-index: 4;
   }

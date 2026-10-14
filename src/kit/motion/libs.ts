@@ -30,7 +30,6 @@ const loaders: Loaders = {
   lenis: async () => (await import('lenis')).default,
 };
 
-/** A chunk that fails to arrive leaves its slot empty; initKit skips the behaviors that need it. */
 export async function loadLibs(needs: Iterable<KitLib>): Promise<KitContext['libs']> {
   const libs: KitContext['libs'] = {};
   await Promise.all(

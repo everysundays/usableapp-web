@@ -6,7 +6,6 @@ export type Props = StepsProps;
 
 const { id, kicker, heading, note, body = [], steps } = Astro.props;
 
-/** The original's five cards, cycled when a step omits bg or rest; the fifth chip repeats the first. */
 const REST_DEG = [-6, 3, -2, 5, -3];
 const CHIP = [1, 2, 3, 4, 1];
 

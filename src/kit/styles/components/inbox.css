@@ -1,8 +1,3 @@
-/*
- * Inbox (hr-inbox-section): a dark rounded panel split .37/.63, copy left, white
- * media frame right. Optional value cards span the panel under both, because
- * three cards cannot share the .37 copy column.
- */
 .kn-inbox {
   padding: 72px max(3vw, 20px) 100px;
   background: var(--kn-section-2);

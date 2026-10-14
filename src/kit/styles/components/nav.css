@@ -1,8 +1,3 @@
-/*
- * Nav (k-nav): floating pill with brand, centered links and the CTA cluster.
- * Dropdowns open on :hover / :focus-within of their group, no JS. The mobile
- * variant lives in nav-mobile.css, the locale switcher in locale.css.
- */
 .kn-nav {
   position: fixed;
   top: 20px;

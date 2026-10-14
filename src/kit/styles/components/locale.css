@@ -1,8 +1,3 @@
-/*
- * Locale switcher (k-locale): a <details> with the current language as its
- * summary and the menu absolutely positioned under it. The --mobile variant
- * sits open inside the mobile panel with a static menu.
- */
 .kn-locale {
   position: relative;
   font-size: 14px;
