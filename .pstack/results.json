@@ -1,0 +1,7 @@
+[
+  {
+    "name": "dist build output",
+    "check": "git diff --quiet \"${PSTACK_BASE:-HEAD~1}\" \"${PSTACK_HEAD:-HEAD}\" -- src public package.json astro.config.mjs || (npm run build >/dev/null 2>&1 && git diff --quiet -- dist && test -z \"$(git status --porcelain -- dist)\")",
+    "update": "npm run build && git add dist .astro && git commit -m 'chore: rebuild dist'"
+  }
+]
