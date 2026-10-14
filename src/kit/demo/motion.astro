@@ -1,5 +1,405 @@
 ---
-// W4 replaces this stub with the motion demo.
+/**
+ * Exercises every data-kn-* hook the motion layer binds, with throwaway markup
+ * so it runs before the real section components exist.
+ */
+const cards = ['lime', 'mint', 'sky', 'peach', 'lilac'];
+const restRotation = [-6, 3, -2, 5, -3];
+const genres = ['Retail', 'Gaming', 'Fintech'];
 ---
 
-<div id="motion" class="kn-demo-stub">stub: motion</div>
+<div id="motion" class="kn-demo-motion">
+  <section class="kn-demo-motion__hero" data-kn-section="hero">
+    <p class="kn-demo-motion__caption">hero parallax: the art drifts yPercent 9 while this 100vh block scrolls out</p>
+    <figure class="kn-demo-motion__hero-art" data-kn-parallax="hero-art">hero-art</figure>
+  </section>
+
+  <section class="kn-demo-motion__rail" data-kn-rail>
+    <p class="kn-demo-motion__caption">rail: drag or throw the track, or use the buttons</p>
+    <div class="kn-demo-motion__rail-viewport" data-kn-rail-viewport>
+      <ul class="kn-demo-motion__rail-track" data-kn-rail-track>
+        {cards.map((tone, i) => (
+          <li class="kn-demo-motion__card" style={`--tone: var(--kn-${tone})`}>
+            {String(i + 1).padStart(2, '0')}
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="kn-demo-motion__row">
+      <button type="button" class="kn-demo-motion__btn" data-kn-rail-prev aria-label="previous card">←</button>
+      <button type="button" class="kn-demo-motion__btn" data-kn-rail-next aria-label="next card">→</button>
+    </div>
+  </section>
+
+  <article class="kn-demo-motion__reveal" data-kn-reveal>
+    <p class="kn-demo-motion__caption">reveal: children rise in with a .075s stagger once the block is 74% up</p>
+    {[1, 2, 3, 4].map((n) => (
+      <div class="kn-demo-motion__reveal-item" data-kn-reveal-item>reveal item {n}</div>
+    ))}
+  </article>
+
+  <section class="kn-demo-motion__steps" data-kn-section="steps">
+    <div class="kn-demo-motion__blob" data-kn-blob aria-hidden="true"></div>
+    <p class="kn-demo-motion__caption">steps: cards plop in from scale .06, lift on hover; the blob parallaxes behind</p>
+    <p class="kn-demo-motion__note" data-kn-step-note>step note fades up at 92%</p>
+    <div class="kn-demo-motion__stage" data-kn-plop>
+      {cards.map((tone, i) => (
+        <div
+          class="kn-demo-motion__plop-item"
+          data-kn-plop-item
+          tabindex="0"
+          style={`--i: ${i}; --kn-rest-r: ${restRotation[i]}deg; --tone: var(--kn-${tone})`}
+        >
+          step {i + 1}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="kn-demo-motion__genre" data-kn-genre>
+    <div class="kn-demo-motion__row" role="list">
+      {genres.map((name, i) => (
+        <button type="button" class="kn-demo-motion__btn" data-kn-genre-item={i}>{name}</button>
+      ))}
+    </div>
+    <div class="kn-demo-motion__scenes">
+      {genres.map((name, i) => (
+        <div class="kn-demo-motion__scene" data-kn-scene={i} aria-hidden="true">
+          <img src={`/illustrations/step${(i % 3) + 1}.png`} alt="" width="320" height="240" loading={i === 0 ? 'eager' : 'lazy'} />
+          <img src={`/illustrations/step${((i + 1) % 3) + 1}.png`} alt="" width="320" height="240" loading={i === 0 ? 'eager' : 'lazy'} />
+          <span class="kn-demo-motion__caption">{name}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <div class="kn-demo-motion__grid">
+    <div class="kn-demo-motion__cell">
+      <p class="kn-demo-motion__caption">video: plays when 38% visible</p>
+      <video class="kn-demo-motion__video" data-kn-video muted loop playsinline preload="metadata" src="/kit/sample.mp4"></video>
+    </div>
+    <div class="kn-demo-motion__cell">
+      <p class="kn-demo-motion__caption">locale: click outside or Escape closes</p>
+      <details class="kn-demo-motion__locale" data-kn-locale>
+        <summary class="kn-demo-motion__btn">TH ▾</summary>
+        <ul class="kn-demo-motion__menu">
+          <li><a href="#motion">ไทย</a></li>
+          <li><a href="#motion">English</a></li>
+        </ul>
+      </details>
+    </div>
+    <div class="kn-demo-motion__cell">
+      <p class="kn-demo-motion__caption">tilt: rotateX/Y ±6deg from pointer</p>
+      <div class="kn-demo-motion__tilt" data-kn-tilt>tilt me</div>
+    </div>
+    <div class="kn-demo-motion__cell">
+      <p class="kn-demo-motion__caption">marquee: pauses on hover</p>
+      <div class="kn-demo-motion__marquee" data-kn-marquee>
+        <div class="kn-demo-motion__marquee-track">knock knock · knock knock · knock knock · knock knock · knock knock · knock knock ·</div>
+      </div>
+    </div>
+    <div class="kn-demo-motion__cell">
+      <p class="kn-demo-motion__caption">tabs: data-kn-tabs on the container follows the active tab</p>
+      <div class="kn-demo-motion__tabs" data-kn-tabs="one" role="tablist">
+        <button type="button" class="kn-demo-motion__btn" data-kn-tab="one" role="tab">One</button>
+        <button type="button" class="kn-demo-motion__btn" data-kn-tab="two" role="tab">Two</button>
+        <div class="kn-demo-motion__panel" data-kn-panel="one">panel one</div>
+        <div class="kn-demo-motion__panel" data-kn-panel="two">panel two</div>
+      </div>
+    </div>
+    <div class="kn-demo-motion__cell">
+      <p class="kn-demo-motion__caption">copy and cursor label</p>
+      <div class="kn-demo-motion__row">
+        <button type="button" class="kn-demo-motion__btn" data-kn-copy="npm i gsap lenis">npm i gsap lenis</button>
+        <button type="button" class="kn-demo-motion__btn kn-demo-motion__btn--cta" data-kn-cursor="LET'S GO">hover for LET'S GO</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  @layer utilities {
+    .kn-demo-motion {
+      display: grid;
+      gap: 40px;
+      padding: 0 var(--kn-gutter);
+      font-family: var(--kn-font-sans);
+      color: var(--kn-ink);
+    }
+    .kn-demo-motion__caption {
+      margin: 0;
+      font: 500 12px/1.4 var(--kn-font-mono);
+      color: var(--kn-muted);
+    }
+    .kn-demo-motion__row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .kn-demo-motion__btn {
+      padding: 10px 16px;
+      border: 2px solid var(--kn-ink);
+      border-radius: var(--kn-r-btn);
+      background: var(--kn-paper);
+      color: var(--kn-ink);
+      font: 700 14px/1 var(--kn-font-display);
+      cursor: pointer;
+    }
+    .kn-demo-motion__btn.is-active {
+      background: var(--kn-lime);
+    }
+    .kn-demo-motion__btn--cta {
+      background: var(--kn-lime);
+      box-shadow: var(--kn-shadow-hard-sm);
+    }
+
+    .kn-demo-motion__hero {
+      position: relative;
+      display: grid;
+      align-content: start;
+      gap: 24px;
+      min-height: 100vh;
+      padding: 32px;
+      border-radius: var(--kn-r-lg);
+      background: var(--kn-hero-green);
+      color: var(--kn-on-dark);
+    }
+    .kn-demo-motion__hero .kn-demo-motion__caption {
+      color: var(--kn-on-dark);
+    }
+    .kn-demo-motion__hero-art {
+      width: min(420px, 60%);
+      aspect-ratio: 4 / 3;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      border-radius: var(--kn-r-card);
+      background: var(--kn-lime);
+      color: var(--kn-ink);
+      font: 700 24px/1 var(--kn-font-display);
+      box-shadow: var(--kn-shadow-hard-lg);
+    }
+
+    .kn-demo-motion__rail {
+      display: grid;
+      gap: 16px;
+    }
+    .kn-demo-motion__rail-viewport {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-block: 8px;
+    }
+    .kn-rail--drag .kn-demo-motion__rail-viewport {
+      overflow: hidden;
+      cursor: grab;
+    }
+    .kn-demo-motion__rail-track {
+      display: flex;
+      gap: 36px;
+      width: max-content;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      touch-action: pan-y;
+      user-select: none;
+      will-change: transform;
+    }
+    .kn-demo-motion__card {
+      flex: none;
+      width: 400px;
+      height: 260px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--kn-r-card);
+      border: 2px solid var(--kn-ink);
+      background: var(--tone);
+      font: 700 40px/1 var(--kn-font-display);
+      scroll-snap-align: start;
+    }
+
+    .kn-demo-motion__reveal {
+      display: grid;
+      gap: 12px;
+      padding: 32px;
+      border-radius: var(--kn-r-lg);
+      background: var(--kn-section-2);
+    }
+    .kn-demo-motion__reveal-item {
+      padding: 20px 24px;
+      border-radius: var(--kn-r-md);
+      background: var(--kn-white);
+      font: 500 18px/1.3 var(--kn-font-display);
+    }
+
+    .kn-demo-motion__steps {
+      position: relative;
+      display: grid;
+      gap: 16px;
+      padding: 32px;
+      border-radius: var(--kn-r-lg);
+      background: var(--kn-section-3);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .kn-demo-motion__blob {
+      position: absolute;
+      inset: 10% -10% auto auto;
+      width: 50%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--kn-mint);
+      z-index: -1;
+    }
+    .kn-demo-motion__note {
+      margin: 0;
+      font: 700 20px/1.2 var(--kn-font-hand);
+    }
+    .kn-demo-motion__stage {
+      position: relative;
+      height: 360px;
+    }
+    .kn-demo-motion__plop-item {
+      position: absolute;
+      left: calc(var(--i) * 18%);
+      top: 40px;
+      width: 180px;
+      height: 240px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--kn-r-md);
+      border: 2px solid var(--kn-ink);
+      background: var(--tone);
+      box-shadow: var(--kn-shadow-card-rest);
+      font: 700 18px/1 var(--kn-font-display);
+      transform: rotate(var(--kn-rest-r));
+      z-index: calc(var(--i) + 1);
+    }
+    @media (max-width: 720px) {
+      .kn-demo-motion__stage {
+        display: none;
+      }
+    }
+
+    .kn-demo-motion__genre {
+      display: grid;
+      gap: 16px;
+    }
+    .kn-demo-motion__scenes {
+      position: relative;
+      height: 280px;
+      border-radius: var(--kn-r-lg);
+      background: var(--kn-genre);
+    }
+    .kn-demo-motion__scene {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      opacity: 0;
+      visibility: hidden;
+    }
+    .kn-demo-motion__scene.is-active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .kn-demo-motion__scene img {
+      width: 240px;
+      height: auto;
+      border-radius: var(--kn-r-md);
+      border: 2px solid var(--kn-ink);
+      background: var(--kn-paper);
+    }
+
+    .kn-demo-motion__grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    }
+    .kn-demo-motion__cell {
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      padding: 20px;
+      border-radius: var(--kn-r-md);
+      border: 1px solid var(--kn-line);
+    }
+    .kn-demo-motion__video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--kn-r-md);
+      background: var(--kn-ink);
+    }
+    .kn-demo-motion__locale {
+      position: relative;
+      width: fit-content;
+    }
+    .kn-demo-motion__locale summary {
+      list-style: none;
+      width: fit-content;
+    }
+    .kn-demo-motion__menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      margin: 0;
+      padding: 8px 16px;
+      list-style: none;
+      border-radius: var(--kn-r-sm);
+      border: 2px solid var(--kn-ink);
+      background: var(--kn-paper);
+      z-index: var(--kn-z-locale);
+    }
+    .kn-demo-motion__tilt {
+      display: grid;
+      place-items: center;
+      height: 160px;
+      border-radius: var(--kn-r-md);
+      background: var(--kn-lilac);
+      font: 700 18px/1 var(--kn-font-display);
+      transition: transform var(--kn-dur-fast);
+    }
+    .kn-demo-motion__marquee {
+      overflow: hidden;
+      padding: 12px 0;
+      border-radius: var(--kn-r-sm);
+      background: var(--kn-ink);
+      color: var(--kn-lime);
+      font: 700 16px/1 var(--kn-font-mono);
+    }
+    .kn-demo-motion__marquee-track {
+      width: max-content;
+      white-space: nowrap;
+      animation: kn-demo-motion-marquee 12s linear infinite;
+    }
+    @keyframes kn-demo-motion-marquee {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+    .kn-demo-motion__tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .kn-demo-motion__panel {
+      display: none;
+      flex-basis: 100%;
+      padding: 12px;
+      border-radius: var(--kn-r-sm);
+      background: var(--kn-section-1);
+    }
+    .kn-demo-motion__tabs[data-kn-tabs='one'] [data-kn-panel='one'],
+    .kn-demo-motion__tabs[data-kn-tabs='two'] [data-kn-panel='two'] {
+      display: block;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .kn-demo-motion__marquee-track,
+      .kn-demo-motion__tilt {
+        animation: none;
+        transition: none;
+      }
+    }
+  }
+</style>

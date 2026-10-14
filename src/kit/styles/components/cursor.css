@@ -1,1 +1,96 @@
-/* cursor: owned by W4. Imported into layer(components) by main.css. */
+/*
+ * Cartoon fist cursor, label and click ripple. The motion layer (motion/behaviors/cursor.ts)
+ * injects the elements, adds body.kn-has-cursor, and moves them through inline transform;
+ * state (.is-show, .is-big, .is-knocking) lives here as scale/rotate/opacity so the two never fight.
+ */
+body.kn-has-cursor {
+  cursor: none;
+}
+
+.kn-cursor {
+  --_burst: 0;
+  position: fixed;
+  inset: 0 auto auto 0;
+  z-index: var(--kn-z-cursor);
+  width: 42px;
+  height: 42px;
+  color: var(--kn-ink);
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity var(--kn-dur-fast),
+    scale var(--kn-dur) var(--kn-ease-spring),
+    rotate var(--kn-dur-fast);
+  will-change: transform;
+}
+.kn-cursor.is-show {
+  opacity: 1;
+}
+.kn-cursor.is-big {
+  scale: 1.35;
+}
+.kn-cursor.is-knocking {
+  --_burst: 1;
+  scale: 0.85;
+  rotate: -14deg;
+}
+.kn-cursor svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.kn-cursor__burst {
+  opacity: var(--_burst);
+  transition: opacity var(--kn-dur-fast);
+}
+
+.kn-cursor__label {
+  position: fixed;
+  inset: 0 auto auto 0;
+  z-index: var(--kn-z-cursor);
+  padding: 5px 8px;
+  border-radius: var(--kn-r-chip);
+  background: var(--kn-ink);
+  color: var(--kn-lime);
+  font: 700 11px/1 var(--kn-font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--kn-dur-fast);
+  will-change: transform;
+}
+.kn-cursor__label.is-show {
+  opacity: 1;
+}
+
+.kn-ripple {
+  position: fixed;
+  z-index: var(--kn-z-cursor);
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--kn-ink);
+  border-radius: 50%;
+  translate: -50% -50%;
+  pointer-events: none;
+  animation: kn-ripple 0.7s var(--kn-ease-settle) forwards;
+}
+@keyframes kn-ripple {
+  to {
+    scale: 11;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  body.kn-has-cursor {
+    cursor: auto;
+  }
+  .kn-cursor,
+  .kn-cursor__label,
+  .kn-ripple {
+    display: none;
+  }
+}
