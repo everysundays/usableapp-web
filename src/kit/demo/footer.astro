@@ -1,5 +1,83 @@
 ---
-// W1 replaces this stub with the footer demo.
+import Footer from '../components/Footer.astro';
+import type { FooterSpec } from '../types';
+
+export const footer: FooterSpec = {
+  brand: { name: 'Usable App', href: '/', logo: { kind: 'image', src: '/favicon.svg', alt: '' } },
+  tagline: 'Research, prototype and decide with the people who will actually use the thing you are building.',
+  columns: [
+    {
+      title: 'Product',
+      groups: [
+        {
+          links: [
+            { label: 'Research Studio', href: '#' },
+            { label: 'Prototype Lab', href: '#' },
+            { label: 'Insight Inbox', href: '#' },
+            { label: 'Pricing', href: '#' },
+          ],
+        },
+      ],
+    },
+    {
+      title: 'Resources',
+      groups: [
+        {
+          links: [
+            { label: 'Tutorials', href: '#' },
+            { label: 'Blog', href: '#' },
+            { label: 'Templates', href: '#' },
+            { label: 'Changelog', href: '#' },
+          ],
+        },
+      ],
+    },
+    {
+      title: 'Company',
+      groups: [
+        {
+          links: [
+            { label: 'About', href: '#' },
+            { label: 'Careers', href: '#' },
+            { label: 'Contact', href: '#' },
+          ],
+        },
+      ],
+    },
+    {
+      title: 'Solutions',
+      wide: true,
+      groups: [
+        {
+          heading: 'By role',
+          links: [
+            { label: 'Product managers', href: '#' },
+            { label: 'Designers', href: '#' },
+            { label: 'Founders', href: '#' },
+            { label: 'Researchers', href: '#' },
+          ],
+        },
+        {
+          heading: 'By industry',
+          links: [
+            { label: 'Fintech', href: '#' },
+            { label: 'Healthcare', href: '#' },
+            { label: 'Retail', href: '#' },
+            { label: 'Education', href: '#' },
+          ],
+        },
+      ],
+    },
+  ],
+  copyright: '© 2026 Usable App Co., Ltd.',
+  legal: [
+    { label: 'Privacy', href: '#' },
+    { label: 'Terms', href: '#' },
+  ],
+  watermark: 'USABLE',
+};
 ---
 
-<div id="footer" class="kn-demo-stub">stub: footer</div>
+<div id="footer">
+  <Footer {...footer} />
+</div>

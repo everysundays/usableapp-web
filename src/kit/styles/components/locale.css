@@ -1,1 +1,119 @@
-/* locale: owned by W1. Imported into layer(components) by main.css. */
+/*
+ * Locale switcher (k-locale): a <details> with the current language as its
+ * summary and the menu absolutely positioned under it. The --mobile variant
+ * sits open inside the mobile panel with a static menu.
+ */
+.kn-locale {
+  position: relative;
+  font-size: 14px;
+}
+
+.kn-locale__toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: 10px;
+  color: var(--kn-ink);
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  transition: background var(--kn-dur-fast) ease;
+}
+
+.kn-locale__toggle:hover {
+  background: var(--kn-hover-tint);
+}
+
+.kn-locale__toggle:focus-visible {
+  outline: 2px solid var(--kn-lime);
+  outline-offset: 2px;
+}
+
+.kn-locale__toggle::after {
+  content: '▾' / '';
+  font-size: 10px;
+  opacity: 0.55;
+  transition: transform var(--kn-dur-fast) ease;
+}
+
+.kn-locale[open] > .kn-locale__toggle::after {
+  transform: rotate(180deg);
+}
+
+.kn-locale__globe {
+  width: 17px;
+  height: 17px;
+}
+
+.kn-locale__menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: var(--kn-z-locale);
+  min-width: 172px;
+  max-height: min(60vh, 420px);
+  padding: 6px;
+  overflow-y: auto;
+  border: 1px solid var(--kn-menu-border);
+  border-radius: var(--kn-r-sm);
+  background: var(--kn-white);
+  box-shadow: var(--kn-shadow-menu);
+}
+
+.kn-locale__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: var(--kn-ink);
+  transition: background 0.15s ease;
+}
+
+.kn-locale__item:hover {
+  background: var(--kn-hover-tint);
+}
+
+.kn-locale__code {
+  font-size: 11px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.kn-locale--mobile {
+  width: 100%;
+}
+
+.kn-locale--mobile > .kn-locale__toggle {
+  justify-content: space-between;
+  padding: 12px 15px;
+  font-size: 15px;
+}
+
+.kn-locale--mobile > .kn-locale__toggle > .kn-locale__current {
+  margin-right: auto;
+}
+
+.kn-locale--mobile > .kn-locale__menu {
+  position: static;
+  min-width: 0;
+  max-height: none;
+  padding: 0 0 8px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.kn-locale--mobile .kn-locale__item {
+  padding: 10px 15px 10px 41px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kn-locale__toggle,
+  .kn-locale__toggle::after,
+  .kn-locale__item {
+    transition: none;
+  }
+}

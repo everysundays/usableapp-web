@@ -137,3 +137,25 @@
   --kn-dur-slower: 0.75s;
   --kn-dur-rise: 0.9s;
 }
+
+/* W1: Nav, mobile nav, locale and footer values from 01 that no earlier token covered. */
+:root {
+  --kn-nav-bg: rgba(248, 245, 235, 0.9);
+  --kn-drop-item-hover: #eaf8ed;
+  --kn-drop-icon: #13764b;
+  --kn-drop-icon-bg: #e9f7eb;
+  --kn-drop-icon-border: #d0ebd9;
+  --kn-drop-icon-hover: #16885a;
+  --kn-drop-rule: #dcebe0;
+  --kn-badge-bg: #dffc7c;
+  --kn-badge-color: #17452c;
+  --kn-mnav-hover: #eaf3ec;
+  --kn-mnav-open: #e7f3ea;
+  --kn-mnav-sub-hover: #dff0e4;
+  --kn-panel-border: rgba(7, 61, 40, 0.13);
+  --kn-menu-border: rgba(0, 0, 0, 0.08);
+  --kn-hover-tint: rgba(0, 0, 0, 0.05);
+  --kn-shadow-dropdown: 0 20px 48px rgba(8, 52, 33, 0.16);
+  --kn-shadow-panel: 0 24px 50px rgba(7, 61, 40, 0.18);
+  --kn-shadow-menu: 0 12px 32px rgba(0, 0, 0, 0.12);
+}

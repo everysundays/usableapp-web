@@ -1,8 +1,120 @@
 ---
-// W1 replaces this stub. Props: NavSpec.
 import type { NavSpec } from '../types';
+import { isNavGroup } from '../types';
+import Button from './Button.astro';
 
 export type Props = NavSpec;
+
+const { brand, items, cta, locales = [] } = Astro.props;
+const current = locales.find((l) => l.current) ?? locales[0];
 ---
 
-<nav class="kn-nav" data-kn-nav>stub: nav</nav>
+<nav class="kn-nav" data-kn-nav aria-label="Main">
+  <a class="kn-nav__brand" href={brand.href}>
+    {brand.logo && (
+      <img class="kn-nav__logo" src={brand.logo.src} alt={brand.logo.alt} width="54" height="54" loading="eager" decoding="async" />
+    )}
+    <span class="kn-nav__wordmark">{brand.name}</span>
+  </a>
+
+  <div class="kn-nav__links">
+    {items.map((item) =>
+      isNavGroup(item) ? (
+        <div class="kn-nav__group">
+          <button type="button" class="kn-nav__link kn-nav__link--group">{item.label}</button>
+          <div class:list={['kn-nav__drop', item.columns.length > 1 && 'kn-nav__drop--wide']}>
+            {item.columns.map((col) => (
+              <div class="kn-nav__col">
+                {col.heading && <div class="kn-nav__col-head">{col.heading}</div>}
+                {col.links.map((link) => (
+                  <a class="kn-nav__item" href={link.href}>
+                    <span class="kn-nav__ic" aria-hidden="true">{link.label.charAt(0)}</span>
+                    <span class="kn-nav__item-body">
+                      <b class="kn-nav__item-title">
+                        {link.label}
+                        {link.badge && <span class="kn-nav__badge">{link.badge}</span>}
+                      </b>
+                      {link.desc && <span class="kn-nav__item-desc">{link.desc}</span>}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <a class="kn-nav__link" href={item.href}>{item.label}</a>
+      ),
+    )}
+  </div>
+
+  <details class="kn-mnav" data-kn-mobile-nav>
+    <summary class="kn-mnav__toggle" aria-label="Open navigation">
+      <span class="kn-mnav__bar"></span>
+      <span class="kn-mnav__bar"></span>
+    </summary>
+    <div class="kn-mnav__panel">
+      {items.map((item) =>
+        isNavGroup(item) ? (
+          <details class="kn-mnav__group" open>
+            <summary class="kn-mnav__summary">{item.label}</summary>
+            <div class="kn-mnav__sub">
+              {item.columns.map((col) => (
+                <>
+                  {col.heading && <div class="kn-mnav__subhead">{col.heading}</div>}
+                  {col.links.map((link) => (
+                    <a class="kn-mnav__sub-link" href={link.href}>
+                      <b class="kn-mnav__sub-title">{link.label}</b>
+                      {link.desc && <span class="kn-mnav__sub-desc">{link.desc}</span>}
+                    </a>
+                  ))}
+                </>
+              ))}
+            </div>
+          </details>
+        ) : (
+          <a class="kn-mnav__top" href={item.href}>{item.label}</a>
+        ),
+      )}
+      <a class="kn-mnav__cta" href={cta.href} target={cta.external ? '_blank' : undefined} rel={cta.external ? 'noopener noreferrer' : undefined}>
+        {cta.label} <span class="kn-mnav__cta-arrow" aria-hidden="true">→</span>
+      </a>
+      {locales.length > 0 && (
+        <details class="kn-locale kn-locale--mobile" open>
+          <summary class="kn-locale__toggle">
+            <svg class="kn-locale__globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+            <span class="kn-locale__current">{current.label}</span>
+          </summary>
+          <div class="kn-locale__menu">
+            {locales.map((l) => (
+              <a class="kn-locale__item" href={l.href} hreflang={l.code} lang={l.code} aria-current={l.current ? 'true' : undefined}>
+                <span>{l.label}</span>
+                <small class="kn-locale__code">{l.code}</small>
+              </a>
+            ))}
+          </div>
+        </details>
+      )}
+    </div>
+  </details>
+
+  <div class="kn-nav__cta">
+    {locales.length > 0 && (
+      <details class="kn-locale" data-kn-locale>
+        <summary class="kn-locale__toggle" aria-label="Change language">
+          <svg class="kn-locale__globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+          <span class="kn-locale__current">{current.label}</span>
+        </summary>
+        <div class="kn-locale__menu">
+          {locales.map((l) => (
+            <a class="kn-locale__item" href={l.href} hreflang={l.code} lang={l.code} aria-current={l.current ? 'true' : undefined}>
+              <span>{l.label}</span>
+              <small class="kn-locale__code">{l.code}</small>
+            </a>
+          ))}
+        </div>
+      </details>
+    )}
+    <Button variant="nav" label={cta.label} href={cta.href} external={cta.external} />
+  </div>
+</nav>
