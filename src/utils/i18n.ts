@@ -93,6 +93,11 @@ const translations = {
     "contact.book": "จองวันประชุม",
     "footer.copyright": "Usable App Co. © 2025",
     "footer.tagline": "Find good problems. Make good apps.",
+    "v2.nav.insights": "แนวคิด",
+    "v2.hero.note": "ตั้งอยู่ที่กรุงเทพฯ",
+    "v2.footer.sections": "ส่วนต่าง ๆ",
+    "v2.footer.process": "กระบวนการ",
+    "v2.footer.language": "ภาษา",
   },
   en: {
     "site.title": "Usable App Co.",
@@ -181,6 +186,11 @@ const translations = {
     "contact.book": "Book a Meeting",
     "footer.copyright": "Usable App Co. © 2025",
     "footer.tagline": "Find good problems. Make good apps.",
+    "v2.nav.insights": "Insights",
+    "v2.hero.note": "Based in Bangkok, Thailand",
+    "v2.footer.sections": "Sections",
+    "v2.footer.process": "Process",
+    "v2.footer.language": "Language",
   }
 };
 
