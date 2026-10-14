@@ -45,12 +45,11 @@ const meta = { title: 'Kit · knocket section kit', description: 'Kitchen sink f
 
 <style is:global>
   @layer utilities {
+    /* Demos render full-bleed so sections look as they will on a page; only the label is inset. */
     .kn-kit {
       display: grid;
       gap: 56px;
-      max-width: var(--kn-container-max);
-      margin: 0 auto;
-      padding: 48px var(--kn-gutter) 120px;
+      padding: 0 0 120px;
     }
     .kn-kit__demo {
       display: grid;
@@ -58,7 +57,8 @@ const meta = { title: 'Kit · knocket section kit', description: 'Kitchen sink f
     }
     .kn-kit__label {
       color: var(--kn-muted);
-      padding-bottom: 12px;
+      margin: 0 var(--kn-gutter);
+      padding: 24px 0 12px;
       border-bottom: 1px solid var(--kn-line);
     }
     .kn-kit__anchor {
