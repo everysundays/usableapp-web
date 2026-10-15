@@ -1,0 +1,75 @@
+---
+import type { GenreProps, ImageMedia } from '../../types';
+
+export type Props = GenreProps;
+
+const { id, kicker, heading, items, initial } = Astro.props;
+
+/** Where a framed image sits over the section (02 §9). Written inline so genre.css stays flat. */
+type Pose = { top?: string; bottom?: string; left?: string; right?: string; r: string };
+
+const PAIR_POSES: [Pose, Pose][] = [
+  [{ left: '2vw', top: '22%', r: '-3deg' }, { right: '2vw', bottom: '9%', r: '7deg' }],
+  [{ left: '2vw', top: '14%', r: '4deg' }, { right: '2vw', bottom: '20%', r: '-6deg' }],
+  [{ left: '2vw', top: '26%', r: '-5deg' }, { right: '2vw', bottom: '14%', r: '4deg' }],
+  [{ left: '2vw', top: '18%', r: '6deg' }, { right: '2vw', bottom: '8%', r: '-5deg' }],
+];
+
+const GALLERY_POSES: Pose[] = [
+  { left: '1.5vw', top: '18%', r: '-7deg' },
+  { right: '1.5vw', top: '17%', r: '6deg' },
+  { left: '2.5vw', top: '44%', r: '5deg' },
+  { right: '2.5vw', top: '43%', r: '-5deg' },
+  { left: '1.5vw', top: '70%', r: '-4deg' },
+  { right: '1.5vw', top: '69%', r: '7deg' },
+];
+
+const poseStyle = (p: Pose) =>
+  Object.entries(p)
+    .map(([k, v]) => `--kn-${k}:${v}`)
+    .join(';');
+
+const isPortrait = (img: ImageMedia) => img.width !== undefined && img.height !== undefined && img.height > img.width;
+
+const scenes = items.map((item, i) => {
+  const gallery = item.images.length === 6;
+  const poses = gallery ? GALLERY_POSES : PAIR_POSES[i % PAIR_POSES.length];
+  const images = gallery ? item.images : [item.images[0], item.images[item.images.length - 1]];
+  return { i, gallery, frames: images.map((img, j) => ({ img, style: poseStyle(poses[j]) })) };
+});
+---
+
+<section id={id} data-kn-section="genre" data-kn-genre class="kn-genre">
+  <p class="kn-kicker">{kicker}</p>
+  {heading && <h2 class="kn-genre__heading kn-display-lg">{heading}</h2>}
+  <div class="kn-genre__scenes" aria-hidden="true">
+    {scenes.map((scene) => (
+      <div class:list={['kn-scene', { 'kn-scene--gallery': scene.gallery, 'is-active': scene.i === initial }]} data-kn-scene={scene.i}>
+        {scene.frames.map(({ img, style }) => (
+          <img
+            class:list={['kn-scene__img', { 'kn-scene__img--gallery': scene.gallery, 'kn-scene__img--portrait': isPortrait(img) }]}
+            src={img.src}
+            alt=""
+            width={img.width}
+            height={img.height}
+            loading="lazy"
+            decoding="async"
+            style={style}
+          />
+        ))}
+      </div>
+    ))}
+  </div>
+  <div class="kn-genre__list">
+    {items.map((item, i) => (
+      <button type="button" class:list={['kn-genre__item', { 'is-active': i === initial }]} data-kn-genre-item={i}>
+        {item.label}
+      </button>
+    ))}
+  </div>
+  {items.some((item) => item.desc) && (
+    <div class="kn-genre__descs">
+      {items.map((item, i) => item.desc && <p class="kn-genre__desc" data-kn-genre-desc={i}>{item.desc}</p>)}
+    </div>
+  )}
+</section>

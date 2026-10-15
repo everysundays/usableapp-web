@@ -93,6 +93,11 @@ const translations = {
     "contact.book": "จองวันประชุม",
     "footer.copyright": "Usable App Co. © 2025",
     "footer.tagline": "Find good problems. Make good apps.",
+    "v2.nav.insights": "แนวคิด",
+    "v2.hero.note": "ตั้งอยู่ที่กรุงเทพฯ",
+    "v2.footer.sections": "ส่วนต่าง ๆ",
+    "v2.footer.process": "กระบวนการ",
+    "v2.footer.language": "ภาษา",
   },
   en: {
     "site.title": "Usable App Co.",
@@ -108,7 +113,7 @@ const translations = {
     "hero.subheadline": "We help startups and SMEs discover what their business really needs—before writing a single line of code.",
     "hero.cta": "Book Your Free Brief",
     "whoWeAre.eyebrow": "Who We Are",
-    "whoWeAre.title": "Here's to Your Next Product/Platform…",
+    "whoWeAre.title": "Here's to Your Next Product / Platform…",
     "whoWeAre.desc1": "We see mobile phones and tablets as portals to your company—gateways to the services you want to offer users, making their lives easier through your product.",
     "whoWeAre.desc2": "We know how to do it. We have a process that helps you transform ideas into apps that achieve your service goals. Users can navigate them intuitively, without needing help sections.",
     "process.eyebrow": "Our Process",
@@ -181,6 +186,11 @@ const translations = {
     "contact.book": "Book a Meeting",
     "footer.copyright": "Usable App Co. © 2025",
     "footer.tagline": "Find good problems. Make good apps.",
+    "v2.nav.insights": "Insights",
+    "v2.hero.note": "Based in Bangkok, Thailand",
+    "v2.footer.sections": "Sections",
+    "v2.footer.process": "Process",
+    "v2.footer.language": "Language",
   }
 };
 

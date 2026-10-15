@@ -1,0 +1,50 @@
+---
+import type { FooterSpec } from '../types';
+
+export type Props = FooterSpec;
+
+const { brand, tagline, columns, copyright, legal, watermark } = Astro.props;
+// JSON.stringify yields a double-quoted, escaped string, which is also a valid CSS <string>.
+const watermarkStyle = watermark ? `--kn-foot-watermark: ${JSON.stringify(watermark)}` : undefined;
+---
+
+<footer class="kn-foot" style={watermarkStyle}>
+  <div class="kn-foot__inner">
+    <div class="kn-foot__top">
+      <div class="kn-foot__brand">
+        <a class="kn-foot__logo" href={brand.href}>
+          {brand.logo && (
+            <span class="kn-foot__mark">
+              <img src={brand.logo.src} alt={brand.logo.alt} width="26" height="26" loading="lazy" decoding="async" />
+            </span>
+          )}
+          <span class="kn-foot__wordmark">{brand.name}</span>
+        </a>
+        <p class="kn-foot__tagline">{tagline}</p>
+      </div>
+
+      {columns.map((col) => (
+        <div class="kn-foot__col">
+          <h3 class="kn-foot__title">{col.title}</h3>
+          <div class:list={['kn-foot__groups', col.wide && 'kn-foot__groups--two']}>
+            {col.groups.map((group) => (
+              <ul class="kn-foot__list">
+                {group.heading && <li class="kn-foot__sub">{group.heading}</li>}
+                {group.links.map((link) => (
+                  <li><a class="kn-foot__link" href={link.href}>{link.label}</a></li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="kn-foot__bottom">
+      <span>{copyright}</span>
+      <div class="kn-foot__legal">
+        {legal.map((link) => <a class="kn-foot__link" href={link.href}>{link.label}</a>)}
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,12 @@
+---
+import FinalSection from '../components/sections/Final.astro';
+import type { FinalProps } from '../types';
+
+const final: FinalProps = {
+  kicker: 'เริ่มต้นได้เลยวันนี้',
+  heading: 'เปิดรับการเคาะแรกของคุณ',
+  cta: { label: 'เริ่มใช้ฟรี', href: '#' },
+};
+---
+
+<div id="final" lang="th"><FinalSection {...final} /></div>

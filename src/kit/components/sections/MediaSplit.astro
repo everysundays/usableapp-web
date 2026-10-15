@@ -1,0 +1,37 @@
+---
+import type { MediaSplitProps } from '../../types';
+import Button from '../Button.astro';
+import Media from '../Media.astro';
+
+export type Props = MediaSplitProps;
+
+const { id, kicker, heading, body, cta, media, reversed = false, tone = 1, ratio = 'demo', tilt = false } = Astro.props;
+const [line1, line2] = Array.isArray(heading) ? heading : [heading];
+---
+
+<article
+  id={id}
+  data-kn-section="mediaSplit"
+  data-kn-reveal
+  class:list={[
+    'kn-split',
+    `kn-split--tone-${tone}`,
+    { 'kn-split--reversed': reversed, 'kn-split--feature': ratio === 'feature', 'kn-split--tilt': tilt },
+  ]}
+>
+  <div class="kn-split__copy">
+    <p class="kn-kicker kn-split__kicker" data-kn-reveal-item>{kicker}</p>
+    <h2 class="kn-split__heading kn-display-md" data-kn-reveal-item>
+      {line1}{line2 && <><br /><span>{line2}</span></>}
+    </h2>
+    <p class="kn-split__body" data-kn-reveal-item>{body}</p>
+    {cta && (
+      <div data-kn-reveal-item>
+        <Button variant="section" href={cta.href} label={cta.label} external={cta.external} class="kn-split__cta" />
+      </div>
+    )}
+  </div>
+  <div class="kn-split__media" data-kn-reveal-item>
+    <Media media={media} class="kn-split__asset" />
+  </div>
+</article>

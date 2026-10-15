@@ -1,0 +1,138 @@
+.kn-split {
+  --_copy: 0.62fr;
+  --_media: 1.38fr;
+  --_gap: 5vw;
+  --_heading-size: clamp(52px, 6.2vw, 105px);
+  --_heading-margin: 18px 0 24px;
+  --_body-size: 18px;
+  --_body-max: 520px;
+  --_media-radius: 34px;
+  --_media-shadow: var(--kn-shadow-media);
+  --_media-rotate: 0deg;
+  --_copy-order: 0;
+
+  display: grid;
+  grid-template-columns: var(--_copy) var(--_media);
+  align-items: center;
+  gap: var(--_gap);
+  min-height: 92vh;
+  padding: 110px var(--kn-gutter);
+  color: var(--kn-ink);
+}
+
+.kn-split--feature {
+  --_copy: 0.78fr;
+  --_media: 1.22fr;
+  --_gap: 6vw;
+  --_heading-size: clamp(50px, 6vw, 100px);
+  --_heading-margin: 18px 0 26px;
+  --_body-size: 19px;
+  --_body-max: 560px;
+  --_media-radius: 36px;
+  --_media-shadow: var(--kn-shadow-media-feature);
+}
+
+.kn-split--tilt {
+  --_media-rotate: -1deg;
+}
+
+.kn-split--reversed {
+  --_copy-order: 2;
+
+  grid-template-columns: var(--_media) var(--_copy);
+}
+
+.kn-split--tone-1 {
+  background: var(--kn-section-1);
+}
+
+.kn-split--tone-2 {
+  background: var(--kn-section-2);
+}
+
+.kn-split--tone-3 {
+  background: var(--kn-section-3);
+}
+
+.kn-split--tone-4 {
+  background: var(--kn-section-4);
+}
+
+.kn-split--tone-5 {
+  background: var(--kn-section-5);
+}
+
+.kn-split__copy {
+  order: var(--_copy-order);
+  min-width: 0;
+}
+
+.kn-split__kicker {
+  color: var(--kn-copy);
+}
+
+.kn-split__heading {
+  margin: var(--_heading-margin);
+  font-size: var(--_heading-size);
+}
+
+.kn-split__body {
+  max-width: var(--_body-max);
+  font-size: var(--_body-size);
+  line-height: 1.5;
+  color: var(--kn-copy);
+}
+
+.kn-split__media {
+  width: 100%;
+  border-radius: var(--_media-radius);
+  overflow: hidden;
+  background: var(--kn-dark);
+  box-shadow: var(--_media-shadow);
+  transform: rotate(var(--_media-rotate));
+}
+
+.kn-split__asset {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: var(--kn-dark);
+}
+
+@media (max-width: 900px) {
+  .kn-split {
+    --_media-rotate: 0deg;
+
+    display: block;
+    min-height: 0;
+    padding: 56px var(--kn-gutter-mobile);
+  }
+
+  .kn-split__media {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 720px) {
+  .kn-split {
+    --_heading-size: clamp(34px, 9.5vw, 48px);
+    --_heading-margin: 12px 0 14px;
+    --_body-size: 15.5px;
+    --_media-radius: 20px;
+
+    padding: 52px var(--kn-gutter-mobile);
+  }
+
+  .kn-split__heading {
+    line-height: 1.04;
+  }
+
+  .kn-split__cta {
+    margin-top: 20px;
+  }
+
+  .kn-split__asset {
+    object-fit: cover;
+  }
+}

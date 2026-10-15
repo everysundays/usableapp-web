@@ -1,0 +1,91 @@
+---
+import NavComponent from '../components/Nav.astro';
+import type { NavSpec } from '../types';
+
+export const nav: NavSpec = {
+  brand: { name: 'Usable App', href: '/', logo: { kind: 'image', src: '/favicon.svg', alt: '' } },
+  items: [
+    {
+      label: 'Products',
+      columns: [
+        {
+          links: [
+            { label: 'Research Studio', href: '#', desc: 'Interview, synthesize, decide in one place', badge: 'Popular' },
+            { label: 'Prototype Lab', href: '#', desc: 'Clickable flows from a sketch in minutes' },
+            { label: 'Insight Inbox', href: '#', desc: 'Every finding, routed to the right team' },
+          ],
+        },
+      ],
+    },
+    {
+      label: 'Solutions',
+      columns: [
+        {
+          heading: 'By role',
+          links: [
+            { label: 'Product managers', href: '#', desc: 'Ship the thing users asked for' },
+            { label: 'Designers', href: '#', desc: 'Test before you polish' },
+            { label: 'Founders', href: '#', desc: 'Find the problem worth solving' },
+          ],
+        },
+        {
+          heading: 'By industry',
+          links: [
+            { label: 'Fintech', href: '#', desc: 'Trust, compliance, clarity' },
+            { label: 'Healthcare', href: '#', desc: 'Workflows clinicians keep' },
+            { label: 'Retail', href: '#', desc: 'From browse to buy' },
+          ],
+        },
+      ],
+    },
+    { label: 'Tutorials', href: '#' },
+    { label: 'Pricing', href: '#' },
+    { label: 'Blog', href: '#' },
+  ],
+  cta: { label: 'Start Free', href: '#' },
+  locales: [
+    { code: 'th', label: 'ไทย', href: '/', current: true },
+    { code: 'en', label: 'English', href: '/en/' },
+  ],
+};
+---
+
+<div id="nav" class="kn-demo-nav">
+  <div class="kn-demo-nav-frame">
+    <NavComponent {...nav} />
+  </div>
+
+  <p class="kn-demo-label">mobile panel open (visible at ≤900px; the details is held open by a demo-only class)</p>
+  <div class="kn-demo-nav-frame kn-demo-nav-frame--open">
+    <NavComponent {...nav} />
+  </div>
+</div>
+
+<style is:global>
+  @layer utilities {
+    .kn-demo-nav {
+      display: grid;
+      gap: 24px;
+    }
+    .kn-demo-nav-frame {
+      position: relative;
+      min-height: 140px;
+    }
+    .kn-demo-nav-frame .kn-nav {
+      position: absolute;
+    }
+    .kn-demo-nav-frame--open {
+      display: none;
+    }
+    @media (max-width: 900px) {
+      .kn-demo-nav-frame--open {
+        display: block;
+        min-height: 820px;
+      }
+      /* Chrome 131+ hides closed details content with content-visibility on ::details-content; undo it here only. */
+      .kn-demo-nav-frame--open .kn-mnav::details-content {
+        content-visibility: visible;
+      }
+    }
+  }
+</style>

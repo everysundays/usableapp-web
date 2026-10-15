@@ -1,0 +1,25 @@
+---
+export interface Props {
+  kicker: string;
+  /** May contain <br> for a forced line break. */
+  heading: string;
+  note?: string;
+  class?: string;
+}
+
+const { kicker, heading, note, class: className } = Astro.props;
+const hasAside = Astro.slots.has('aside');
+---
+
+<div class:list={['kn-section-head', className]}>
+  <div class="kn-section-head__copy">
+    <p class="kn-kicker">{kicker}</p>
+    <h2 class="kn-section-head__heading kn-display-lg" set:html={heading} />
+  </div>
+  {note && <p class="kn-section-head__note">{note}</p>}
+  {hasAside && (
+    <div class="kn-section-head__aside">
+      <slot name="aside" />
+    </div>
+  )}
+</div>

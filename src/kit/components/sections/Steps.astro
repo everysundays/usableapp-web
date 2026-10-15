@@ -1,0 +1,70 @@
+---
+import type { StepsProps } from '../../types';
+import SectionHead from '../SectionHead.astro';
+
+export type Props = StepsProps;
+
+const { id, kicker, heading, note, body = [], steps } = Astro.props;
+
+const REST_DEG = [-6, 3, -2, 5, -3];
+const CHIP = [1, 2, 3, 4, 1];
+
+const cards = steps.map((step, i) => {
+  const k = i % 5;
+  return {
+    ...step,
+    i,
+    no: String(i + 1).padStart(2, '0'),
+    bg: step.bg ?? `var(--kn-step-bg-${k + 1})`,
+    rest: step.rest ?? REST_DEG[k],
+    chip: `var(--kn-step-chip-${CHIP[k]})`,
+  };
+});
+---
+
+<section id={id} data-kn-section="steps" class="kn-steps">
+  <div class="kn-steps__blob" data-kn-blob aria-hidden="true"></div>
+  <SectionHead class="kn-steps__head" {kicker} {heading}>
+    {note && <p slot="aside" class="kn-section-head__note" data-kn-step-note>{note}</p>}
+  </SectionHead>
+  {body.length > 0 && (
+    <div class="kn-steps__intro">
+      {body.map((text) => <p class="kn-steps__body kn-lead">{text}</p>)}
+    </div>
+  )}
+  <div class="kn-steps__stage" data-kn-plop>
+    {cards.map((card) => (
+      <article
+        class="kn-step"
+        data-kn-plop-item
+        style={`--i:${card.i};--kn-step-bg:${card.bg};--kn-rest-r:${card.rest}deg`}
+      >
+        <span class="kn-step__no">Step #{card.no}</span>
+        {card.image && (
+          <img
+            class="kn-step__img"
+            src={card.image.src}
+            alt={card.image.alt}
+            width={card.image.width}
+            height={card.image.height}
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+        <h3 class="kn-step__title">{card.title}</h3>
+        <p class="kn-step__desc">{card.desc}</p>
+      </article>
+    ))}
+  </div>
+  <ol class="kn-steps__list">
+    {cards.map((card) => (
+      <li class="kn-mstep" style={`--kn-mstep-chip:${card.chip}`}>
+        <span class="kn-mstep__no">{card.no}</span>
+        <div>
+          <h3 class="kn-mstep__title">{card.title}</h3>
+          <p class="kn-mstep__desc">{card.desc}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>

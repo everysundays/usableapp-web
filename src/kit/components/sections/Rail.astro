@@ -1,0 +1,57 @@
+---
+import type { RailProps } from '../../types';
+import SectionHead from '../SectionHead.astro';
+
+export type Props = RailProps;
+
+const { id, kicker, heading, note, cards } = Astro.props;
+---
+
+<section data-kn-section="rail" class="kn-rail" data-kn-rail {id}>
+  <SectionHead {kicker} {heading} {note}>
+    <div class="kn-rail__nav" slot="aside">
+      <button type="button" class="kn-rail__btn" data-kn-rail-prev aria-label="Previous">←</button>
+      <button type="button" class="kn-rail__btn" data-kn-rail-next aria-label="Next">→</button>
+    </div>
+  </SectionHead>
+  <div class="kn-rail__viewport" data-kn-rail-viewport>
+    <div class="kn-rail__track" data-kn-rail-track>
+      {cards.map((card) => {
+        const Tag = card.cta ? 'a' : 'article';
+        const linkAttrs = card.cta
+          ? {
+              href: card.cta.href,
+              target: card.cta.external ? '_blank' : undefined,
+              rel: card.cta.external ? 'noopener noreferrer' : undefined,
+            }
+          : {};
+        return (
+          <Tag class={`kn-card kn-card--${card.tone}`} {...linkAttrs}>
+            <div class="kn-card__copy">
+              <span class="kn-card__index">{card.index}</span>
+              <h3 class="kn-card__title kn-h3">{card.title}</h3>
+              <p class="kn-card__desc">{card.desc}</p>
+              {card.cta && (
+                <span class="kn-card__cta">
+                  {card.cta.label}
+                  <b class="kn-card__cta-chip" aria-hidden="true">→</b>
+                </span>
+              )}
+            </div>
+            <div class="kn-card__media">
+              <img
+                class="kn-card__img"
+                src={card.image.src}
+                alt={card.image.alt}
+                width={card.image.width}
+                height={card.image.height}
+                loading={card.image.loading ?? 'lazy'}
+                decoding="async"
+              />
+            </div>
+          </Tag>
+        );
+      })}
+    </div>
+  </div>
+</section>

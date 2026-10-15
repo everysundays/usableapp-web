@@ -1,0 +1,13 @@
+---
+import InboxSection from '../components/sections/Inbox.astro';
+import type { InboxProps } from '../types';
+
+const inbox: InboxProps = {
+  kicker: 'One inbox',
+  heading: 'Every knock from every channel, in one place.',
+  cta: { label: 'See the inbox', href: '#' },
+  image: { kind: 'image', src: '/walk-thailand-market.jpg', alt: 'Inbox mockup placeholder', width: 2000, height: 1500 },
+};
+---
+
+<div id="inbox" lang="en"><InboxSection {...inbox} /></div>

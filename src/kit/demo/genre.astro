@@ -1,0 +1,38 @@
+---
+import GenreSection from '../components/sections/Genre.astro';
+import type { GenreProps, ImageMedia } from '../types';
+
+const step = (n: 1 | 2 | 3): ImageMedia => ({
+  kind: 'image',
+  src: `/illustrations/step${n}.png`,
+  alt: '',
+  width: n === 1 ? 1178 : 1181,
+  height: 768,
+});
+const market: ImageMedia = { kind: 'image', src: '/walk-thailand-market.jpg', alt: '', width: 2000, height: 1500 };
+
+const items: GenreProps['items'] = [
+  { label: 'Web widget', images: [step(1), market, step(2), market, step(3), market] },
+  { label: 'Contact page', images: [market, step(1), market, step(2), market, step(3)] },
+  { label: 'Mobile app', images: [step(3), market] },
+  { label: 'Shared inbox', images: [step(1), step(2)] },
+  { label: 'Telegram', images: [market, step(2)] },
+  { label: 'AI replies', images: [step(2), market] },
+];
+
+const itemsTh: GenreProps['items'] = [
+  { label: 'เว็บวิดเจ็ต', images: items[0].images },
+  { label: 'หน้าติดต่อ', images: items[1].images },
+  { label: 'แอปมือถือ', images: items[2].images },
+  { label: 'กล่องข้อความรวม', images: items[3].images },
+];
+---
+
+<div id="genre">
+  <div lang="en">
+    <GenreSection id="capabilities" kicker="Capabilities" {items} />
+  </div>
+  <div lang="th">
+    <GenreSection kicker="ทำอะไรได้บ้าง" items={itemsTh} initial={0} />
+  </div>
+</div>

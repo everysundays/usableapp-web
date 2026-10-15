@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import KitLayout from '../../../kit/KitLayout.astro';
+import { sections } from '../../../kit/components/registry';
+import { homeContent } from '../../../kit/content/home';
+
+const { meta, nav, footer, page } = homeContent('en', await getCollection('showcase'));
+---
+
+<KitLayout {meta} {nav} {footer} options={{ cursor: 'none' }}>
+  {page.map(({ type, props }) => {
+    const Section = sections[type];
+    return <Section {...props} />;
+  })}
+</KitLayout>

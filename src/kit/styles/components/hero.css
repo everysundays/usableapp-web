@@ -1,0 +1,167 @@
+.kn-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 4vw;
+  align-items: center;
+  min-height: 100svh;
+  padding: 170px var(--kn-gutter) 80px;
+  background: var(--kn-hero-green);
+  color: var(--kn-white);
+}
+
+.kn-hero__copy {
+  min-width: 0;
+}
+
+.kn-hero__title {
+  max-width: 750px;
+  margin: 22px 0 28px;
+  color: var(--kn-white);
+}
+
+.kn-hero__line {
+  display: block;
+  opacity: 0;
+  transform: translateY(60px);
+  animation: kn-rise var(--kn-dur-rise) var(--kn-ease-settle) forwards;
+}
+
+.kn-hero__line:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+@keyframes kn-rise {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.kn-hero__lead {
+  max-width: 620px;
+  margin-bottom: 32px;
+  color: var(--kn-on-dark);
+}
+
+.kn-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+}
+
+.kn-hero__note {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 9px 2px;
+  color: var(--kn-on-dark);
+}
+
+.kn-hero__note-title {
+  font-size: 14px;
+}
+
+.kn-hero__note-label {
+  font-size: 13px;
+  transition: transform var(--kn-dur) ease;
+}
+
+.kn-hero__note:hover .kn-hero__note-label {
+  transform: translateX(3px);
+}
+
+.kn-hero__art {
+  --_img-width: 112%;
+  --_img-offset: -6%;
+  --_img-filter: var(--kn-drop-shadow-art);
+  --_img-radius: 0;
+
+  min-width: 0;
+}
+
+/* Our illustrations sit on a white ground, not a transparent one, so the art gets a white card instead of a drop shadow. */
+.kn-hero__art--framed {
+  --_img-width: 100%;
+  --_img-offset: 0;
+  --_img-filter: none;
+  --_img-radius: var(--kn-r-sm);
+
+  padding: 24px;
+  border-radius: var(--kn-r-lg);
+  background: var(--kn-white);
+  box-shadow: var(--kn-shadow-media);
+}
+
+.kn-hero__img {
+  display: block;
+  width: var(--_img-width);
+  max-width: none;
+  height: auto;
+  margin-left: var(--_img-offset);
+  border-radius: var(--_img-radius);
+  object-fit: contain;
+  filter: var(--_img-filter);
+}
+
+@media (max-width: 1024px) {
+  .kn-hero__art {
+    --_img-width: 100%;
+    --_img-offset: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .kn-hero {
+    grid-template-columns: 1fr;
+    justify-items: start;
+    gap: 24px;
+  }
+
+  .kn-hero__copy {
+    max-width: 640px;
+  }
+
+  .kn-hero__art {
+    order: 2;
+    max-width: 460px;
+    margin: 4px auto 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .kn-hero {
+    gap: 22px;
+    min-height: auto;
+    padding: 116px var(--kn-gutter-mobile) 56px;
+  }
+
+  .kn-hero__title {
+    margin: 10px 0 20px;
+  }
+
+  .kn-hero__lead {
+    margin-bottom: 26px;
+  }
+
+  .kn-hero__art {
+    max-width: 380px;
+  }
+
+  .kn-hero__art--framed {
+    padding: 14px;
+    border-radius: var(--kn-r-md);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kn-hero__line {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .kn-hero__note-label {
+    transition: none;
+  }
+}

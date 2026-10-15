@@ -1,0 +1,37 @@
+---
+import type { HeroProps } from '../../types';
+import Button from '../Button.astro';
+
+export type Props = HeroProps;
+
+const { lines, lead, cta, note, image, frame = false } = Astro.props;
+---
+
+<section data-kn-section="hero" class="kn-hero">
+  <div class="kn-hero__copy">
+    <h1 class="kn-hero__title kn-display-xl">
+      {lines.map((line) => <span class="kn-hero__line">{line}</span>)}
+    </h1>
+    <p class="kn-hero__lead kn-lead">{lead}</p>
+    <div class="kn-hero__actions">
+      <Button variant="hero" label={cta.label} href={cta.href} external={cta.external} />
+      {note && (
+        <a class="kn-hero__note" href={note.href}>
+          <b class="kn-hero__note-title">{note.title}</b>
+          <span class="kn-hero__note-label">{note.label} →</span>
+        </a>
+      )}
+    </div>
+  </div>
+  <figure class:list={['kn-hero__art', { 'kn-hero__art--framed': frame }]} data-kn-parallax="hero-art">
+    <img
+      class="kn-hero__img"
+      src={image.src}
+      alt={image.alt}
+      width={image.width}
+      height={image.height}
+      loading={image.loading ?? 'eager'}
+      decoding="async"
+    />
+  </figure>
+</section>

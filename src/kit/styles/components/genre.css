@@ -1,0 +1,239 @@
+.kn-genre {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 3vw 90px;
+  background: var(--kn-genre);
+  color: var(--kn-ink);
+}
+
+.kn-scene {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity var(--kn-dur) ease,
+    visibility var(--kn-dur) ease;
+}
+
+.kn-scene.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.kn-scene__img {
+  position: absolute;
+  z-index: 3;
+  top: var(--kn-top, auto);
+  right: var(--kn-right, auto);
+  bottom: var(--kn-bottom, auto);
+  left: var(--kn-left, auto);
+  width: min(17vw, 330px);
+  height: auto;
+  max-height: 330px;
+  border: 5px solid var(--kn-white);
+  border-radius: 24px;
+  object-fit: contain;
+  box-shadow: var(--kn-shadow-frame);
+  transform: rotate(var(--kn-r, 0deg));
+}
+
+.kn-scene__img--gallery {
+  width: min(13vw, 220px);
+  max-height: 205px;
+}
+
+.kn-scene__img--portrait {
+  width: min(8vw, 130px);
+  aspect-ratio: 1012 / 1800;
+  object-fit: cover;
+}
+
+.kn-genre__heading {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 14px auto 0;
+  text-align: center;
+}
+
+.kn-genre__list {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  max-width: 1380px;
+  margin: 70px auto 0;
+}
+
+.kn-genre__item {
+  display: block;
+  font: 800 clamp(64px, 8vw, 140px) / 0.78 var(--kn-font-display);
+  letter-spacing: -0.065em;
+  color: var(--kn-genre-ink);
+  white-space: nowrap;
+  transition:
+    transform var(--kn-dur) ease,
+    opacity var(--kn-dur) ease;
+}
+
+/* Thai labels run two to three times longer than the original's, so they step down to clear the frames at the edges. */
+.kn-genre__item:lang(th) {
+  font-size: clamp(44px, 5vw, 88px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.kn-genre__item:hover,
+.kn-genre__item:focus-visible,
+.kn-genre__item.is-active {
+  font-family: var(--kn-font-hand);
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  transform: scale(1.055);
+}
+
+.kn-genre__list:hover .kn-genre__item:not(:hover) {
+  opacity: 0.28;
+}
+
+.kn-genre__descs {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-areas: 'desc';
+  justify-items: center;
+  max-width: 720px;
+  margin: 40px auto 0;
+  text-align: center;
+}
+
+.kn-genre__desc {
+  grid-area: desc;
+  font-size: clamp(18px, 1.55vw, 24px);
+  line-height: 1.42;
+  color: var(--kn-copy);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--kn-dur) ease,
+    visibility var(--kn-dur) ease;
+}
+
+.kn-genre__desc:lang(th) {
+  line-height: 1.6;
+}
+
+/*
+ * No-JS fallback: hovering word i shows scene i. The motion layer (W4) owns
+ * click and focus, the is-active class and the animated switch; these rules
+ * only cover plain hover when it has not run.
+ */
+@supports selector(:has(*)) {
+  .kn-genre:has([data-kn-genre-item="0"]:hover) [data-kn-scene="0"],
+  .kn-genre:has([data-kn-genre-item="1"]:hover) [data-kn-scene="1"],
+  .kn-genre:has([data-kn-genre-item="2"]:hover) [data-kn-scene="2"],
+  .kn-genre:has([data-kn-genre-item="3"]:hover) [data-kn-scene="3"],
+  .kn-genre:has([data-kn-genre-item="4"]:hover) [data-kn-scene="4"],
+  .kn-genre:has([data-kn-genre-item="5"]:hover) [data-kn-scene="5"],
+  .kn-genre:has([data-kn-genre-item="6"]:hover) [data-kn-scene="6"],
+  .kn-genre:has([data-kn-genre-item="7"]:hover) [data-kn-scene="7"] {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .kn-genre:has([data-kn-genre-item="0"].is-active) [data-kn-genre-desc="0"],
+  .kn-genre:has([data-kn-genre-item="1"].is-active) [data-kn-genre-desc="1"],
+  .kn-genre:has([data-kn-genre-item="2"].is-active) [data-kn-genre-desc="2"],
+  .kn-genre:has([data-kn-genre-item="3"].is-active) [data-kn-genre-desc="3"],
+  .kn-genre:has([data-kn-genre-item="4"].is-active) [data-kn-genre-desc="4"],
+  .kn-genre:has([data-kn-genre-item="5"].is-active) [data-kn-genre-desc="5"],
+  .kn-genre:has([data-kn-genre-item="6"].is-active) [data-kn-genre-desc="6"],
+  .kn-genre:has([data-kn-genre-item="7"].is-active) [data-kn-genre-desc="7"],
+  .kn-genre:has([data-kn-genre-item="0"]:hover) [data-kn-genre-desc="0"],
+  .kn-genre:has([data-kn-genre-item="1"]:hover) [data-kn-genre-desc="1"],
+  .kn-genre:has([data-kn-genre-item="2"]:hover) [data-kn-genre-desc="2"],
+  .kn-genre:has([data-kn-genre-item="3"]:hover) [data-kn-genre-desc="3"],
+  .kn-genre:has([data-kn-genre-item="4"]:hover) [data-kn-genre-desc="4"],
+  .kn-genre:has([data-kn-genre-item="5"]:hover) [data-kn-genre-desc="5"],
+  .kn-genre:has([data-kn-genre-item="6"]:hover) [data-kn-genre-desc="6"],
+  .kn-genre:has([data-kn-genre-item="7"]:hover) [data-kn-genre-desc="7"] {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media (max-width: 800px) {
+  .kn-genre {
+    padding: 80px 14px;
+  }
+
+  .kn-scene {
+    display: none;
+  }
+
+  .kn-scene.is-active {
+    display: block;
+  }
+
+  .kn-scene__img {
+    width: 25vw;
+    max-height: 200px;
+  }
+
+  .kn-scene__img--gallery {
+    width: 24vw;
+    max-height: 145px;
+    border-width: 3px;
+  }
+
+  .kn-genre__list {
+    gap: 8px;
+  }
+
+  .kn-genre__descs {
+    margin-top: 28px;
+  }
+
+  .kn-genre__item {
+    font-size: 13.8vw;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .kn-genre__item:lang(th) {
+    font-size: 11vw;
+  }
+
+  .kn-genre__list:lang(th) {
+    z-index: 4;
+  }
+}
+
+@media (max-width: 720px) {
+  .kn-genre {
+    padding: 56px 16px 64px;
+  }
+
+  .kn-genre__item {
+    font-size: 12.5vw;
+    line-height: 0.9;
+  }
+
+  .kn-genre__item:lang(th) {
+    font-size: 10vw;
+    line-height: 1.08;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kn-scene,
+  .kn-genre__item,
+  .kn-genre__desc {
+    transition: none;
+  }
+}

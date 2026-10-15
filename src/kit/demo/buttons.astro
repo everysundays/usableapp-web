@@ -1,0 +1,77 @@
+---
+import Button from '../components/Button.astro';
+import type { ButtonVariant } from '../types';
+
+const variants: ButtonVariant[] = [
+  'cta',
+  'cta-light',
+  'hero',
+  'final',
+  'section',
+  'section-light',
+  'pill',
+  'pill-ink',
+  'nav',
+];
+
+const surface: Partial<Record<ButtonVariant, string>> = {
+  'cta-light': 'var(--kn-dark)',
+  hero: 'var(--kn-hero-green)',
+  final: 'var(--kn-ink)',
+  'section-light': 'var(--kn-section-4)',
+};
+---
+
+<div id="buttons" class="kn-demo-grid">
+  {variants.map((variant) => (
+    <div class="kn-demo-cell" style={surface[variant] ? `background:${surface[variant]}` : undefined}>
+      <code class="kn-demo-label">{variant}</code>
+      <div class="kn-demo-row">
+        <Button variant={variant} label="Start Free" href="#" />
+        <span lang="th" class="kn-demo-lang"><Button variant={variant} label="เริ่มใช้ฟรี" href="#" /></span>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style is:global>
+  @layer utilities {
+    .kn-demo-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr));
+    }
+    .kn-demo-cell {
+      display: grid;
+      gap: 14px;
+      padding: 24px;
+      border-radius: var(--kn-r-md);
+      border: 1px solid var(--kn-line);
+    }
+    .kn-demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+    }
+    .kn-demo-lang {
+      display: contents;
+    }
+    .kn-demo-label {
+      font: 700 12px/1 var(--kn-font-mono);
+      color: var(--kn-muted);
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: var(--kn-paper);
+      width: fit-content;
+      align-self: start;
+    }
+    .kn-demo-stub {
+      padding: 24px;
+      border-radius: var(--kn-r-md);
+      border: 1px dashed var(--kn-line);
+      color: var(--kn-muted);
+      font: 500 13px/1 var(--kn-font-mono);
+    }
+  }
+</style>

@@ -1,0 +1,23 @@
+---
+import HeroSection from '../components/sections/Hero.astro';
+import type { HeroProps } from '../types';
+
+const en: HeroProps = {
+  lines: ['Find good problems.', 'Make good apps.'],
+  lead: 'Reach people where they already are, with one knock instead of ten follow-ups. Web, contact page, mobile and chat, all in one inbox.',
+  cta: { label: 'Start Free', href: '#' },
+  note: { title: '100% Free', label: 'Read why', href: '#' },
+  image: { kind: 'image', src: '/illustrations/step1.png', alt: 'Illustration of a team walking through a market', width: 1178, height: 768, loading: 'eager' },
+};
+
+const th: HeroProps = {
+  lines: ['ค้นหาปัญหาที่ดี', 'สร้างแอปที่ดี'],
+  lead: 'เข้าถึงผู้คนในที่ที่พวกเขาอยู่แล้ว ด้วยการเคาะครั้งเดียวแทนการตามงานสิบรอบ เว็บ หน้าติดต่อ มือถือ และแชต รวมอยู่ในกล่องข้อความเดียว',
+  cta: { label: 'เริ่มใช้ฟรี', href: '#' },
+  note: { title: 'ฟรี 100%', label: 'อ่านว่าทำไม', href: '#' },
+  image: { kind: 'image', src: '/illustrations/step2.png', alt: 'ภาพประกอบทีมกำลังออกแบบแอป', width: 1181, height: 768, loading: 'eager' },
+};
+---
+
+<div id="hero" lang="en"><HeroSection {...en} /></div>
+<div lang="th"><HeroSection {...th} /></div>

@@ -1,0 +1,46 @@
+---
+import RailSection from '../components/sections/Rail.astro';
+import type { RailProps } from '../types';
+
+const rail: RailProps = {
+  id: 'surfaces',
+  kicker: 'พื้นผิวทั้งหมด',
+  heading: 'เลือกช่องทาง<br>ที่ลูกค้าใช้อยู่',
+  cards: [
+    {
+      index: '01',
+      title: 'Web widget',
+      desc: 'A floating knock on any site. Visitors ask, you answer from one inbox.',
+      cta: { label: 'Explore product', href: '#' },
+      tone: 'lime',
+      image: { kind: 'image', src: '/illustrations/step1.png', alt: 'Web widget mockup', width: 1178, height: 768 },
+    },
+    {
+      index: '02',
+      title: 'หน้าติดต่อ',
+      desc: 'หน้าติดต่อสำเร็จรูปที่ตั้งค่าได้ในสองนาที พร้อมฟอร์มและแชตในหน้าเดียว',
+      cta: { label: 'ดูผลิตภัณฑ์', href: '#' },
+      tone: 'mint',
+      image: { kind: 'image', src: '/illustrations/step2.png', alt: 'ภาพหน้าติดต่อ', width: 1181, height: 768 },
+    },
+    {
+      index: '03',
+      title: 'Mobile app',
+      desc: 'Reply from your phone. Push notifications for every new knock.',
+      cta: { label: 'Explore product', href: '#' },
+      tone: 'forest',
+      image: { kind: 'image', src: '/illustrations/step3.png', alt: 'Mobile app mockup', width: 1181, height: 768 },
+    },
+    {
+      index: '04',
+      title: 'ตลาดนัด',
+      desc: 'การ์ดใบที่สี่ เพื่อทดสอบว่ามุมเอียงวนรอบกลับมาที่ -1 องศา',
+      cta: { label: 'ดูผลิตภัณฑ์', href: '#' },
+      tone: 'lime',
+      image: { kind: 'image', src: '/walk-thailand-market.jpg', alt: 'เดินตลาดในประเทศไทย', width: 2000, height: 1500 },
+    },
+  ],
+};
+---
+
+<div id="rail" lang="th"><RailSection {...rail} /></div>
